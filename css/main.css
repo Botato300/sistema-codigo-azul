@@ -1,2 +1,14 @@
-@import url("header.css");
-@import url("footer.css");
+@import url('header.css');
+@import url('footer.css');
+
+.navbar-default .btn-link {
+	color: #0072bb;
+}
+
+.btn i[class*="icono-arg"] {
+	margin-right: 8px;
+}
+
+.btn i[class*="icono-arg-lupa"]{
+	color: #0072bb;
+}

@@ -1,0 +1,5 @@
+header .btn i[class*="icono-arg"] {
+	font-size: 1em;
+	height: 22px;
+	float: left;
+}
