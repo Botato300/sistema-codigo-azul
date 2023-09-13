@@ -43,7 +43,7 @@ CREATE TABLE `areas-enfermeros` (
   `matricula` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+-- -------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `enfermeros`
