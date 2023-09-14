@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2023 a las 22:30:56
+-- Tiempo de generación: 14-09-2023 a las 23:00:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -28,7 +28,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `actomedico` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `historiaClinica` int(11) NOT NULL,
+  `matricula` int(11) NOT NULL,
+  `nombreProfesional` varchar(20) NOT NULL,
+  `apellidoProfesional` varchar(20) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
+  `motivoConsulta` varchar(50) NOT NULL,
+  `antecedentes` varchar(100) NOT NULL,
+  `diagnóstico` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -114,7 +123,8 @@ CREATE TABLE `personas` (
 --
 
 CREATE TABLE `quirofanos` (
-  `id` int(11) NOT NULL
+  `numero` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -179,7 +189,7 @@ ALTER TABLE `personas`
 -- Indices de la tabla `quirofanos`
 --
 ALTER TABLE `quirofanos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`numero`);
 
 --
 -- Indices de la tabla `usuarios`
