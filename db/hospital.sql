@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2023 a las 19:39:18
+-- Tiempo de generación: 14-09-2023 a las 22:30:56
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -24,6 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `actomedico`
+--
+
+CREATE TABLE `actomedico` (
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `areas`
 --
 
@@ -35,32 +45,12 @@ CREATE TABLE `areas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `areas-enfermeros`
---
-
-CREATE TABLE `areas-enfermeros` (
-  `numeroArea` int(11) NOT NULL,
-  `matricula` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `enfermeros`
 --
 
 CREATE TABLE `enfermeros` (
   `matricula` int(11) NOT NULL,
-  `tipoDocumento` varchar(10) NOT NULL,
-  `numeroDocumento` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL,
-  `apellido` varchar(20) NOT NULL,
-  `edad` int(11) NOT NULL,
-  `domicilio` varchar(30) NOT NULL,
-  `fechaNacimiento` date NOT NULL,
-  `telefono` int(11) NOT NULL,
-  `sexo` char(5) NOT NULL,
-  `correoElectronico` varchar(20) NOT NULL
+  `estaEnGuardia` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -77,37 +67,54 @@ CREATE TABLE `llamados` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pacientes`
+-- Estructura de tabla para la tabla `medicos`
 --
 
-CREATE TABLE `pacientes` (
-  `historiaClinica` int(11) NOT NULL,
-  `tipoDocumento` varchar(10) NOT NULL,
-  `numeroDocumento` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL,
-  `apellido` varchar(20) NOT NULL,
-  `edad` int(11) NOT NULL,
-  `domicilio` varchar(50) NOT NULL,
-  `fechaNacimiento` date NOT NULL,
-  `sexo` char(1) NOT NULL,
-  `telefono` int(11) NOT NULL,
-  `correoElectronico` varchar(30) NOT NULL,
-  `coberturaMedica` varchar(30) NOT NULL,
-  `grupoSanguineo` varchar(5) NOT NULL,
-  `numeroArea` int(11) NOT NULL
+CREATE TABLE `medicos` (
+  `matricula` int(11) NOT NULL,
+  `estaEnGuardia` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reportes`
+-- Estructura de tabla para la tabla `pacientes`
 --
 
-CREATE TABLE `reportes` (
-  `id` int(11) NOT NULL,
-  `origenLlamado` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL
+CREATE TABLE `pacientes` (
+  `historiaClinica` int(11) NOT NULL,
+  `coberturaMedica` varchar(30) NOT NULL,
+  `grupoSanguineo` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personas`
+--
+
+CREATE TABLE `personas` (
+  `tipoDocumento` varchar(10) NOT NULL,
+  `numeroDocumento` int(11) NOT NULL,
+  `nombre` varchar(20) NOT NULL,
+  `apellido` varchar(20) NOT NULL,
+  `edad` int(11) NOT NULL,
+  `domicilio` varchar(30) NOT NULL,
+  `fechaNacimiento` date NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `sexo` char(5) NOT NULL,
+  `correoElectronico` varchar(20) NOT NULL,
+  `idRol` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `quirofanos`
+--
+
+CREATE TABLE `quirofanos` (
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -126,17 +133,16 @@ CREATE TABLE `usuarios` (
 --
 
 --
+-- Indices de la tabla `actomedico`
+--
+ALTER TABLE `actomedico`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `areas`
 --
 ALTER TABLE `areas`
   ADD PRIMARY KEY (`numero`);
-
---
--- Indices de la tabla `areas-enfermeros`
---
-ALTER TABLE `areas-enfermeros`
-  ADD KEY `numeroArea` (`numeroArea`),
-  ADD KEY `matricula` (`matricula`);
 
 --
 -- Indices de la tabla `enfermeros`
@@ -151,16 +157,28 @@ ALTER TABLE `llamados`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `medicos`
+--
+ALTER TABLE `medicos`
+  ADD PRIMARY KEY (`matricula`);
+
+--
 -- Indices de la tabla `pacientes`
 --
 ALTER TABLE `pacientes`
-  ADD PRIMARY KEY (`historiaClinica`),
-  ADD KEY `numeroArea` (`numeroArea`);
+  ADD PRIMARY KEY (`historiaClinica`);
 
 --
--- Indices de la tabla `reportes`
+-- Indices de la tabla `personas`
 --
-ALTER TABLE `reportes`
+ALTER TABLE `personas`
+  ADD PRIMARY KEY (`tipoDocumento`,`numeroDocumento`),
+  ADD KEY `idRol` (`idRol`);
+
+--
+-- Indices de la tabla `quirofanos`
+--
+ALTER TABLE `quirofanos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -168,23 +186,6 @@ ALTER TABLE `reportes`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `areas-enfermeros`
---
-ALTER TABLE `areas-enfermeros`
-  ADD CONSTRAINT `areas-enfermeros_ibfk_1` FOREIGN KEY (`numeroArea`) REFERENCES `areas` (`numero`),
-  ADD CONSTRAINT `areas-enfermeros_ibfk_2` FOREIGN KEY (`matricula`) REFERENCES `enfermeros` (`matricula`);
-
---
--- Filtros para la tabla `pacientes`
---
-ALTER TABLE `pacientes`
-  ADD CONSTRAINT `pacientes_ibfk_1` FOREIGN KEY (`numeroArea`) REFERENCES `areas` (`numero`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
