@@ -1,9 +1,5 @@
 <?php
-interface IUser
-{
-    public function getUsername();
-    public function getPassword();
-}
+require_once("IUser.php");
 
 class User implements IUser
 {
@@ -18,14 +14,11 @@ class User implements IUser
 
     public function getUsername()
     {
-        $this->username;
+        return $this->username;
     }
 
     public function getPassword()
     {
-        $this->username;
+        return $this->username;
     }
 }
-
-$user = new User("tomas", "goku123");
-var_dump($user->getUsername());
