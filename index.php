@@ -25,16 +25,16 @@
 							<span class="fa fa-search fa-fw"></span>
 						</a>
 					</div>
-					
+
 
 					<ul class="nav nav-pills">
-						  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-						  <li><a data-toggle="tab" href="#seccion">Zonas</a></li>
-						  <li><a data-toggle="tab" href="#contacto">Enfermeros</a></li>
+						<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+						<li><a data-toggle="tab" href="#seccion">Zonas</a></li>
+						<li><a data-toggle="tab" href="#contacto">Enfermeros</a></li>
 						<li><a data-toggle="tab" href="#contacto">Pacientes</a></li>
 					</ul>
-					</div>
 				</div>
+			</div>
 			</div>
 		</nav>
 	</header>
@@ -49,7 +49,6 @@
 			<section>
 				<article class="content_format row">
 					<div class="col-md-8 col-md-offset-2">
-
 						<h1>Sistema de gestion - Codigo Azul</h1>
 						<div class="row">
 							<div class="section-actions col-md-7 social-share">
@@ -57,27 +56,27 @@
 						</div>
 
 						<div class="row numbers">
-
 							<div class="col-md-2">
-								<div class="h2 text-danger"><span id="count">1</span>
+								<div class="h2 text-danger">
+									<span id="count">1</span>
 									<small>de 4</small>
 								</div>
-									<p class="lead">Quirofanos ocupados</p>
+								<p class="lead">Quirofanos ocupados</p>
 							</div>
 
 							<div class="col-md-2">
 								<div class="icons">
 									<i class="fa fa-user-circle-o text-danger"></i>
 									<p class="text-muted">Ariel Fernandez</p>
-							</div>
+								</div>
 
-							<div class="col-md-2">
+								<div class="col-md-2">
 									<i class="fa fa-user-circle-o"></i>
-							</div>
-							<div class="col-md-2">
+								</div>
+								<div class="col-md-2">
 									<i class="fa fa-user-circle-o"></i>
-							</div>
-							<div class="col-md-2">
+								</div>
+								<div class="col-md-2">
 									<i class="fa fa-user-circle-o"></i>
 								</div>
 							</div>
@@ -99,7 +98,6 @@
 							</div>
 						</div>
 					</div>
-
 				</article>
 			</section>
 		</div>
