@@ -1,7 +1,7 @@
 RewriteEngine On
 
-RewriteRule ^login/?$ pages/login.php [L]
-RewriteRule ^registro/?$ pages/registro.php [L]
+RewriteRule ^login/?$ pages/login.html [L]
+RewriteRule ^registro/?$ pages/registro.html [L]
 
 Options -Indexes
 
