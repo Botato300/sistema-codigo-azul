@@ -7,6 +7,8 @@ setInterval(async () => {
             action: "getSlotsAvaible"
         })
     });
+
     const content = await response.json();
-    count.textContent += Number(content.count);
+    let countActual = Number(count.textContent) + content.count;
+    if (countActual <= 4) count.textContent = countActual;
 }, 1000);
