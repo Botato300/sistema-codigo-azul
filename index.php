@@ -25,10 +25,14 @@
 							<span class="fa fa-search fa-fw"></span>
 						</a>
 					</div>
-					<div class="nav navbar-nav navbar-right hidden-xs">
-						<a href="#" onclick="$('.navbar.navbar-top').removeClass('state-search');" class="btn btn-mi-argentina visible-xs">
-							<i class="fa fa-times"></i>
-						</a>
+					
+
+					<ul class="nav nav-pills">
+						  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+						  <li><a data-toggle="tab" href="#seccion">Zonas</a></li>
+						  <li><a data-toggle="tab" href="#contacto">Enfermeros</a></li>
+						<li><a data-toggle="tab" href="#contacto">Pacientes</a></li>
+					</ul>
 					</div>
 				</div>
 			</div>
@@ -51,14 +55,31 @@
 							<div class="section-actions col-md-7 social-share">
 							</div>
 						</div>
-						<hr>
 
 						<div class="row numbers">
-							<div class="col-md-8">
-								<div class="h2 text-danger">1
+
+							<div class="col-md-2">
+								<div class="h2 text-danger"><span id="count">1</span>
 									<small>de 4</small>
 								</div>
-								<p class="lead">Quirofanos ocupados</p>
+									<p class="lead">Quirofanos ocupados</p>
+							</div>
+
+							<div class="col-md-2">
+								<div class="icons">
+									<i class="fa fa-user-circle-o text-danger"></i>
+									<p class="text-muted">Ariel Fernandez</p>
+							</div>
+
+							<div class="col-md-2">
+									<i class="fa fa-user-circle-o"></i>
+							</div>
+							<div class="col-md-2">
+									<i class="fa fa-user-circle-o"></i>
+							</div>
+							<div class="col-md-2">
+									<i class="fa fa-user-circle-o"></i>
+								</div>
 							</div>
 						</div>
 
