@@ -1,6 +1,23 @@
 @import url('header.css');
 @import url('footer.css');
 
+html{
+	box-sizing: border-box;
+}
+
+*, *:before, *:after{
+	box-sizing: inherit;
+}  
+
+body{
+	display: flex;
+	flex-direction: column;
+}
+
+main{
+	flex: 1;
+}
+
 .navbar-default .btn-link {
 	color: #0072bb;
 }
@@ -12,3 +29,4 @@
 .btn i[class*="icono-arg-lupa"]{
 	color: #0072bb;
 }
+
