@@ -2,19 +2,11 @@
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="Equipo Tecnico de la escuela EESTN N°2">
-
-	<link href="assets/css/poncho/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/css/poncho/fonts.min.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet">
-	<link href="assets/css/poncho/icons.min.css" rel="stylesheet">
-	<link href="assets/css/poncho/poncho.min.css" rel="stylesheet">
+	<?php require_once("../includes/head.php"); ?>
 
 	<script defer src="assets/js/main.js"></script>
 
-	<title>Inicio</title>
+	<title>Iniciar Sesion</title>
 </head>
 
 <body>
@@ -23,7 +15,7 @@
 			<div class="container">
 				<div>
 					<div class="navbar-header">
-						<a class="navbar-brand" href="index.html" aria-label="Argentina.gob.ar Presidencia de la Nación">
+						<a class="navbar-brand" href="index.php" aria-label="Argentina.gob.ar Presidencia de la Nación">
 							<img alt="" src="assets/images/logo.webp" height="50">
 						</a>
 					</div>
@@ -94,16 +86,7 @@
 		</section>
 	</main>
 
-	<footer>
-		<div class="container-fluid">
-			<div class="row sub-footer">
-				<div class="container">
-					<div class="col-sm-6 m-y-1 p-x-0">
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<?php require_once("../includes/footer.php"); ?>
 </body>
 
 </html>
