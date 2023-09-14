@@ -5,5 +5,5 @@ RewriteRule ^registro/?$ views/registro.php [L]
 
 Options -Indexes
 
-ErrorDocument 404 /sistema-codigo-azul/includes/404.php
-ErrorDocument 403 /sistema-codigo-azul/includes/404.php
+ErrorDocument 404 /sistema-codigo-azul/views/includes/404.php
+ErrorDocument 403 /sistema-codigo-azul/views/includes/404.php

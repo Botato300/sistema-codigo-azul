@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-	<?php require_once("includes/head.php"); ?>
+	<?php require_once("views/includes/head.php"); ?>
 
 	<script defer src="assets/js/main.js"></script>
 
@@ -84,7 +84,7 @@
 		</div>
 	</main>
 
-	<?php require_once("includes/footer.php"); ?>
+	<?php require_once("views/includes/footer.php"); ?>
 </body>
 
 </html>
