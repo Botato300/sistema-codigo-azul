@@ -2,17 +2,7 @@
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="Equipo Tecnico de la escuela EESTN N°2">
-
-	<link href="assets/css/poncho/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/css/poncho/fonts.min.css" rel="stylesheet">
-	<link href="assets/css/poncho/icons.min.css" rel="stylesheet">
-	<link href="assets/css/poncho/poncho.min.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet">
-
-	<link rel="icon" href="assets/images/favicon.ico">
+	<?php require_once("head.php") ?>;
 
 	<script defer src="assets/js/main.js"></script>
 
@@ -94,16 +84,7 @@
 		</div>
 	</main>
 
-	<footer>
-		<div class="container-fluid">
-			<div class="row sub-footer">
-				<div class="container">
-					<div class="col-sm-6 m-y-1 p-x-0">
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<?php require_once("includes/footer.php"); ?>
 </body>
 
 </html>
