@@ -58,13 +58,13 @@
 							<div class="row">
 								<div class="col-md-10 form-group item-form">
 									<label for="password">Contraseña</label>
-									<input id="password" type="password" class="form-control" name="password">
+									<input id="password" type="password" id="password" class="form-control" name="password">
 									<p class="help-block error">Ingresá tu contraseña</p>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-3">
-									<button type="button" class="btn btn-success">INGRESAR</button>
+									<button type="button" id="btnSubmit" class="btn btn-success">INGRESAR</button>
 								</div>
 							</div>
 							<div class="row">

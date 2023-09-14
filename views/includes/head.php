@@ -6,6 +6,7 @@
 <link href="assets/css/poncho/fonts.min.css" rel="stylesheet">
 <link href="assets/css/poncho/icons.min.css" rel="stylesheet">
 <link href="assets/css/poncho/poncho.min.css" rel="stylesheet">
+<link href="assets/css/poncho/icons-arg.min.css" rel="stylesheet">
 <link href="assets/css/main.css" rel="stylesheet">
 
 <link rel="icon" href="assets/images/favicon.ico">
