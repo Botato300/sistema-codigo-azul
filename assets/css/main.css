@@ -1,0 +1,37 @@
+@import url('header.css');
+@import url('footer.css');
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+}
+
+.navbar-default .btn-link {
+	color: #0072bb;
+}
+
+.navbar-default {
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn i[class*="icono-arg"] {
+	margin-right: 8px;
+}
+
+.btn i[class*="icono-arg-lupa"] {
+	color: #0072bb;
+}
