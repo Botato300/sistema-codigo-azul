@@ -2,6 +2,7 @@ RewriteEngine On
 
 RewriteRule ^login/?$ login.html [L]
 RewriteRule ^registro/?$ registro.html [L]
+RewriteRule ^index/?$ /views/index.html [L]
 
 Options -Indexes
 
