@@ -1,7 +1,7 @@
 RewriteEngine On
 
 RewriteRule ^ingreso/?$ views/login.php [L]
-RewriteRule ^registro/?$ views/registro.php [L]
+RewriteRule ^registro/?$ views/register.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
