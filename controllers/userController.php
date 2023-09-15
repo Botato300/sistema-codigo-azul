@@ -1,16 +1,19 @@
 <?php
 require_once("../models/userModel.php");
+require_once("../libs/codigoazul/helpers/validation.php");
 
-$response = file_get_contents("php://input");
-$content = json_decode($response, true);
+$request = file_get_contents("php://input");
+$request = json_decode($request, true);
 
-switch ($content["action"]) {
+switch ($request["action"]) {
     case "login":
-        $username = $content["data"]["username"];
-        $password = $content["data"]["password"];
+        $username = $request["data"]["username"];
+        $password = $request["data"]["password"];
+
+        $isValidData = Validation::validate($username, $password);
+        if (!$isValidData) return false;
 
         $user = new userModal();
-
         $result = $user->login($username, $password);
         if ($result) {
             echo json_encode(["status" => true]);
