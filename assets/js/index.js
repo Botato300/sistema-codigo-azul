@@ -14,7 +14,7 @@ let idTimer = setInterval(async () => {
     let countActual = Number(count.textContent) + content.count;
     count.textContent = countActual;
 
-    if (countActual >= 4) {
+    if (countActual >= 3) {
         clearInterval(idTimer);
     }
 }, 1000);

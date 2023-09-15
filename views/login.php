@@ -15,13 +15,8 @@
 			<div class="container">
 				<div>
 					<div class="navbar-header">
-						<a class="navbar-brand" href="index.php" aria-label="Argentina.gob.ar Presidencia de la Nación">
+						<a class="navbar-brand" href="">
 							<img alt="Logo de la pagina web" src="assets/images/logo.webp" height="50">
-						</a>
-					</div>
-					<div class="nav navbar-nav navbar-right hidden-xs">
-						<a href="#" class="btn btn-mi-argentina visible-xs">
-							<i class="fa fa-times"></i>
 						</a>
 					</div>
 				</div>
@@ -75,7 +70,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<p><a href="#">Recuperar mi contraseña</a></p>
-								<p><a href="#">Crear una nueva cuenta para ingresar</a></p>
+								<p><a href="registro.php">Crear una nueva cuenta para ingresar</a></p>
 							</div>
 						</div>
 					</div>
