@@ -3,7 +3,7 @@
 
 <head>
     <?php require_once("head.php"); ?>
-    <title>Document</title>
+    <title>Pagina no encontrada</title>
 </head>
 
 <body>

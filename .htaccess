@@ -1,6 +1,6 @@
 RewriteEngine On
 
-RewriteRule ^login/?$ views/login.php [L]
+RewriteRule ^ingreso/?$ views/login.php [L]
 RewriteRule ^registro/?$ views/registro.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
