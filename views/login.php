@@ -11,7 +11,7 @@
 
 <body>
 	<header>
-		<nav class="navbar navbar-top navbar-default bg-celeste-argentina" role="navigation">
+		<nav class="navbar navbar-top navbar-default bg-celeste-argentina">
 			<div class="container">
 				<div>
 					<div class="navbar-header">
@@ -29,7 +29,7 @@
 		</nav>
 	</header>
 
-	<main role="main">
+	<main>
 		<section>
 			<div class="container">
 				<div class="row m-b-2">
@@ -48,15 +48,15 @@
 						<form method="post">
 							<div class="row">
 								<div class="col-md-10 form-group item-form">
-									<label for="usuario">Usuario</label>
-									<input type="text" name="user" class="form-control" id="username" required="" aria-required="true">
+									<label for="username">Usuario</label>
+									<input type="text" id="username" name="username" class="form-control" required="" aria-required="true">
 									<p class="help-block error hidden">Ingresá tu usuario</p>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-10 form-group item-form">
 									<label for="password">Contraseña</label>
-									<input id="password" type="password" id="password" class="form-control" name="password">
+									<input id="password" type="password" class="form-control" name="password">
 									<p class="help-block error">Ingresá tu contraseña</p>
 								</div>
 							</div>
