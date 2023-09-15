@@ -1,7 +1,7 @@
 <?php
 class Validation
 {
-	public static function validate(string $username, string $password): bool
+	public static function validateLogin(string $username, string $password): bool
 	{
 		if (!self::validateUsername($username)) return false;
 		if (!self::validatePassword($password)) return false;

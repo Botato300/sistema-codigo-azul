@@ -10,7 +10,7 @@ switch ($request["action"]) {
         $username = $request["data"]["username"];
         $password = $request["data"]["password"];
 
-        $isValidData = Validation::validate($username, $password);
+        $isValidData = Validation::validateLogin($username, $password);
         if (!$isValidData) return false;
 
         $user = new userModal();
