@@ -69,8 +69,8 @@
 
 						<div class="row">
 							<div class="col-xs-12">
-								<p><a href="#">Recuperar mi contraseña</a></p>
-								<p><a href="registro.php">Crear una nueva cuenta para ingresar</a></p>
+								<p><a href="recuperar">Recuperar mi contraseña</a></p>
+								<p><a href="registro">Crear una nueva cuenta para ingresar (DESHABILITADO)</a></p>
 							</div>
 						</div>
 					</div>

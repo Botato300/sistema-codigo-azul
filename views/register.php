@@ -1,3 +1,9 @@
+<!--DESHABILITADO -->
+<!--DESHABILITADO -->
+<!--DESHABILITADO -->
+<!--DESHABILITADO -->
+<!--DESHABILITADO -->
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -108,7 +114,7 @@
 							<div class="row">
 								 <div class="col-xs-12">
 									  <p><a href="#">Recuperar mi contraseña</a></p>
-									  <p><a href="login.php">Volver al Inicio</a></p>
+									  <p><a href="ingreso">Volver al Inicio</a></p>
 								 </div>
 							</div>
 					  </div>
