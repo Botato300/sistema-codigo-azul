@@ -1,7 +1,9 @@
 const count = document.getElementById("count");
 
-setInterval(async () => {
-    const response = await fetch("controllers/quirofanoController.php", {
+let idTimer = setInterval(async () => {
+
+
+    const response = await fetch("controllers/roomController.php", {
         method: "POST",
         body: JSON.stringify({
             action: "getSlotsAvaible"
@@ -10,5 +12,9 @@ setInterval(async () => {
 
     const content = await response.json();
     let countActual = Number(count.textContent) + content.count;
-    if (countActual <= 4) count.textContent = countActual;
+    count.textContent = countActual;
+
+    if (countActual >= 4) {
+        clearInterval(idTimer);
+    }
 }, 1000);
