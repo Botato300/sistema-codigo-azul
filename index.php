@@ -11,7 +11,7 @@
 
 <body>
 	<header>
-		<nav class="navbar navbar-top navbar-default bg-celeste-argentina" role="navigation">
+		<nav class="navbar navbar-top navbar-default bg-celeste-argentina">
 			<div class="container">
 				<div>
 					<div class="navbar-header">
@@ -29,18 +29,17 @@
 					</ul>
 				</div>
 			</div>
-			</div>
 		</nav>
 	</header>
 
-	<main role="main">
+	<main>
 		<div class="container">
 			<ol class="breadcrumb">
 				<li><a href="ingreso">Login</a></li>
 				<li class="active">Inicio</li>
 			</ol>
 
-			<section>
+			<div>
 				<article class="content_format row">
 					<div class="col-md-8 col-md-offset-2">
 						<h1>Sistema de gestion - Codigo Azul</h1>
@@ -93,7 +92,7 @@
 						</div>
 					</div>
 				</article>
-			</section>
+			</div>
 		</div>
 	</main>
 
