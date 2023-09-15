@@ -16,7 +16,7 @@
 				<div>
 					<div class="navbar-header">
 						<a class="navbar-brand" href="index.php" aria-label="Argentina.gob.ar Presidencia de la Nación">
-							<img alt="" src="assets/images/logo.webp" height="50">
+							<img alt="Logo de la pagina web" src="assets/images/logo.webp" height="50">
 						</a>
 					</div>
 					<div class="nav navbar-nav navbar-right hidden-xs">
@@ -40,13 +40,11 @@
 
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
-						<div id="errores" aria-live="polite" class="alert alert-danger hidden">
-							<h5>Se han producido los siguientes errores:</h5>
-							<ol>
-								<li>Ingresá tu usuario</li>
-								<li>Ingresá tu contraseña</li>
-							</ol>
+						<div id="errorContainer" aria-live="polite" class="alert alert-danger hidden">
+							<h5>Se ha producido el siguiente error:</h5>
+							<ul id="errorList"></ul>
 						</div>
+
 						<form method="post">
 							<div class="row">
 								<div class="col-md-10 form-group item-form">
