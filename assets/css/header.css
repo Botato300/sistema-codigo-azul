@@ -1,0 +1,7 @@
+.navbar-default .btn-link {
+    color: #0072bb;
+}
+
+.navbar-default {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
