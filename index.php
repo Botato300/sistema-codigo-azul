@@ -16,13 +16,7 @@
 				<div>
 					<div class="navbar-header">
 						<a class="navbar-brand" href="index.php" aria-label="Argentina.gob.ar Presidencia de la Nación">
-							<img alt="" src="assets/images/logo.webp" height="50">
-						</a>
-						<a class="btn btn-mi-argentina btn-login visible-xs" href="index.php">
-							<i class="icono-arg-mi-argentina fa-fw"></i>
-						</a>
-						<a class="btn bg-white btn-login visible-xs" href="#" onclick="$('.navbar.navbar-top').addClass('state-search');">
-							<span class="fa fa-search fa-fw"></span>
+							<img alt="Logo de la pagina web" src="assets/images/logo.webp" height="50">
 						</a>
 					</div>
 
