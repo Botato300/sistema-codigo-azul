@@ -25,5 +25,3 @@ class userModal
         // return password_verify($password, $password_hash);
     }
 }
-
-new userModal();
