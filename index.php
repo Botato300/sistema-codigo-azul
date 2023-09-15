@@ -4,7 +4,7 @@
 <head>
 	<?php require_once("views/includes/head.php"); ?>
 
-	<script defer src="assets/js/main.js"></script>
+	<script defer src="assets/js/index.js"></script>
 
 	<title>Inicio</title>
 </head>
