@@ -43,8 +43,8 @@
 						<form method="post">
 							<div class="row">
 								<div class="col-md-10 form-group item-form">
-									<label for="username">Usuario</label>
-									<input type="text" id="username" name="username" class="form-control" required="" aria-required="true">
+									<label for="email">Usuario</label>
+									<input type="email" id="email" name="email" class="form-control" required="" aria-required="true">
 									<p class="help-block error hidden">Ingresá tu usuario</p>
 								</div>
 							</div>

@@ -1,4 +1,4 @@
-const username = document.getElementById("username");
+const email = document.getElementById("email");
 const password = document.getElementById("password");
 const btnSubmit = document.getElementById("btnSubmit");
 
@@ -11,7 +11,7 @@ btnSubmit.addEventListener("click", async () => {
         body: JSON.stringify({
             action: "login",
             data: {
-                username: username.value,
+                email: email.value,
                 password: password.value
             }
         })

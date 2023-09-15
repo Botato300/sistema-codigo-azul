@@ -7,14 +7,14 @@ $request = json_decode($request, true);
 
 switch ($request["action"]) {
     case "login":
-        $username = $request["data"]["username"];
+        $email = $request["data"]["email"];
         $password = $request["data"]["password"];
 
-        $isValidData = Validation::validateLogin($username, $password);
+        $isValidData = Validation::validateLogin($email, $password);
         if (!$isValidData) return false;
 
         $user = new userModal();
-        $result = $user->login($username, $password);
+        $result = $user->login($email, $password);
         if ($result) {
             echo json_encode(["status" => true]);
         } else {
