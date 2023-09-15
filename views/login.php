@@ -4,7 +4,7 @@
 <head>
 	<?php require_once("includes/head.php"); ?>
 
-	<script defer src="assets/js/main.js"></script>
+	<script defer src="assets/js/login.js"></script>
 
 	<title>Iniciar Sesion</title>
 </head>
@@ -51,7 +51,7 @@
 							<div class="row">
 								<div class="col-md-10 form-group item-form">
 									<label for="usuario">Usuario</label>
-									<input type="text" name="user" class="form-control" id="usuario" required="" aria-required="true">
+									<input type="text" name="user" class="form-control" id="username" required="" aria-required="true">
 									<p class="help-block error hidden">Ingresá tu usuario</p>
 								</div>
 							</div>

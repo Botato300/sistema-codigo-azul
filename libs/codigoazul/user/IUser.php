@@ -1,6 +1,6 @@
 <?php
 interface IUser
 {
-    public function getUsername();
-    public function getPassword();
+    public function getUsername(): string;
+    public function getPassword(): string;
 }
