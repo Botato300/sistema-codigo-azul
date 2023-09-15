@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2023 a las 23:04:52
+-- Tiempo de generación: 15-09-2023 a las 22:41:32
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -31,10 +31,10 @@ CREATE TABLE `actomedico` (
   `id` int(11) NOT NULL,
   `historiaClinica` int(11) NOT NULL,
   `matricula` int(11) NOT NULL,
-  `nombreProfesional` varchar(20) NOT NULL,
-  `apellidoProfesional` varchar(20) NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL,
+  `fechaIngreso` date NOT NULL,
+  `fechaEgreso` date NOT NULL,
+  `horaIngreso` time NOT NULL,
+  `horaEgreso` time NOT NULL,
   `motivoConsulta` varchar(50) NOT NULL,
   `antecedentes` varchar(100) NOT NULL,
   `diagnóstico` varchar(80) NOT NULL
@@ -59,7 +59,10 @@ CREATE TABLE `areas` (
 
 CREATE TABLE `enfermeros` (
   `matricula` int(11) NOT NULL,
-  `estaEnGuardia` tinyint(1) NOT NULL
+  `estaDeGuardia` tinyint(1) NOT NULL,
+  `horaInicioGuardia` time NOT NULL,
+  `horaFinalGuardia` time NOT NULL,
+  `fechaGuardia` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -81,7 +84,10 @@ CREATE TABLE `llamados` (
 
 CREATE TABLE `medicos` (
   `matricula` int(11) NOT NULL,
-  `estaEnGuardia` tinyint(1) NOT NULL
+  `estaDeGuardia` tinyint(1) NOT NULL,
+  `horaInicioGuardia` time NOT NULL,
+  `horaFinalGuardia` time NOT NULL,
+  `fechaGuardia` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -92,7 +98,6 @@ CREATE TABLE `medicos` (
 
 CREATE TABLE `pacientes` (
   `historiaClinica` int(11) NOT NULL,
-  `coberturaMedica` varchar(30) NOT NULL,
   `grupoSanguineo` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -107,11 +112,10 @@ CREATE TABLE `personas` (
   `numeroDocumento` int(11) NOT NULL,
   `nombre` varchar(20) NOT NULL,
   `apellido` varchar(20) NOT NULL,
-  `edad` int(11) NOT NULL,
   `domicilio` varchar(30) NOT NULL,
   `fechaNacimiento` date NOT NULL,
   `telefono` int(11) NOT NULL,
-  `sexo` char(5) NOT NULL,
+  `genero` char(5) NOT NULL,
   `correoElectronico` varchar(40) NOT NULL,
   `idRol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -125,6 +129,17 @@ CREATE TABLE `personas` (
 CREATE TABLE `quirofanos` (
   `numero` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL,
+  `tipo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -194,10 +209,45 @@ ALTER TABLE `quirofanos`
   ADD PRIMARY KEY (`numero`);
 
 --
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tipo` (`tipo`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `actomedico`
+--
+ALTER TABLE `actomedico`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `llamados`
+--
+ALTER TABLE `llamados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
