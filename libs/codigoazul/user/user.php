@@ -3,22 +3,22 @@ require_once("IUser.php");
 
 class User implements IUser
 {
-    protected string $username;
+    protected string $email;
     protected string $password;
 
-    public function __construct(string $username, string $password)
+    public function __construct(string $email, string $password)
     {
-        $this->username = $username;
+        $this->email = $email;
         $this->password = $password;
     }
 
-    public function getUsername(): string
+    public function getEmail(): string
     {
-        return $this->username;
+        return $this->email;
     }
 
     public function getPassword(): string
     {
-        return $this->username;
+        return $this->password;
     }
 }

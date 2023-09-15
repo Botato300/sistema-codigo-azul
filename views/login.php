@@ -15,7 +15,7 @@
 			<div class="container">
 				<div>
 					<div class="navbar-header">
-						<a class="navbar-brand" href="">
+						<a class="navbar-brand" href="index.php">
 							<img alt="Logo de la pagina web" src="assets/images/logo.webp" height="50">
 						</a>
 					</div>
@@ -43,16 +43,16 @@
 						<form method="post">
 							<div class="row">
 								<div class="col-md-10 form-group item-form">
-									<label for="username">Usuario</label>
-									<input type="text" id="username" name="username" class="form-control" required="" aria-required="true">
-									<p class="help-block error hidden">Ingresá tu usuario</p>
+									<label for="email">Correo electrónico</label>
+									<input type="email" placeholder="Ingresá tu correo electrónico" id="email" name="email" class="form-control" required="" aria-required="true">
+									<p class="help-block error hidden">Ingresá tu correo electrónico</p>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-10 form-group item-form">
 									<label for="password">Contraseña</label>
-									<input id="password" type="password" class="form-control" name="password">
-									<p class="help-block error">Ingresá tu contraseña</p>
+									<input id="password" placeholder="Ingresá tu contraseña" type="password" class="form-control" name="password">
+									<p class="help-block error hidden">Ingresá tu contraseña</p>
 								</div>
 							</div>
 							<div class="row">

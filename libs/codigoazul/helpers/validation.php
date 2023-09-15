@@ -1,39 +1,50 @@
 <?php
 class Validation
 {
-	public static function validateLogin(string $username, string $password): bool
+	public static function validateLogin(string $email, string $password): bool
 	{
-		if (!self::validateUsername($username)) return false;
+		if (!self::validateEmail($email)) return false;
 		if (!self::validatePassword($password)) return false;
 
 		return true;
 	}
 
-	public static function validateUsername(string $username): bool
+	public static function validateEmail(string $email): bool
 	{
-		$username = trim($username);
+		$email = trim($email);
+		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-		if (empty($username)) {
+		if (empty($email)) {
 			echo json_encode([
 				"status" => false,
-				"details" => "No ingresaste ningún nombre de usuario."
+				"details" => "No ingresaste ningún correo electrónico."
 			]);
 
 			return false;
 		}
-		if (strlen($username) > 32) {
+		if (strlen($email) > 64) {
 			echo json_encode([
 				"status" => false,
-				"details" => "Tu nombre de usuario supera la cantidad de caracteres permitidos. (32)"
+				"details" => "Tu correo electrónico supera la cantidad de caracteres permitidos. (64)"
 			]);
 
 			return false;
 		}
 
-		if (!preg_match('/^[a-zA-Z0-9]+$/', $username)) {
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			echo json_encode([
 				"status" => false,
-				"details" => "El nombre de usuario solo puede contener letras y números."
+				"details" => "El correo electrónico ingresado es inválido."
+			]);
+
+			return false;
+		}
+
+		list(, $domain) = explode('@', $email);
+		if (!checkdnsrr($domain, 'MX')) {
+			echo json_encode([
+				"status" => false,
+				"details" => "El correo electrónico ingresado no existe."
 			]);
 
 			return false;
@@ -64,7 +75,7 @@ class Validation
 			return false;
 		}
 
-		if (strlen($password) <= 6) {
+		if (strlen($password) < 6) {
 			echo json_encode([
 				"status" => false,
 				"details" => "Tu contraseña debe tener al menos 6 caracteres."
