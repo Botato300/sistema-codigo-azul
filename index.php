@@ -44,8 +44,7 @@
 					<div class="col-md-8 col-md-offset-2">
 						<h1>Sistema de gestion - Codigo Azul</h1>
 						<div class="row">
-							<div class="section-actions col-md-7 social-share">
-							</div>
+							<div class="section-actions col-md-7 social-share"></div>
 						</div>
 
 						<div class="row numbers">
@@ -57,11 +56,7 @@
 								<p class="lead">Quirofanos ocupados</p>
 							</div>
 
-							<div id="rooms__container" class="col-md-2">
-								<!-- <div class="col-md-2">
-									<i class="fa fa-user-circle-o"></i>
-								</div>-->
-							</div>
+							<div id="rooms__container" class="col-md-2"></div>
 						</div>
 
 						<div class="downloads">

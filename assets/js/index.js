@@ -1,7 +1,8 @@
 const count = document.getElementById("count");
 const roomscontainer = document.getElementById("rooms__container");
 
-let countActual = 0;
+let roomsAvailable = 0;
+let totalRooms = 0;
 
 let idTimer = setInterval(async () => {
     const response = await fetch("controllers/roomController.php", {
@@ -13,11 +14,11 @@ let idTimer = setInterval(async () => {
 
     const content = await response.json();
 
-
     createRoom(content.name);
-    if (content.name != "Disponible") countActual += updateCount(content.count);
 
-    if (countActual >= 4) {
+    if (content.name != "Disponible") roomsAvailable += updateCount();
+
+    if (totalRooms >= 4) {
         clearInterval(idTimer);
     }
 }, 500);
@@ -33,10 +34,12 @@ const createRoom = (name) => {
     `;
 
     roomscontainer.appendChild(room);
+
+    totalRooms += 1;
 }
 
-const updateCount = (slotActual) => {
-    let countCurrent = Number(count.textContent) + slotActual;
+const updateCount = () => {
+    let countCurrent = Number(count.textContent) + 1;
     count.textContent = countCurrent;
 
     return countCurrent;
