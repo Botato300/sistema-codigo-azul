@@ -4,7 +4,7 @@ $request = json_decode($request, true);
 
 switch ($request["action"]) {
     case "getAvailableSlots":
-        $names = ["Disponible", "Alberto Fernandez"];
+        $names = ["Disponible", "Gonzalo Fernandez"];
         $indice = rand(0, 1);
 
         echo json_encode([
