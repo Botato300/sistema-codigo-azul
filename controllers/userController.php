@@ -16,7 +16,10 @@ switch ($request["action"]) {
         $user = new userModal();
         $result = $user->login($email, $password);
         if ($result) {
-            echo json_encode(["status" => true]);
+            echo json_encode([
+                "status" => true,
+                "token" => "abc123"
+            ]);
         } else {
             echo json_encode([
                 "status" => false,
@@ -27,6 +30,6 @@ switch ($request["action"]) {
     default:
         echo json_encode([
             "status" => false,
-            "details" => "La accion enviada es invalida."
+            "details" => "La accion enviada es inválida."
         ]);
 }
