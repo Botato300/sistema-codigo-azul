@@ -1,5 +1,5 @@
 <?php
-require_once("../libs/codigoazul/database/database.php");
+require_once("../libs/database/database.php");
 
 class userModal
 {

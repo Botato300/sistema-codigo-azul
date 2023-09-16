@@ -1,6 +1,6 @@
 <?php
 require_once("../models/userModel.php");
-require_once("../libs/codigoazul/helpers/validation.php");
+require_once("../libs/helpers/validation.php");
 
 $request = file_get_contents("php://input");
 $request = json_decode($request, true);
