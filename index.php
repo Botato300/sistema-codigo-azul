@@ -55,8 +55,9 @@
 						<div id="rooms__container" class="col-md-4"></div>
 					</div>
 
-					<div class="downloads">
-						<hr>
+					<hr>
+
+					<div class="text-center downloads">
 						<h4>Descargas</h4>
 
 						<div class="row row-flex">
