@@ -3,6 +3,7 @@ RewriteEngine On
 RewriteRule ^ingreso/?$ views/login.php [L]
 RewriteRule ^registro/?$ views/register.php [L]
 RewriteRule ^recuperar/?$ views/recoverPass.php [L]
+RewriteRule ^exitoso/?$ views/passSuccess.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
