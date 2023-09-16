@@ -20,7 +20,6 @@
 						</a>
 					</div>
 
-
 					<ul class="nav nav-tabs">
 						<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
 						<li><a data-toggle="tab" href="#seccion">Zonas</a></li>
@@ -40,13 +39,9 @@
 			</ol>
 
 			<article class="content_format row">
-
 				<div class="col-md-8 col-md-offset-2">
 					<h1>Sistema de gestion - Codigo Azul</h1>
-					<div class="row">
-						<div class="section-actions col-md-7 social-share">
-						</div>
-					</div>
+					<div class="section-actions col-md-7 social-share"></div>
 
 					<div class="row numbers">
 						<div class="col-md-6">
@@ -57,11 +52,7 @@
 							<p class="lead">Quirofanos ocupados</p>
 						</div>
 
-						<div id="rooms__container" class="col-md-2">
-							<!-- <div class="col-md-2">
-									<i class="fa fa-user-circle-o"></i>
-								</div>-->
-						</div>
+						<div id="rooms__container" class="col-md-4"></div>
 					</div>
 
 					<div class="downloads">
