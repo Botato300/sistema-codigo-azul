@@ -49,7 +49,7 @@
 						</div>
 
 						<div class="row numbers">
-							<div class="col-md-2">
+							<div class="col-md-3">
 								<div class="h2 text-danger">
 									<span id="count">1</span>
 									<small>de 4</small>
@@ -57,21 +57,10 @@
 								<p class="lead">Quirofanos ocupados</p>
 							</div>
 
-							<div class="col-md-2">
-								<div class="icons">
-									<i class="fa fa-user-circle-o text-danger"></i>
-									<p class="text-muted">Ariel Fernandez</p>
-								</div>
-
-								<div class="col-md-2">
+							<div id="rooms__container" class="col-md-2">
+								<!-- <div class="col-md-2">
 									<i class="fa fa-user-circle-o"></i>
-								</div>
-								<div class="col-md-2">
-									<i class="fa fa-user-circle-o"></i>
-								</div>
-								<div class="col-md-2">
-									<i class="fa fa-user-circle-o"></i>
-								</div>
+								</div>-->
 							</div>
 						</div>
 
