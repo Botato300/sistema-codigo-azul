@@ -1,5 +1,6 @@
 <?php
 include('conexion.php');
+// require_once("../libs/codigoazul/database/database.php");
 
 $correo = $_POST['txtcorreo'];
 

@@ -7,7 +7,7 @@ class userModal
 
     public function __construct()
     {
-        $database = new Database();
+        $database = new DatabaseConnection();
         $this->db = $database->getDatabase();
     }
 
