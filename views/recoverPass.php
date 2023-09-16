@@ -36,26 +36,23 @@
 
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <div id="errores" aria-live="polite" class="alert alert-danger hidden">
+                        <div id="errorContainer" aria-live="polite" class="alert alert-danger hidden">
                             <h5>Se han producido los siguientes errores:</h5>
-                            <ol>
+                            <ul id="errorList">
                                 <li>Ingresá tu correo electrónico</li>
-
-                            </ol>
+                            </ul>
                         </div>
-                        <form action="getPass.php" method="post">
+                        <form>
                             <div class="row">
                                 <div class="col-md-10 form-group item-form">
                                     <label for="email">Correo electrónico</label>
-                                    <input type="email" name="txtcorreo" placeholder="Ingresá tu correo electrónico" class="form-control" id="email" aria-required="true">
-                                    <p class="help-block error hidden">Ingresá un correo electrónico <br> El correo
-                                        electrónico tiene un formato no válido</p>
+                                    <input type="email" id="email" name="txtcorreo" placeholder="Ingresá tu correo electrónico" class="form-control" aria-required="true">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <button type="button" value="Enviar" class="btn btn-success" onclick="javascript: return confirm('¿Deseas enviar tu contraseña a tu correo?');">ENVIAR</button>
+                                    <button type="button" id="btnSubmit" class="btn btn-success">ENVIAR</button>
                                 </div>
                             </div>
                             <div class="row">

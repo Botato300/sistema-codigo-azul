@@ -1,25 +1,24 @@
 <?php
-require_once("../libs/database/database.php");
+require_once("../models/userModel.php");
 
-$correo = $_POST['txtcorreo'];
+$request = file_get_contents("php://input");
+$request = json_decode($request, true);
 
-$queryusuario 	= mysqli_query($conn, "SELECT * FROM usuarios WHERE correoElectronico = '$correo'");
-$nr = mysqli_num_rows($queryusuario);
+$email = $request["data"]["email"];
 
-if ($nr == 1) {
-	$mostrar	= mysqli_fetch_array($queryusuario);
-	$enviarpass = $mostrar['contrasenia'];
+$user = new userModal();
+$password = $user->recoveryPassword($email);
 
-	$paracorreo = $correo;
-	$titulo	= "Recuperar contraseña";
-	$mensaje	= $enviarpass;
-	$correoPropio = "From: iandargenio@gmail.com";
+$emailTo = $email;
+$title	= "Recuperar contraseña";
+$message	= "Tu contraseña es: $password";
+$emailFrom = "From: support@codigoazul.com";
 
-	if (mail($paracorreo, $titulo, $mensaje, $correoPropio)) {
-		header("Location: 'recoverSuccess.php'");
-	} else {
-		echo "<script> alert('Error');window.location= 'index.php' </script>";
-	}
+if (mail($emailTo, $title, $message, $emailFrom)) {
+	header("Location: recoverSuccess.php");
 } else {
-	echo "<script> alert('Este correo no existe');window.location= 'index.php' </script>";
+	echo json_encode([
+		"status" => false,
+		"details" => "No se pudo enviarte el correo electrónico."
+	]);
 }
