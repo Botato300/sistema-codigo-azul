@@ -21,7 +21,7 @@
 					</div>
 
 
-					<ul class="nav nav-pills">
+					<ul class="nav nav-tabs">
 						<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
 						<li><a data-toggle="tab" href="#seccion">Zonas</a></li>
 						<li><a data-toggle="tab" href="#contacto">Enfermeros</a></li>
@@ -39,17 +39,15 @@
 				<li class="active">Inicio</li>
 			</ol>
 
-			<div>
-				<article class="content_format row">
+			<article class="content_format row">
+
 					<div class="col-md-8 col-md-offset-2">
 						<h1>Sistema de gestion - Codigo Azul</h1>
-						<div class="row">
 							<div class="section-actions col-md-7 social-share">
-							</div>
 						</div>
 
 						<div class="row numbers">
-							<div class="col-md-3">
+							<div class="col-md-6">
 								<div class="h2 text-danger">
 									<span id="count">0</span>
 									<small>de 4</small>
@@ -57,7 +55,7 @@
 								<p class="lead">Quirofanos ocupados</p>
 							</div>
 
-							<div id="rooms__container" class="col-md-2">
+							<div id="rooms__container" class="col-md-4">
 								<!-- <div class="col-md-2">
 									<i class="fa fa-user-circle-o"></i>
 								</div>-->
@@ -76,13 +74,11 @@
 								<div class="col-xs-12 col-sm-6">
 									<p class="text-muted m-b-1">Descargar Reporte (3.3 MB)</p>
 									<a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; CSV</a>
-								</div>
 							</div>
 						</div>
 					</div>
 				</article>
 			</div>
-		</div>
 	</main>
 
 	<?php require_once("views/includes/footer.php"); ?>
