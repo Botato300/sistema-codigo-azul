@@ -51,7 +51,7 @@
 						<div class="row numbers">
 							<div class="col-md-3">
 								<div class="h2 text-danger">
-									<span id="count">1</span>
+									<span id="count">0</span>
 									<small>de 4</small>
 								</div>
 								<p class="lead">Quirofanos ocupados</p>
