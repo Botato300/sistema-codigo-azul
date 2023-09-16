@@ -30,7 +30,7 @@ const createRoom = (name) => {
 
     room.innerHTML = `
         <i class="fa fa-user-circle-o ${name != "Disponible" ? "text-danger" : null}"></i>
-        <p class="text-danger">Quirofano ${countActual}</p>
+        <p class="${name != "Disponible" ? "text-danger" : null}">Quirofano ${roomsAvailable}</p>
         <p class="text-muted">${name}</p>
     `;
 
