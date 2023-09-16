@@ -43,12 +43,11 @@
                             
                         </ol>
                     </div>
-                    <form method="post">
+                    <form action="getPass.php" method="post">
                         <div class="row">
                             <div class="col-md-10 form-group item-form">
                                 <label for="email">Ingresá tu correo electrónico</label>
-                                <input type="email" name="txtcorreo" class="form-control" id="email" required=""
-                                    aria-required="true">
+                                <input type="email" name="txtcorreo" class="form-control" id="email" aria-required="true">
                                     <p class="help-block error hidden">Ingresá un correo electrónico <br> El correo
                                     electrónico tiene un formato no válido</p>
                             </div>
@@ -56,7 +55,7 @@
 
                         <div class="row">
                             <div class="col-sm-3">
-                                <button type="button" class="btn btn-success">ENVIAR</button>
+                                <button type="button" value="Enviar" type="submit" class="btn btn-success" onclick="javascript: return confirm('¿Deseas enviar tu contraseña a tu correo?');">ENVIAR</button>
                             </div>
                         </div>
                         <div class="row">
