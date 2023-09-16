@@ -5,6 +5,18 @@ let roomsAvailable = 0;
 let totalRooms = 0;
 
 let idTimer = setInterval(async () => {
+    const content = await fetchRoomData();
+
+    createRoom(content.name);
+
+    if (content.name != "Disponible") roomsAvailable += updateCount();
+
+    if (totalRooms >= 4) {
+        clearInterval(idTimer);
+    }
+}, 1000);
+
+const fetchRoomData = async () => {
     const response = await fetch("controllers/roomController.php", {
         method: "POST",
         body: JSON.stringify({
@@ -14,15 +26,8 @@ let idTimer = setInterval(async () => {
 
     const content = await response.json();
 
-    createRoom(content.name);
-
-    if (content.name != "Disponible") roomsAvailable += updateCount();
-
-    if (totalRooms >= 4) {
-        clearInterval(idTimer);
-    }
-}, 500);
-
+    return content;
+}
 
 const createRoom = (name) => {
     const room = document.createElement("div");
