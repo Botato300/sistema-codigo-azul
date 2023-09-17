@@ -35,8 +35,8 @@ const createRoom = (name) => {
 
     room.innerHTML = `
         <i class="fa fa-user-circle-o ${name != "Disponible" ? "text-danger" : null}"></i>
-        <p class="${name != "Disponible" ? "text-danger" : null}">Quirofano ${totalRooms + 1}</p>
-        <p class="text-muted">${name}</p>
+        <span class="${name != "Disponible" ? "text-danger" : null}">Quirofano ${totalRooms + 1}</span>
+        <span class="text-muted">${name}</span>
     `;
 
     roomscontainer.appendChild(room);
