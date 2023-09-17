@@ -19,8 +19,7 @@ btnSubmit.addEventListener("click", async () => {
     if (!content.status) {
         showError(content.details);
     } else {
-        hideError();
-        alert("Contraseña cambiada!");
+        location.href = `exitoso?email=${email.value}`;
     }
 });
 

@@ -4,7 +4,7 @@
 <head>
     <?php require_once("includes/head.php"); ?>
 
-    <script defer src="assets/js/login.js"></script>
+    <script defer src="assets/js/passSuccess.js"></script>
 
     <title>Contraseña enviada</title>
 </head>
@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <h4 class="activities-sidbar">Revisá tu correo electrónico</h4>
-                        <p>Te va a llegar un correo electrónico a xxxxxx@xxxx.com con instrucciones para poder recuperar
+                        <p>Te va a llegar un correo electrónico a <b id="email"></b> con instrucciones para poder recuperar
                             tu contraseña.</p>
                     </div>
                 </div>

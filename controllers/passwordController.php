@@ -15,7 +15,9 @@ $message	= "Tu contraseña es: $password";
 $emailFrom = "From: support@codigoazul.com";
 
 if (mail($emailTo, $title, $message, $emailFrom)) {
-	header("Location: recoverSuccess.php");
+	echo json_encode([
+		"status" => true
+	]);
 } else {
 	echo json_encode([
 		"status" => false,
