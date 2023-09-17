@@ -1,0 +1,9 @@
+### Libreria FPDF ###
+libs/fpdf/doc
+libs/fpdf/makefont
+libs/fpdf/tutorial
+libs/fpdf/*.htm
+libs/fpdf/*.txt
+
+### Archivos generales ###
+test.php
