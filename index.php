@@ -15,8 +15,8 @@
 			<div class="container">
 				<div>
 					<div class="navbar-header">
-						<a class="navbar-brand" href="index.php">
-							<img alt="Logo de la pagina web" src="assets/images/logo.webp" height="50">
+						<a class="navbar-brand" href="/sistema-codigo-azul">
+							<img alt="Logo de la pagina web" src="/sistema-codigo-azul/assets/images/logo.webp" height="50">
 						</a>
 					</div>
 
