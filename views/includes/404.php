@@ -15,9 +15,6 @@
                         <a class="navbar-brand" href="/sistema-codigo-azul">
                             <img alt="Logo de la pagina web" src="/sistema-codigo-azul/assets/images/logo.webp" height="50">
                         </a>
-                        <a class="btn btn-mi-argentina btn-login visible-xs" href="/sistema-codigo-azul">
-                            <i class="icono-arg-mi-argentina fa-fw"></i>
-                        </a>
                     </div>
                 </div>
             </div>
