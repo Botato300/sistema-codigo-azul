@@ -28,6 +28,24 @@ main {
 	color: #0072bb;
 }
 
+.main__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.main__content {
+	margin-top: 200px;
+}
+
+.main__content h1 {
+	font-size: 2em;
+}
+
+.main__content>a {
+	width: 100%;
+}
+
 .room__container {
 	border-radius: 3px;
 	display: flex;

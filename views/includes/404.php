@@ -8,11 +8,11 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-top navbar-default bg-celeste-argentina" role="navigation">
+        <nav class="navbar navbar-top navbar-default bg-celeste-argentina">
             <div class="container">
                 <div>
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.php" aria-label="Argentina.gob.ar Presidencia de la Nación">
+                        <a class="navbar-brand" href="index.php">
                             <img alt="" src="assets/images/logo.webp" height="50">
                         </a>
                         <a class="btn btn-mi-argentina btn-login visible-xs" href="index.php">
@@ -32,9 +32,10 @@
         </nav>
     </header>
 
-    <main role="main">
-        <div class="container">
+    <main class="main__container">
+        <div class="main__content">
             <h1>No se encontró la pagina.</h1>
+            <a href="index" class="btn btn-primary">Ir al Inicio</a>
         </div>
     </main>
 
