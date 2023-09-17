@@ -12,7 +12,6 @@ class Validation
 	public static function validateEmail(string $email): bool
 	{
 		$email = trim($email);
-		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
 		if (empty($email)) {
 			echo json_encode([
@@ -22,10 +21,10 @@ class Validation
 
 			return false;
 		}
-		if (strlen($email) > 64) {
+		if (strlen($email) > 128) {
 			echo json_encode([
 				"status" => false,
-				"details" => "Tu correo electrónico supera la cantidad de caracteres permitidos. (64)"
+				"details" => "Tu correo electrónico supera la cantidad de caracteres permitidos. (128)"
 			]);
 
 			return false;
