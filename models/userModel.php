@@ -1,7 +1,7 @@
 <?php
 require_once("../libs/database/database.php");
 
-class userModal
+class userModel
 {
     private object $db;
 
@@ -15,7 +15,7 @@ class userModal
     {
         $this->db->close();
     }
-
+    
     public function login(string $email, string $password): bool
     {
         $stmt = $this->db->prepare("SELECT contrasenia FROM usuarios WHERE correoElectronico = ?");
