@@ -31,7 +31,7 @@
       </nav>
    </header>
 
-   <dialog closed id="dialog" class="">
+   <dialog id="dialog" class="dialog">
       <section>
          <div class="row">
             <button id="btnclose" class="btnclose"><i class="fa fa-close text-danger"></i></button>
