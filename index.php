@@ -54,26 +54,8 @@
 
 						<div id="rooms__container" class="col-md-4"></div>
 					</div>
-
-					<hr>
-
 					<div class="text-center downloads">
-						<h4>Descargas</h4>
-
 						<div class="row row-flex" id="downloads__container">
-							<div class=" col-xs-12 col-sm-6">
-								<p class="text-muted m-b-1">Descargar Reporte (3.3 MB) </p>
-								<button data-filetype="pdf" class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; PDF</button>
-							</div>
-<<<<<<< HEAD
-
-							<div class="col-md-2">
-									<i class="fa fa-user-circle-o"></i>
-							</div>
-							
-							<div class="col-md-2">
-									<i class="fa fa-user-circle-o"></i>
-								</div>
 							</div>
 						</div>
 
@@ -90,12 +72,6 @@
 									<p class="text-muted m-b-1">Descargar Reporte (3.3 Mb)</p>
 									<a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; CSV</a>
 								</div>
-=======
-							<div class="col-xs-12 col-sm-6">
-								<p class="text-muted m-b-1">Descargar Reporte (3.3 MB)</p>
-								<button data-filetype="csv" class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; CSV</button>
->>>>>>> bd22287d4bce19c14c8889d1bfec1dad60eb7f23
-							</div>
 						</div>
 					</div>
 			</article>
