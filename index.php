@@ -22,7 +22,7 @@
 
 					<ul class="nav nav-tabs">
 						<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-						<li><a data-toggle="tab" href="#seccion">Zonas</a></li>
+						<li><a data-toggle="tab" href="zonas">Zonas</a></li>
 						<li><a data-toggle="tab" href="#contacto">Enfermeros</a></li>
 						<li><a data-toggle="tab" href="#contacto">Pacientes</a></li>
 					</ul>

@@ -5,6 +5,7 @@ RewriteRule ^registro/?$ views/register.php [L]
 RewriteRule ^recuperar/?$ views/recoverPass.php [L]
 RewriteRule ^exitoso/?$ views/passSuccess.php [L]
 RewriteRule ^lite/?$ views/lite.php [L]
+RewriteRule ^zonas/?$ views/zonasABM.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
