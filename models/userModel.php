@@ -11,18 +11,24 @@ class userModal
         $this->db = $database->getDatabase();
     }
 
+    public function __destruct()
+    {
+        $this->db->close();
+    }
+
     public function login(string $email, string $password): bool
     {
-        return true;
-        // $stmt = $this->db->prepare("SELECT contrasenia FROM usuarios WHERE email = ?");
-        // $stmt->bind_param("s", $email);
-        // $stmt->execute();
+        $stmt = $this->db->prepare("SELECT contrasenia FROM usuarios WHERE correoElectronico = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
 
-        // $result = $stmt->get_result();
-        // $row = $result->fetch_assoc();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
         // $password_hash = $row["contrasenia"];
 
         // return password_verify($password, $password_hash);
+
+        return $password === $row["contrasenia"];
     }
 
     public function register(string $email, string $password): bool

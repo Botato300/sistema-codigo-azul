@@ -23,7 +23,7 @@ switch ($request["action"]) {
         } else {
             echo json_encode([
                 "status" => false,
-                "details" => "No se pudo iniciar sesion."
+                "details" => "El correo electrónico o contraseña son incorrectos."
             ]);
         }
         break;

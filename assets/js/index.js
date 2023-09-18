@@ -5,7 +5,9 @@ let roomsAvailable = 0;
 let totalRooms = 0;
 
 const downloadsContaier = document.getElementById("downloads__container");
-downloadsContaier.addEventListener("click", (e) => fetchReport(e.target.dataset.filetype));
+downloadsContaier.addEventListener("click", (e) => {
+    if (e.target.dataset.filetype) fetchReport(e.target.dataset.filetype);
+});
 
 let idTimer = setInterval(async () => {
     const content = await fetchRoomData();

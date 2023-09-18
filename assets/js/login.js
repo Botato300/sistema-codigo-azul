@@ -23,7 +23,7 @@ btnSubmit.addEventListener("click", async () => {
         showError(content.details);
     } else {
         hideError();
-        alert("Logueaste!");
+        location.href = "/sistema-codigo-azul";
     }
 });
 
