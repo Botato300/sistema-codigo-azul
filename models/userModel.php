@@ -57,6 +57,18 @@ class userModal
         // return $row["contrasenia"];
     }
 
+    public function getUserType($email): string
+    {
+        $stmt = $this->db->prepare("SELECT tipo FROM usuarios WHERE correoElectronico = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row["tipo"];
+    }
+
     public function getToken(): string
     {
         return "abc123";

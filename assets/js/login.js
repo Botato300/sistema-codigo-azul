@@ -23,7 +23,7 @@ btnSubmit.addEventListener("click", async () => {
         showError(content.details);
     } else {
         hideError();
-        location.href = "/sistema-codigo-azul";
+        content.userType === "admin" ? location.href = "/sistema-codigo-azul" : location.href = "/sistema-codigo-azul/lite";
     }
 });
 

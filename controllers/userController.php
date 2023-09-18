@@ -18,6 +18,7 @@ switch ($request["action"]) {
         if ($result) {
             echo json_encode([
                 "status" => true,
+                "userType" => $user->getUserType($email),
                 "token" => $user->getToken()
             ]);
         } else {
