@@ -35,7 +35,8 @@
       <div class="container">
          <ol class="breadcrumb">
             <li><a href="ingreso">Login</a></li>
-            <li class="active">Zonas</li>
+            <li><a href="zonas">Zonas</a></li>
+            <li class="active">Nueva Zona</li>
          </ol>
 
          <section>
@@ -69,7 +70,7 @@
                            </div>
                         </div>
                      </fieldset>
-                     <button type="button" class="btn btn-success">Cargar Zona</button>
+                     <button type="submit" class="btn btn-success">Cargar Zona</button>
                </div>
             </div>
             </fieldset>
