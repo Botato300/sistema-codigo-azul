@@ -4,7 +4,7 @@
 <head>
    <?php require_once("includes/head.php"); ?>
 
-   <script defer src="assets/js/index.js"></script>
+   <script defer type="module" src="assets/js/medic.js"></script>
 
    <title>Enfermeros</title>
 </head>
@@ -23,7 +23,7 @@
                <ul class="nav nav-tabs">
                   <li><a data-toggle="tab" href="/sistema-codigo-azul">Home</a></li>
                   <li><a data-toggle="tab" href="zonas">Zonas</a></li>
-                  <li  class="active"><a data-toggle="tab" href="enfermeros">Enfermeros</a></li>
+                  <li class="active"><a data-toggle="tab" href="enfermeros">Enfermeros</a></li>
                   <li><a data-toggle="tab" href="pacientes">Pacientes</a></li>
                </ul>
             </div>
@@ -31,12 +31,12 @@
       </nav>
    </header>
 
-   <dialog close id="test" class="">
+   <dialog id="dialog">
       <section>
-         <div class="row">
-         <button class="btnclose"><i class="fa fa-close text-danger"></i></button>
-            
-         <div class="col-md-8 col-md-offset-2">
+         <div class=" row">
+            <button id="btnclose" class="btnclose"><i class="fa fa-close text-danger"></i></button>
+
+            <div class="col-md-8 col-md-offset-2">
                <h1>Cargar Enfermeros</h1>
                <hr>
                <form>
@@ -47,8 +47,7 @@
                      <div class="row">
                         <div class="col-md-6 form-group item-form">
                            <label for="zone">Numero de Zona</label>
-                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true"
-                              max="10" min="1">
+                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true" max="10" min="1">
                            <p class="help-block error hidden">Ingresá el numero <br>El numero tiene un formato no
                               válido
                            </p>
@@ -58,8 +57,7 @@
                      <div class="row">
                         <div class="col-md-8 form-group item-form">
                            <label for="nombre">Nombre de la zona</label>
-                           <input type="text" name="name" class="form-control uppercase" id="nombre" required
-                              aria-required="true" maxlength="1">
+                           <input type="text" name="name" class="form-control uppercase" id="nombre" required aria-required="true" maxlength="1">
                            <p class="help-block error hidden">Ingresá un nombre valido</p>
                         </div>
                      </div>
@@ -96,7 +94,7 @@
                         </div>
                      </div>
                      <div class="col-sm-12 col-lg-6">
-                        <button type="button" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
+                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
                            Crear</button>
                      </div>
                   </div>

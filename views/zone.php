@@ -48,8 +48,10 @@
                         <div class="col-md-6 form-group item-form">
                            <label for="zone">Numero de Zona</label>
                            <input type="number" class="form-control" id="zoneNumber" required aria-required="true" max="10" min="1">
-                           <p class="help-block error hidden">Ingresá el numero <br>El numero tiene un formato no
-                              válido
+                           <p class="help-block error hidden">
+                              Ingresá el numero
+                              <br>
+                              El numero tiene un formato no válido
                            </p>
                         </div>
                      </div>
