@@ -56,22 +56,22 @@
 					</div>
 					<div class="text-center downloads">
 						<div class="row row-flex" id="downloads__container">
-							</div>
 						</div>
+					</div>
 
-						<div class="downloads">
-							<hr>
-							<h4>Descargas</h4>
+					<div class="downloads">
+						<hr>
+						<h4>Descargas</h4>
 
-							<div class="row row-flex">
-								<div class="col-xs-12 col-sm-6">
-									<p class="text-muted m-b-1">Descargar Reporte (3.3 Mb) </p>
-									<a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; PDF</a>
-								</div>
-								<div class="col-xs-12 col-sm-6">
-									<p class="text-muted m-b-1">Descargar Reporte (3.3 Mb)</p>
-									<a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; CSV</a>
-								</div>
+						<div class="row row-flex">
+							<div class="col-xs-12 col-sm-6">
+								<p class="text-muted m-b-1">Descargar Reporte (3.3 Mb) </p>
+								<a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; PDF</a>
+							</div>
+							<div class="col-xs-12 col-sm-6">
+								<p class="text-muted m-b-1">Descargar Reporte (3.3 Mb)</p>
+								<a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; CSV</a>
+							</div>
 						</div>
 					</div>
 			</article>

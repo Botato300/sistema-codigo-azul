@@ -10,8 +10,6 @@ RewriteRule ^cargar-zona/?$ views/newZone.php [L]
 RewriteRule ^enfermeros/?$ views/medic.php [L]
 RewriteRule ^pacientes/?$ views/patient.php [L]
 
-
-
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]

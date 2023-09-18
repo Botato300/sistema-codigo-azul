@@ -13,7 +13,7 @@ switch ($request["action"]) {
         $isValidData = Validation::validateLogin($email, $password);
         if (!$isValidData) return false;
 
-        $user = new userModal();
+        $user = new userModel();
         $result = $user->login($email, $password);
         if ($result) {
             echo json_encode([

@@ -34,9 +34,9 @@
    <dialog close id="test" class="">
       <section>
          <div class="row">
-         <button class="btnclose"><i class="fa fa-close text-danger"></i></button>
-            
-         <div class="col-md-8 col-md-offset-2">
+            <button class="btnclose"><i class="fa fa-close text-danger"></i></button>
+
+            <div class="col-md-8 col-md-offset-2">
                <h1>Cargar Pacientes</h1>
                <hr>
                <form>
@@ -47,8 +47,7 @@
                      <div class="row">
                         <div class="col-md-6 form-group item-form">
                            <label for="zone">Numero de Zona</label>
-                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true"
-                              max="10" min="1">
+                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true" max="10" min="1">
                            <p class="help-block error hidden">Ingresá el numero <br>El numero tiene un formato no
                               válido
                            </p>
@@ -58,8 +57,7 @@
                      <div class="row">
                         <div class="col-md-8 form-group item-form">
                            <label for="nombre">Nombre de la zona</label>
-                           <input type="text" name="name" class="form-control uppercase" id="nombre" required
-                              aria-required="true" maxlength="1">
+                           <input type="text" name="name" class="form-control uppercase" id="nombre" required aria-required="true" maxlength="1">
                            <p class="help-block error hidden">Ingresá un nombre valido</p>
                         </div>
                      </div>
