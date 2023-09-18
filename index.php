@@ -74,9 +74,11 @@
 							<div class="col-md-2">
 									<i class="fa fa-user-circle-o"></i>
 							</div>
+
 							<div class="col-md-2">
 									<i class="fa fa-user-circle-o"></i>
 							</div>
+							
 							<div class="col-md-2">
 									<i class="fa fa-user-circle-o"></i>
 								</div>
