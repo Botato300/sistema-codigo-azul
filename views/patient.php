@@ -4,7 +4,7 @@
 <head>
    <?php require_once("includes/head.php"); ?>
 
-   <script defer src="assets/js/index.js"></script>
+   <script defer type="module" src="assets/js/patient.js"></script>
 
    <title>Pacientes</title>
 </head>
@@ -31,10 +31,10 @@
       </nav>
    </header>
 
-   <dialog close id="test" class="">
+   <dialog id="dialog">
       <section>
          <div class="row">
-            <button class="btnclose"><i class="fa fa-close text-danger"></i></button>
+            <button id="btnclose" class="btnclose"><i class="fa fa-close text-danger"></i></button>
 
             <div class="col-md-8 col-md-offset-2">
                <h1>Cargar Pacientes</h1>
@@ -94,7 +94,7 @@
                         </div>
                      </div>
                      <div class="col-sm-12 col-lg-6">
-                        <button type="button" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
+                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
                            Crear</button>
                      </div>
                   </div>
