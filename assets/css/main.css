@@ -105,3 +105,9 @@ dialog {
 dialog::backdrop {
 	background-color: gray;
 }
+
+.btnclose {
+	font-size: 25px;
+	background-color: inherit;
+	border: none;
+}

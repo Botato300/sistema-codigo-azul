@@ -34,7 +34,9 @@
    <dialog closed id="test" class="">
       <section>
          <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+         <button class="btnclose"><i class="fa fa-close text-danger"></i></button>
+            
+         <div class="col-md-8 col-md-offset-2">
                <h1>Cargar Zonas</h1>
                <hr>
                <form>
@@ -42,7 +44,6 @@
                      <legend>
                         <h3>Datos de la zona</h3>
                      </legend>
-
                      <div class="row">
                         <div class="col-md-6 form-group item-form">
                            <label for="zone">Numero de Zona</label>
