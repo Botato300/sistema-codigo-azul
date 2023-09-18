@@ -102,7 +102,7 @@
                   </div>
                   <table class="table" id="tableFiltro">
                      <thead>
-                        <th>Numero de Matricuka</th>
+                        <th>Numero de Matricula</th>
                         <th>Nombre y Apellido</th>
                      </thead>
                      <tbody>
