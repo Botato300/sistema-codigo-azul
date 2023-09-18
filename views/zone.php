@@ -31,6 +31,48 @@
       </nav>
    </header>
 
+   <dialog open id="test" class="">
+      <section>
+         <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+               <h1>Cargar Zonas</h1>
+               <hr>
+               <form>
+                  <fieldset>
+                     <legend>
+                        <h3>Datos de la zona</h3>
+                     </legend>
+
+                     <div class="row">
+                        <div class="col-md-6 form-group item-form">
+                           <label for="zone">Numero de Zona</label>
+                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true"
+                              max="10" min="1">
+                           <p class="help-block error hidden">Ingresá el numero <br>El numero tiene un formato no
+                              válido
+                           </p>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-8 form-group item-form">
+                           <label for="nombre">Nombre de la zona</label>
+                           <input type="text" name="name" class="form-control uppercase" id="nombre" required
+                              aria-required="true" maxlength="1">
+                           <p class="help-block error hidden">Ingresá un nombre valido</p>
+                        </div>
+                     </div>
+                  </fieldset>
+                  <button type="submit" class="btn btn-success">Cargar Zona</button>
+            </div>
+         </div>
+         </fieldset>
+         </form>
+         </div>
+         </div>
+      </section>
+   </dialog>
+
    <main>
       <div class="container">
          <ol class="breadcrumb">
@@ -53,7 +95,8 @@
                         </div>
                      </div>
                      <div class="col-sm-12 col-lg-6">
-                        <button type="button" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i> Crear</button>
+                        <button type="button" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
+                           Crear</button>
                      </div>
                   </div>
                   <table class="table" id="tableFiltro">
@@ -85,7 +128,6 @@
                   </table>
                </div>
    </main>
-
    <?php require_once("includes/footer.php"); ?>
 </body>
 
