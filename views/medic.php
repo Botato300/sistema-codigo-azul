@@ -4,9 +4,9 @@
 <head>
    <?php require_once("includes/head.php"); ?>
 
-   <script defer type="module" src="assets/js/zonas.js"></script>
+   <script defer src="assets/js/index.js"></script>
 
-   <title>Zonas</title>
+   <title>Enfermeros</title>
 </head>
 
 <body>
@@ -22,8 +22,8 @@
 
                <ul class="nav nav-tabs">
                   <li><a data-toggle="tab" href="/sistema-codigo-azul">Home</a></li>
-                  <li class="active"><a data-toggle="tab" href="zonas">Zonas</a></li>
-                  <li><a data-toggle="tab" href="enfermeros">Enfermeros</a></li>
+                  <li><a data-toggle="tab" href="zonas">Zonas</a></li>
+                  <li  class="active"><a data-toggle="tab" href="enfermeros">Enfermeros</a></li>
                   <li><a data-toggle="tab" href="pacientes">Pacientes</a></li>
                </ul>
             </div>
@@ -31,13 +31,13 @@
       </nav>
    </header>
 
-   <dialog closed id="dialog" class="">
+   <dialog close id="test" class="">
       <section>
          <div class="row">
-            <button id="btnclose" class="btnclose"><i class="fa fa-close text-danger"></i></button>
-
-            <div class="col-md-8 col-md-offset-2">
-               <h1>Cargar Zonas</h1>
+         <button class="btnclose"><i class="fa fa-close text-danger"></i></button>
+            
+         <div class="col-md-8 col-md-offset-2">
+               <h1>Cargar Enfermeros</h1>
                <hr>
                <form>
                   <fieldset>
@@ -47,7 +47,8 @@
                      <div class="row">
                         <div class="col-md-6 form-group item-form">
                            <label for="zone">Numero de Zona</label>
-                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true" max="10" min="1">
+                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true"
+                              max="10" min="1">
                            <p class="help-block error hidden">Ingresá el numero <br>El numero tiene un formato no
                               válido
                            </p>
@@ -57,12 +58,13 @@
                      <div class="row">
                         <div class="col-md-8 form-group item-form">
                            <label for="nombre">Nombre de la zona</label>
-                           <input type="text" name="name" class="form-control uppercase" id="nombre" required aria-required="true" maxlength="1">
+                           <input type="text" name="name" class="form-control uppercase" id="nombre" required
+                              aria-required="true" maxlength="1">
                            <p class="help-block error hidden">Ingresá un nombre valido</p>
                         </div>
                      </div>
                   </fieldset>
-                  <button type="submit" id="btnSubmit" class="btn btn-success">Cargar Zona</button>
+                  <button type="submit" class="btn btn-success">Cargar Zona</button>
             </div>
          </div>
          </fieldset>
@@ -76,11 +78,11 @@
       <div class="container">
          <ol class="breadcrumb">
             <li><a href="ingreso">Login</a></li>
-            <li class="active">Zonas</li>
+            <li class="active">Enfermeros</li>
          </ol>
 
          <section>
-            <h1>Zonas</h1>
+            <h1>Enfermeros</h1>
 
             <hr>
             <div class="row">
@@ -89,24 +91,24 @@
                   <div class="row">
                      <div class="col-sm-12 col-lg-6" id="ponchoTableSearchCont">
                         <div class="form-group">
-                           <label for="ponchoTableSearch">Buscá por numero zona</label>
+                           <label for="ponchoTableSearch">Buscá por numero matricula</label>
                            <input class="form-control" id="ponchoTableSearch" type="text" />
                         </div>
                      </div>
                      <div class="col-sm-12 col-lg-6">
-                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
+                        <button type="button" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
                            Crear</button>
                      </div>
                   </div>
                   <table class="table" id="tableFiltro">
                      <thead>
-                        <th>Numero de zona</th>
-                        <th>Nombre de zona</th>
+                        <th>Numero de Matricuka</th>
+                        <th>Nombre y Apellido</th>
                      </thead>
                      <tbody>
                         <tr>
                            <td>1023</td>
-                           <td>A</td>
+                           <td>Gonzalo Ramirez Peña</td>
                            <td> <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
                                  Modificar</button>
                               <button type="button" class="btn btn-primary bg-danger"><i class="fa fa-ban"></i>
@@ -115,7 +117,7 @@
                         </tr>
                         <tr>
                            <td>1024</td>
-                           <td>B</td>
+                           <td>Ariel Ibarra</td>
                            <td>
                               <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
                                  Modificar</button>

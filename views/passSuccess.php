@@ -40,7 +40,7 @@
 
                         <div class="row">
                             <div class="col-xs-12">
-                                <a href="/sistema-codigo-azul" class="btn btn-link">VOLVER A INICIO</a>
+                                <a href="ingreso" class="btn btn-link">VOLVER A INICIO</a>
                             </div>
                         </div>
 
