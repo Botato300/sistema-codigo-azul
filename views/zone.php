@@ -4,7 +4,7 @@
 <head>
    <?php require_once("includes/head.php"); ?>
 
-   <script defer src="assets/js/zonas.js"></script>
+   <script defer type="module" src="assets/js/zonas.js"></script>
 
    <title>Zonas</title>
 </head>
@@ -31,12 +31,12 @@
       </nav>
    </header>
 
-   <dialog closed id="test" class="">
+   <dialog closed id="dialog" class="">
       <section>
          <div class="row">
-         <button class="btnclose"><i class="fa fa-close text-danger"></i></button>
-            
-         <div class="col-md-8 col-md-offset-2">
+            <button id="btnclose" class="btnclose"><i class="fa fa-close text-danger"></i></button>
+
+            <div class="col-md-8 col-md-offset-2">
                <h1>Cargar Zonas</h1>
                <hr>
                <form>
@@ -62,7 +62,7 @@
                         </div>
                      </div>
                   </fieldset>
-                  <button type="submit" class="btn btn-success">Cargar Zona</button>
+                  <button type="submit" id="btnSubmit" class="btn btn-success">Cargar Zona</button>
             </div>
          </div>
          </fieldset>
