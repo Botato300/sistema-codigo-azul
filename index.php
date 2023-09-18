@@ -60,14 +60,14 @@
 					<div class="text-center downloads">
 						<h4>Descargas</h4>
 
-						<div class="row row-flex">
-							<div class="col-xs-12 col-sm-6">
+						<div class="row row-flex" id="downloads__container">
+							<div class=" col-xs-12 col-sm-6">
 								<p class="text-muted m-b-1">Descargar Reporte (3.3 MB) </p>
-								<a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; PDF</a>
+								<button data-filetype="pdf" class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; PDF</button>
 							</div>
 							<div class="col-xs-12 col-sm-6">
 								<p class="text-muted m-b-1">Descargar Reporte (3.3 MB)</p>
-								<a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; CSV</a>
+								<button data-filetype="csv" class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; CSV</button>
 							</div>
 						</div>
 					</div>

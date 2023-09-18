@@ -4,6 +4,9 @@ const roomscontainer = document.getElementById("rooms__container");
 let roomsAvailable = 0;
 let totalRooms = 0;
 
+const downloadsContaier = document.getElementById("downloads__container");
+downloadsContaier.addEventListener("click", (e) => fetchReport(e.target.dataset.filetype));
+
 let idTimer = setInterval(async () => {
     const content = await fetchRoomData();
 
@@ -25,6 +28,23 @@ const fetchRoomData = async () => {
     });
 
     const content = await response.json();
+
+    return content;
+}
+
+const fetchReport = async (fileType) => {
+    const response = await fetch("controllers/controllerReport", {
+        method: "POST",
+        body: JSON.stringify({
+            action: "download",
+            data: {
+                fileType: fileType
+            }
+        })
+    });
+
+    const content = await response.json();
+
 
     return content;
 }
