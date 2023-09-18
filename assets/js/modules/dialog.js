@@ -4,10 +4,12 @@ export class Dialog {
     }
 
     open() {
-        this.element.open = true;
+        this.element.showModal();
+        document.getElementsByTagName("body")[0].style.overflow = "hidden";
     }
 
     close() {
-        this.element.open = false;
+        this.element.close();
+        document.getElementsByTagName("body")[0].style.overflow = "auto";
     }
 }
