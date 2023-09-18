@@ -18,7 +18,7 @@ switch ($request["action"]) {
         if ($result) {
             echo json_encode([
                 "status" => true,
-                "token" => "abc123"
+                "token" => $user->getToken()
             ]);
         } else {
             echo json_encode([

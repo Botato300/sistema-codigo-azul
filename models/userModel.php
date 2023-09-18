@@ -31,7 +31,7 @@ class userModal
         return $password === $row["contrasenia"];
     }
 
-    public function register(string $email, string $password): bool
+    public function createUser(string $email, string $password): bool
     {
         return true;
 
@@ -55,5 +55,10 @@ class userModal
         // $row = $result->fetch_assoc();
 
         // return $row["contrasenia"];
+    }
+
+    public function getToken(): string
+    {
+        return "abc123";
     }
 }
