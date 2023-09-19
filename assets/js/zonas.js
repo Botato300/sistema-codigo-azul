@@ -212,7 +212,13 @@ async function getAllZones() {
 }
 
 async function init() {
-    bindEventsToButtons();
     const content = await getAllZones();
     console.log(content);
+
+    if (!content.status) {
+        Notification.show("No se pudieron obtener las zonas.", NOTIFICATION_TYPE.ERROR, 5);
+        return;
+    }
+
+    bindEventsToButtons();
 }
