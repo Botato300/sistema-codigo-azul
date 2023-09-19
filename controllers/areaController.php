@@ -1,5 +1,5 @@
 <?php
-require_once("../models/areaModel.php");
+// require_once("../models/areaModel.php");
 require_once("../libs/helpers/validation.php");
 
 $request = file_get_contents("php://input");
@@ -18,28 +18,30 @@ switch ($request["action"]) {
         break;
 
     case "insert":
-        $nameZone = $request["data"]["name"];
-        $numberZone = (int)$request["data"]["number"];
+        $zoneName = $request["data"]["name"];
+        $zoneNumber = (int)$request["data"]["number"];
 
         if (!Validation::validateArray($request["data"])) return false;
 
-        $area = new areaModel();
-        $area->insert($numberZone, $nameZone);
+        // $area = new areaModel();
+        // $area->insert($zoneNumber, $zoneName);
 
         echo json_encode([
-            "status" => true
+            "status" => true,
+            "zoneName" => $zoneName,
+            "zoneNumber" => $zoneNumber
         ]);
 
         break;
 
     case "update":
-        $nameZone = $request["data"]["name"];
-        $numberZone = $request["data"]["number"];
+        $zoneName = $request["data"]["name"];
+        $zoneNumber = $request["data"]["number"];
 
         if (!Validation::validateArray($request["data"])) return false;
 
-        $area = new areaModel();
-        $area->update($numberZone, $nameZone);
+        // $area = new areaModel();
+        // $area->update($zoneNumber, $zoneName);
 
         echo json_encode([
             "status" => true
@@ -48,12 +50,12 @@ switch ($request["action"]) {
         break;
 
     case "delete":
-        $numberZone = $request["data"]["number"];
+        $zoneNumber = $request["data"]["number"];
 
         if (!Validation::validateArray($request["data"])) return false;
 
-        $area = new areaModel();
-        $area->delete($numberZone);
+        // $area = new areaModel();
+        // $area->delete($zoneNumber);
 
         echo json_encode([
             "status" => true

@@ -3,11 +3,7 @@
 import { Dialog } from "./modules/dialog.js"
 import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js"
 
-const zoneName = document.getElementById("nombre");
-const zoneNumber = document.getElementById("zoneNumber");
-
 const btnModify = document.getElementById("btnModify");
-const btnDelete = document.getElementById("btnDelete");
 
 const btnCreate = document.getElementById("btnCreate");
 btnCreate.addEventListener("click", async () => {
@@ -20,42 +16,76 @@ btnCreate.addEventListener("click", async () => {
 
     const btnSubmit = document.getElementById("btnSubmit");
     btnSubmit.addEventListener("click", async () => {
-        const status = await submitZone();
+        const zoneName = document.getElementById("nombre").value;
+        const zoneNumber = Number(document.getElementById("zoneNumber").value);
 
-        const messageType = status ? "Se creo la zona con éxito" : "No se pudo crear la zona.";
-        const notificationType = status ? NOTIFICATION_TYPE.SUCCESS : NOTIFICATION_TYPE.ERROR;
+        const content = await submitZone(zoneName, zoneNumber);
+
+        const messageType = content.status ? "Se creo la zona con éxito." : "No se pudo crear la zona.";
+        const notificationType = content.status ? NOTIFICATION_TYPE.SUCCESS : NOTIFICATION_TYPE.ERROR;
 
         Notification.show(messageType, notificationType, 5);
-        if (status) dialog.close();
+
+        if (content.status) {
+            createZoneElement(content.zoneNumber, content.zoneName);
+            bindEventsToButtons();
+            dialog.close();
+        }
     });
 });
 
-const submitZone = async () => {
+const bindEventsToButtons = () => {
+    const btnDelete = document.querySelectorAll(".delete-button");
+    btnDelete.forEach(btn => {
+        btn.addEventListener("click", async function (e) {
+            const zoneNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
+
+            const status = await deleteZone(zoneNumber);
+
+            if (!status) {
+                Notification.show("No se pudo borrar la zona.", NOTIFICATION_TYPE.ERROR, 5);
+                return;
+            }
+
+            e.target.parentNode.parentNode.remove()
+            Notification.show("Se borro la zona con éxito.", NOTIFICATION_TYPE.SUCCESS, 5);
+        });
+    });
+}
+bindEventsToButtons();
+
+const submitZone = async (zoneName, zoneNumber) => {
     const response = await fetch("controllers/areaController", {
         method: "POST",
         body: JSON.stringify({
             action: "insert",
             data: {
-                name: zoneName.value,
-                number: Number(zoneNumber.value)
+                name: zoneName.toUpperCase(),
+                number: zoneNumber
             }
         })
     });
 
     const content = await response.json();
-    return content.status;
+    return content;
 }
 
-const createComponentZone = async (id, name) => {
+const createZoneElement = (id, name) => {
+    const table = document.getElementById("dataTable");
 
-}
+    const rowElement = document.createElement("tr");
+    rowElement.innerHTML = `
+        <td>${id}</td>
+        <td>${name}</td>
+        <td>
+            <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
+                Modificar</button>
+            <button type="button" class="btn btn-primary bg-danger delete-button"><i class="fa fa-ban"></i>
+                Eliminar</button>
+        </td>
+    `;
 
-const openDialog = async () => {
-
-}
-
-const closeDialog = async () => {
-
+    table.appendChild(rowElement);
 }
 
 const modifyZone = async () => {
@@ -71,14 +101,17 @@ const modifyZone = async () => {
     });
 }
 
-const deleteZone = async () => {
-    fetch("controllers/areaController", {
+const deleteZone = async (zoneNumber) => {
+    const response = await fetch("controllers/areaController", {
         method: "POST",
         body: JSON.stringify({
             action: "delete",
             data: {
-                number: zoneNumber.value
+                number: zoneNumber
             }
         })
     });
+
+    const content = await response.json();
+    return content.status;
 }

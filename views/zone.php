@@ -102,13 +102,13 @@
                         <th>Numero de zona</th>
                         <th>Nombre de zona</th>
                      </thead>
-                     <tbody>
+                     <tbody id="dataTable">
                         <tr>
                            <td>1023</td>
                            <td>A</td>
                            <td> <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
                                  Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger"><i class="fa fa-ban"></i>
+                              <button type="button" class="btn btn-primary bg-danger delete-button"><i class="fa fa-ban"></i>
                                  Eliminar</button>
                            </td>
                         </tr>
@@ -118,7 +118,7 @@
                            <td>
                               <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
                                  Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger"><i class="fa fa-ban"></i>
+                              <button type="button" class="btn btn-primary bg-danger delete-button"><i class="fa fa-ban"></i>
                                  Eliminar</button>
                            </td>
                         </tr>
