@@ -94,4 +94,27 @@ class Validation
 
 		return true;
 	}
+
+	private static function hasEmptyValue($arr): bool
+	{
+		foreach ($arr as $value) {
+			if (empty($value)) return true;
+		}
+
+		return false;
+	}
+
+	public static function validateArray($dataArr): bool
+	{
+		if (self::hasEmptyValue($dataArr)) {
+			echo json_encode([
+				"status" => false,
+				"details" => "Uno de los campos no tiene un dato almacenado."
+			]);
+
+			return false;
+		}
+
+		return true;
+	}
 }

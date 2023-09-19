@@ -12,7 +12,6 @@ const btnDelete = document.getElementById("btnDelete");
 const btnCreate = document.getElementById("btnCreate");
 btnCreate.addEventListener("click", async () => {
     const dialogElement = document.getElementById("dialog");
-
     const dialog = new Dialog(dialogElement);
     dialog.open();
 
@@ -27,10 +26,9 @@ btnCreate.addEventListener("click", async () => {
         const notificationType = status ? NOTIFICATION_TYPE.SUCCESS : NOTIFICATION_TYPE.ERROR;
 
         Notification.show(messageType, notificationType, 5);
-        dialog.close();
+        if (status) dialog.close();
     });
 });
-
 
 const submitZone = async () => {
     const response = await fetch("controllers/areaController", {
@@ -39,7 +37,7 @@ const submitZone = async () => {
             action: "insert",
             data: {
                 name: zoneName.value,
-                number: zoneNumber.value
+                number: Number(zoneNumber.value)
             }
         })
     });

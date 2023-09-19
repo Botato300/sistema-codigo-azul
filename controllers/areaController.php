@@ -19,13 +19,15 @@ switch ($request["action"]) {
 
     case "insert":
         $nameZone = $request["data"]["name"];
-        $numberZone = $request["data"]["number"];
+        $numberZone = (int)$request["data"]["number"];
+
+        if (!Validation::validateArray($request["data"])) return false;
 
         $area = new areaModel();
-        // $area->insert($numberZone, $nameZone);
+        $area->insert($numberZone, $nameZone);
 
         echo json_encode([
-            "status" => false
+            "status" => true
         ]);
 
         break;
@@ -34,6 +36,8 @@ switch ($request["action"]) {
         $nameZone = $request["data"]["name"];
         $numberZone = $request["data"]["number"];
 
+        if (!Validation::validateArray($request["data"])) return false;
+
         $area = new areaModel();
         $area->update($numberZone, $nameZone);
 
@@ -41,6 +45,8 @@ switch ($request["action"]) {
 
     case "delete":
         $numberZone = $request["data"]["number"];
+
+        if (!Validation::validateArray($request["data"])) return false;
 
         $area = new areaModel();
         $area->delete($numberZone);
