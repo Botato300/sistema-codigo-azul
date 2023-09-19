@@ -65,7 +65,49 @@
                            <p class="help-block error hidden">Ingresá un nombre valido</p>
                         </div>
                      </div>
-                     <button type="submit" id="btnSubmit" class="btn btn-success">Enviar Zona</button>
+                     <button type="submit" id="btnSubmit" class="btn btn-success">Cargar Zona</button>
+                  </fieldset>
+               </form>
+            </div>
+         </div>
+      </section>
+   </dialog>
+
+   <dialog id="modifyDialog" class="dialog">
+      <section>
+         <div class="row">
+            <button id="btnclose2" class="btnclose"><i class="fa fa-close text-danger"></i></button>
+
+            <div class="col-md-8 col-md-offset-2">
+               <h1>Modificar Zona</h1>
+               <hr>
+               <form onsubmit="return false;">
+                  <fieldset>
+                     <legend>
+                        <h3>Datos de la zona</h3>
+                     </legend>
+                     <div class="row">
+                        <div class="col-md-6 form-group item-form">
+                           <label for="zone">Numero de Zona</label>
+                           <input type="number" class="form-control" id="zoneNumber2" required aria-required="true"
+                              max="10" min="1">
+                           <p class="help-block error hidden">
+                              Ingresá el numero
+                              <br>
+                              El numero tiene un formato no válido
+                           </p>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-8 form-group item-form">
+                           <label for="nombre">Nombre de la zona</label>
+                           <input type="text" class="form-control uppercase" id="zoneName" required aria-required="true"
+                              maxlength="1">
+                           <p class="help-block error hidden">Ingresá un nombre valido</p>
+                        </div>
+                     </div>
+                     <button type="submit" id="btnSubmit2" class="btn btn-success">Cargar Zona</button>
                   </fieldset>
                </form>
             </div>
@@ -105,29 +147,7 @@
                         <th>Numero de zona</th>
                         <th>Nombre de zona</th>
                      </thead>
-                     <tbody id="dataTable">
-                        <tr>
-                           <td>1023</td>
-                           <td>A</td>
-                           <td> <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
-                                 Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger delete-button"><i
-                                    class="fa fa-ban"></i>
-                                 Eliminar</button>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>1024</td>
-                           <td>B</td>
-                           <td>
-                              <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
-                                 Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger delete-button"><i
-                                    class="fa fa-ban"></i>
-                                 Eliminar</button>
-                           </td>
-                        </tr>
-                     </tbody>
+                     <tbody id="dataTable"></tbody>
                   </table>
                </div>
    </main>

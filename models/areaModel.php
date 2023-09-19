@@ -15,13 +15,13 @@ class areaModel
     {
         $this->db->close();
     }
-    
+
     public function insert(int $numero, string $nombre): void
     {
         $stmt = $this->db->prepare("INSERT INTO areas VALUES (?, ?)");
         $stmt->bind_param('is', $numero, $nombre);
         $stmt->execute();
-    }    
+    }
 
     public function update(int $numero, string $nombre): void
     {
@@ -31,22 +31,21 @@ class areaModel
 
         $stmt = $this->db->prepare("SELECT * FROM areas");
         $stmt->execute();
+    }
 
-        $result = $stmt->get_result();
-
-        while($row = $result->fetch_assoc())
-            echo "Numero: ".$row['numero']." Nombre: ".$row['nombre']."<br>";
-    }    
-
-    public function selectAll(): void
+    public function selectAll(): array
     {
         $stmt = $this->db->prepare("SELECT * FROM areas");
         $stmt->execute();
 
         $result = $stmt->get_result();
+        $rows = array();
 
-        while($row = $result->fetch_assoc())
-            echo "Numero: ".$row['numero']." Nombre: ".$row['nombre']."<br>";
+        while ($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
     }
 
     public function delete(int $numero): void
@@ -57,17 +56,5 @@ class areaModel
 
         $stmt = $this->db->prepare("SELECT * FROM areas");
         $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        while($row = $result->fetch_assoc())
-            echo "Numero: ".$row['numero']." Nombre: ".$row['nombre']."<br>";
-    }    
+    }
 }
-
-$objeto = new areaModel();
-$objeto->__construct();
-$objeto->delete(22);
-
-
-?>

@@ -1,5 +1,5 @@
 <?php
-// require_once("../models/areaModel.php");
+require_once("../models/areaModel.php");
 require_once("../libs/helpers/validation.php");
 
 $request = file_get_contents("php://input");
@@ -23,8 +23,8 @@ switch ($request["action"]) {
 
         if (!Validation::validateArray($request["data"])) return false;
 
-        // $area = new areaModel();
-        // $area->insert($zoneNumber, $zoneName);
+        $area = new areaModel();
+        $area->insert($zoneNumber, $zoneName);
 
         echo json_encode([
             "status" => true,
@@ -40,8 +40,8 @@ switch ($request["action"]) {
 
         if (!Validation::validateArray($request["data"])) return false;
 
-        // $area = new areaModel();
-        // $area->update($zoneNumber, $zoneName);
+        $area = new areaModel();
+        $area->update($zoneNumber, $zoneName);
 
         echo json_encode([
             "status" => true
@@ -54,8 +54,8 @@ switch ($request["action"]) {
 
         if (!Validation::validateArray($request["data"])) return false;
 
-        // $area = new areaModel();
-        // $area->delete($zoneNumber);
+        $area = new areaModel();
+        $area->delete($zoneNumber);
 
         echo json_encode([
             "status" => true
@@ -68,13 +68,22 @@ switch ($request["action"]) {
 
         if (!Validation::validateArray($request["data"])) return false;
 
-        // $area = new areaModel();
-        // $area->selectAll($zoneNumber);
+        $area = new areaModel();
+        $area->selectAll($zoneNumber);
 
         echo json_encode([
             "status" => true
         ]);
 
+        break;
+    case "getAll":
+        $area = new areaModel();
+        $rows = $area->selectAll();
+
+        echo json_encode([
+            "status" => true,
+            "data" => $rows
+        ]);
         break;
     default:
         echo json_encode([
