@@ -1,5 +1,6 @@
 <?php
 require_once("../models/areaModel.php");
+require_once("../libs/helpers/validation.php");
 
 $request = file_get_contents("php://input");
 $request = json_decode($request, true);
@@ -21,7 +22,11 @@ switch ($request["action"]) {
         $numberZone = $request["data"]["number"];
 
         $area = new areaModel();
-        $area->insert($numberZone, $nameZone);
+        // $area->insert($numberZone, $nameZone);
+
+        echo json_encode([
+            "status" => false
+        ]);
 
         break;
 

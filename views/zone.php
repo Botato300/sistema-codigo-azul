@@ -39,7 +39,7 @@
             <div class="col-md-8 col-md-offset-2">
                <h1>Cargar Zonas</h1>
                <hr>
-               <form>
+               <form onsubmit="return false;">
                   <fieldset>
                      <legend>
                         <h3>Datos de la zona</h3>
@@ -59,17 +59,14 @@
                      <div class="row">
                         <div class="col-md-8 form-group item-form">
                            <label for="nombre">Nombre de la zona</label>
-                           <input type="text" name="name" class="form-control uppercase" id="nombre" required aria-required="true" maxlength="1">
+                           <input type="text" class="form-control uppercase" id="nombre" required aria-required="true" maxlength="1">
                            <p class="help-block error hidden">Ingresá un nombre valido</p>
                         </div>
                      </div>
+                     <button type="submit" id="btnSubmit" class="btn btn-success">Cargar Zona</button>
                   </fieldset>
-                  <button type="submit" id="btnSubmit" class="btn btn-success">Cargar Zona</button>
+               </form>
             </div>
-         </div>
-         </fieldset>
-         </form>
-         </div>
          </div>
       </section>
    </dialog>
@@ -129,6 +126,7 @@
                   </table>
                </div>
    </main>
+
    <?php require_once("includes/footer.php"); ?>
 </body>
 
