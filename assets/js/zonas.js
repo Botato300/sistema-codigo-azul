@@ -10,7 +10,7 @@ const btnCreate = document.getElementById("btnCreate");
 const btnModify = document.getElementById("btnModify");
 const btnDelete = document.getElementById("btnDelete");
 
-btnCreate.addEventListener("click", async (e) => {
+btnCreate.addEventListener("click", async () => {
     const dialogElement = document.getElementById("dialog");
 
     const dialog = new Dialog(dialogElement);
@@ -22,12 +22,10 @@ btnCreate.addEventListener("click", async (e) => {
     })
 });
 
-
-
-btnSubmit.addEventListener("click", async (e) => {
+btnSubmit.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const content = await submitZone();
+    submitZone();
 });
 
 const submitZone = () => {
