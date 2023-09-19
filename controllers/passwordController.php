@@ -9,7 +9,7 @@ $email = $request["data"]["email"];
 
 if (!Validation::validateEmail($email)) return false;
 
-$user = new userModal();
+$user = new userModel();
 $password = $user->recoveryPassword($email);
 
 $emailTo = $email;
