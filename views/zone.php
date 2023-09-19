@@ -47,7 +47,8 @@
                      <div class="row">
                         <div class="col-md-6 form-group item-form">
                            <label for="zone">Numero de Zona</label>
-                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true" max="10" min="1">
+                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true"
+                              max="10" min="1">
                            <p class="help-block error hidden">
                               Ingresá el numero
                               <br>
@@ -59,11 +60,12 @@
                      <div class="row">
                         <div class="col-md-8 form-group item-form">
                            <label for="nombre">Nombre de la zona</label>
-                           <input type="text" class="form-control uppercase" id="nombre" required aria-required="true" maxlength="1">
+                           <input type="text" class="form-control uppercase" id="nombre" required aria-required="true"
+                              maxlength="1">
                            <p class="help-block error hidden">Ingresá un nombre valido</p>
                         </div>
                      </div>
-                     <button type="submit" id="btnSubmit" class="btn btn-success">Cargar Zona</button>
+                     <button type="submit" id="btnSubmit" class="btn btn-success">Enviar Zona</button>
                   </fieldset>
                </form>
             </div>
@@ -93,7 +95,8 @@
                         </div>
                      </div>
                      <div class="col-sm-12 col-lg-6">
-                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
+                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i
+                              class="fa fa-plus"></i>
                            Crear</button>
                      </div>
                   </div>
@@ -108,7 +111,8 @@
                            <td>A</td>
                            <td> <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
                                  Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger delete-button"><i class="fa fa-ban"></i>
+                              <button type="button" class="btn btn-primary bg-danger delete-button"><i
+                                    class="fa fa-ban"></i>
                                  Eliminar</button>
                            </td>
                         </tr>
@@ -118,7 +122,8 @@
                            <td>
                               <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
                                  Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger delete-button"><i class="fa fa-ban"></i>
+                              <button type="button" class="btn btn-primary bg-danger delete-button"><i
+                                    class="fa fa-ban"></i>
                                  Eliminar</button>
                            </td>
                         </tr>
