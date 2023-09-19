@@ -62,6 +62,20 @@ switch ($request["action"]) {
         ]);
 
         break;
+
+    case "search":
+        $zoneNumber = $request["data"]["zoneNumber"];
+
+        if (!Validation::validateArray($request["data"])) return false;
+
+        // $area = new areaModel();
+        // $area->selectAll($zoneNumber);
+
+        echo json_encode([
+            "status" => true
+        ]);
+
+        break;
     default:
         echo json_encode([
             "status" => false,

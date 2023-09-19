@@ -3,8 +3,6 @@
 import { Dialog } from "./modules/dialog.js"
 import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js"
 
-const btnModify = document.getElementById("btnModify");
-
 const btnCreate = document.getElementById("btnCreate");
 btnCreate.addEventListener("click", async () => {
     const dialogElement = document.getElementById("dialog");
@@ -34,6 +32,33 @@ btnCreate.addEventListener("click", async () => {
     });
 });
 
+let searchTimer = "";
+const searchBar = document.getElementById("searchBar");
+searchBar.addEventListener("input", (e) => {
+    searchBar.value = searchBar.value.replace(/\D/g, '');
+
+    clearTimeout(searchTimer);
+
+    const zoneNumber = searchBar.value.trim();
+
+    searchTimer = setTimeout(() => sendSearch(zoneNumber), 1000);
+});
+
+const sendSearch = async (zoneNumber) => {
+    const response = await fetch("controllers/areaController", {
+        method: "POST",
+        body: JSON.stringify({
+            action: "search",
+            data: {
+                zoneNumber: Number(zoneNumber)
+            }
+        })
+    });
+
+    const content = await response.json();
+    console.log(content);
+}
+
 const bindEventsToButtons = () => {
     const btnDelete = document.querySelectorAll(".delete-button");
     btnDelete.forEach(btn => {
@@ -51,6 +76,8 @@ const bindEventsToButtons = () => {
             Notification.show("Se borro la zona con éxito.", NOTIFICATION_TYPE.SUCCESS, 5);
         });
     });
+
+    const btnModify = document.getElementById("btnModify");
 }
 bindEventsToButtons();
 

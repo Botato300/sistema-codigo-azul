@@ -88,8 +88,8 @@
                   <div class="row">
                      <div class="col-sm-12 col-lg-6" id="ponchoTableSearchCont">
                         <div class="form-group">
-                           <label for="ponchoTableSearch">Buscá por numero zona</label>
-                           <input class="form-control" id="ponchoTableSearch" type="text" />
+                           <label for="ponchoTableSearch">Buscá por numero de zona</label>
+                           <input class="form-control" id="searchBar" type="text">
                         </div>
                      </div>
                      <div class="col-sm-12 col-lg-6">

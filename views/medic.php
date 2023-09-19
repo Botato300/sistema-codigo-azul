@@ -86,7 +86,7 @@
                   <div class="row">
                      <div class="col-sm-12 col-lg-6" id="ponchoTableSearchCont">
                         <div class="form-group">
-                           <label for="ponchoTableSearch">Buscá por numero matricula</label>
+                           <label for="ponchoTableSearch">Buscá por numero de matrícula</label>
                            <input class="form-control" id="ponchoTableSearch" type="text" />
                         </div>
                      </div>
