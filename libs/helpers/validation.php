@@ -98,7 +98,9 @@ class Validation
 	private static function hasEmptyValue($arr): bool
 	{
 		foreach ($arr as $value) {
-			if (empty($value)) return true;
+			if (!isset($value) || $value === "") {
+				return true;
+			}
 		}
 
 		return false;

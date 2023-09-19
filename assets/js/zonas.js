@@ -213,11 +213,14 @@ async function getAllZones() {
 
 async function init() {
     const content = await getAllZones();
-    console.log(content);
 
     if (!content.status) {
         Notification.show("No se pudieron obtener las zonas.", NOTIFICATION_TYPE.ERROR, 5);
         return;
+    }
+
+    for (let i = 0; i < content.data.length; i++) {
+        createZoneElement(content.data[i].numero, content.data[i].nombre);
     }
 
     bindEventsToButtons();
