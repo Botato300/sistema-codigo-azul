@@ -33,13 +33,13 @@
 
    <dialog id="dialog">
       <section>
-         <div class=" row">
+         <div class="row">
             <button id="btnclose" class="btnclose"><i class="fa fa-close text-danger"></i></button>
 
             <div class="col-md-8 col-md-offset-2">
                <h1>Cargar Enfermeros</h1>
                <hr>
-               <form>
+               <form onsubmit="return false;">
                   <fieldset>
                      <legend>
                         <h3>Datos de la zona</h3>
@@ -63,11 +63,8 @@
                      </div>
                   </fieldset>
                   <button type="submit" class="btn btn-success">Cargar Zona</button>
+               </form>
             </div>
-         </div>
-         </fieldset>
-         </form>
-         </div>
          </div>
       </section>
    </dialog>

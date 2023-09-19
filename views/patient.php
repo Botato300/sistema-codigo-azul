@@ -39,7 +39,7 @@
             <div class="col-md-8 col-md-offset-2">
                <h1>Cargar Pacientes</h1>
                <hr>
-               <form>
+               <form onsubmit="return false;">
                   <fieldset>
                      <legend>
                         <h3>Datos del paciente</h3>
@@ -63,11 +63,8 @@
                      </div>
                   </fieldset>
                   <button type="submit" class="btn btn-success">Cargar Pacientes</button>
+               </form>
             </div>
-         </div>
-         </fieldset>
-         </form>
-         </div>
          </div>
       </section>
    </dialog>
