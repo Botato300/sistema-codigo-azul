@@ -41,6 +41,10 @@ switch ($request["action"]) {
         $area = new areaModel();
         $area->update($numberZone, $nameZone);
 
+        echo json_encode([
+            "status" => true
+        ]);
+
         break;
 
     case "delete":
@@ -50,6 +54,10 @@ switch ($request["action"]) {
 
         $area = new areaModel();
         $area->delete($numberZone);
+
+        echo json_encode([
+            "status" => true
+        ]);
 
         break;
     default:
