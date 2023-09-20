@@ -42,6 +42,8 @@ btnCreate.addEventListener("click", async () => {
 let searchTimer = "";
 const searchBar = document.getElementById("searchBar");
 searchBar.addEventListener("input", (e) => {
+    if (searchBar.value.length == 0) location.reload();
+
     searchBar.value = searchBar.value.replace(/\D/g, '');
 
     clearTimeout(searchTimer);
@@ -63,7 +65,14 @@ const sendSearch = async (zoneNumber) => {
     });
 
     const content = await response.json();
-    console.log(content);
+
+    if (!content.status) {
+        Notification.show("No se pudo encontrar la zona que buscas.", NOTIFICATION_TYPE.ERROR, 5);
+        return false;
+    }
+
+    ResetZoneElement();
+    createZoneElement(zoneNumber, content.data.nombre);
 }
 
 function bindEventsToButtons() {
@@ -160,6 +169,11 @@ const createZoneElement = (id, name) => {
     `;
 
     table.appendChild(rowElement);
+}
+
+const ResetZoneElement = () => {
+    const table = document.getElementById("dataTable");
+    table.innerHTML = "";
 }
 
 const modifyZone = async (zoneName, zoneNumber) => {

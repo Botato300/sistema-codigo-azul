@@ -76,10 +76,19 @@ switch ($request["action"]) {
         if (!Validation::validateArray($request["data"])) return false;
 
         $area = new areaModel();
-        $area->selectAll($zoneNumber);
+        $content = $area->select($zoneNumber);
+
+        if (is_null($content)) {
+            echo json_encode([
+                "status" => false
+            ]);
+
+            return false;
+        }
 
         echo json_encode([
-            "status" => true
+            "status" => true,
+            "data" => $content
         ]);
 
         break;
