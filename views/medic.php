@@ -200,6 +200,34 @@
                         </div>
                      </div>
 
+                     <div class="row">
+                        <div class="col-md-8 form-group item-form">
+                           <label for="fecha">Fecha Guardia</label>
+                           <input type="date" class="form-control" id="fechaGuardia" required aria-required="true">
+                           <p class="help-block error hidden">Ingresá una fecha válida</p>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-md-4">
+                           <label for="fecha">Hora de inicio de la guardia</label>
+                           <input type="time" class="form-control" id="horaGuardia" required
+                              aria-required="true"></input>
+                           </span>
+                           <p class="help-block error hidden">Ingresá una fecha válida</p>
+                        </div>
+
+                        <div class="col-md-4">
+                           <label for="fecha">Hora de fin de la guardia</label>
+                           <input type="time" class="form-control" id="horaGuardia" required
+                              aria-required="true"></input>
+                           </span>
+                           <p class="help-block error hidden">Ingresá una fecha válida</p>
+                        </div>
+
+                     </div>
+                     <br>
+
                      <button type="submit" id="btnSubmit" class="btn btn-success">Enviar Profesional</button>
                   </fieldset>
                </form>
