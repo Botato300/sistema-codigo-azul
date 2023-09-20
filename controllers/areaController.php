@@ -23,8 +23,15 @@ switch ($request["action"]) {
 
         if (!Validation::validateArray($request["data"])) return false;
 
-        $area = new areaModel();
-        $area->insert($zoneNumber, $zoneName);
+        try {
+            $area = new areaModel();
+            $area->insert($zoneNumber, $zoneName);
+        } catch (Exception) {
+            echo json_encode([
+                "status" => false
+            ]);
+            return false;
+        }
 
         echo json_encode([
             "status" => true,
