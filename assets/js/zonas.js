@@ -182,7 +182,7 @@ const modifyZone = async (zoneName, zoneNumber) => {
         body: JSON.stringify({
             action: "update",
             data: {
-                name: zoneName,
+                name: zoneName.toUpperCase(),
                 number: zoneNumber
             }
         })
