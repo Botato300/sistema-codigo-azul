@@ -78,26 +78,14 @@
          <div class="row">
             <button id="btnclose2" class="btnclose"><i class="fa fa-close text-danger"></i></button>
 
-            <div class="col-md-8 col-md-offset-2">
-               <h1>Modificar Zona</h1>
-               <hr>
-               <form onsubmit="return false;">
-                  <fieldset>
-                     <legend>
-                        <h3>Datos de la zona</h3>
-                     </legend>
-                     <div class="row">
-                        <div class="col-md-6 form-group item-form">
-                           <label for="zone">Numero de Zona</label>
-                           <input type="number" class="form-control" id="zoneNumber2" required aria-required="true"
-                              max="10" min="1">
-                           <p class="help-block error hidden">
-                              Ingresá el numero
-                              <br>
-                              El numero tiene un formato no válido
-                           </p>
-                        </div>
-                     </div>
+				<div class="col-md-8 col-md-offset-2">
+					<h1>Modificar Zona</h1>
+					<hr>
+					<form onsubmit="return false;">
+						<fieldset>
+							<legend>
+								<h3>Datos de la zona N°<span id="zoneNumber2"></span></h3>
+							</legend>
 
                      <div class="row">
                         <div class="col-md-8 form-group item-form">

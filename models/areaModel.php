@@ -28,9 +28,6 @@ class areaModel
         $stmt = $this->db->prepare("UPDATE areas SET nombre=? WHERE numero=?");
         $stmt->bind_param('si', $nombre, $numero);
         $stmt->execute();
-
-        $stmt = $this->db->prepare("SELECT * FROM areas");
-        $stmt->execute();
     }
 
     public function selectAll(): array

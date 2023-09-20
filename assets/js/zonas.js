@@ -28,10 +28,7 @@ btnCreate.addEventListener("click", async () => {
         sending = true;
         const content = await submitZone(zoneName, zoneNumber);
 
-        const messageType = content.status ? "Se creo la zona con éxito." : "No se pudo crear la zona.";
-        const notificationType = content.status ? NOTIFICATION_TYPE.SUCCESS : NOTIFICATION_TYPE.ERROR;
-
-        Notification.show(messageType, notificationType, 5);
+        if (!content.status) Notification.show("No se pudo crear la zona.", NOTIFICATION_TYPE.ERROR, 5);
 
         if (content.status) {
             createZoneElement(7, "p");
@@ -103,10 +100,9 @@ function bindEventsToButtons() {
             let zoneNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
 
             const zoneNameInput = document.getElementById("zoneName");
-            const zoneNumberInput = document.getElementById("zoneNumber2");
-
             zoneNameInput.value = zoneName;
-            zoneNumberInput.value = zoneNumber;
+
+            document.getElementById("zoneNumber2").textContent = zoneNumber;
 
             let sending = false;
             const btnSubmit = document.getElementById("btnSubmit2");
@@ -114,11 +110,10 @@ function bindEventsToButtons() {
                 if (sending) return;
 
                 const zoneName = document.getElementById("zoneName").value;
-                const zoneNumber = Number(document.getElementById("zoneNumber2").value);
+                const zoneNumber = Number(document.getElementById("zoneNumber2").textContent);
 
                 sending = true;
                 const status = await modifyZone(zoneName, zoneNumber);
-                // const status = true;
 
                 if (!status) {
                     Notification.show("No se pudo modificar la zona.", NOTIFICATION_TYPE.ERROR, 5);
@@ -126,7 +121,6 @@ function bindEventsToButtons() {
                 }
 
                 dialog.close();
-                Notification.show("Se modifico la zona con éxito.", NOTIFICATION_TYPE.SUCCESS, 5);
                 location.reload();
             });
             sending = false;
