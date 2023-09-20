@@ -7,7 +7,7 @@ RewriteRule ^exitoso/?$ views/passSuccess.php [L]
 RewriteRule ^lite/?$ views/lite.php [L]
 RewriteRule ^zonas/?$ views/zone.php [L]
 RewriteRule ^cargar-zona/?$ views/newZone.php [L]
-RewriteRule ^enfermeros/?$ views/professionals.php [L]
+RewriteRule ^profesionales/?$ views/professionals.php [L]
 RewriteRule ^pacientes/?$ views/patient.php [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d

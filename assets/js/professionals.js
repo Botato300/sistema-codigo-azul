@@ -18,6 +18,11 @@ btnCreate.addEventListener("click", async () => {
     dialog.open();
 
 
+    const btnSubmit = document.getElementById("btnSubmit");
+    btnSubmit.addEventListener("click", () => {
+        const data = getFormData();
+        console.log(data);
+    });
 });
 
 let searchTimer = "";
@@ -227,7 +232,7 @@ function getFormData() {
         EMAIL: document.getElementById("email").value,
         CALL_DATE: document.getElementById("fechaGuardia").value,
         TIME_ADMISSION: document.getElementById("inicioHoraGuardia").value,
-        PICKUP_TIME: document.getElementById("finalHoraGuardia").value,
+        PICKUP_TIME: document.getElementById("finalHoraGuardia").value
     }
 
     return data;
