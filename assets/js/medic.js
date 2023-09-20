@@ -8,7 +8,9 @@ const btnSubmit = document.getElementById("btnSubmit");
 const btnModify = document.getElementById("btnModify");
 const btnDelete = document.getElementById("btnDelete");
 
-btnCreate.addEventListener("click", async () => {
+const dateTime = document.getElementById("datetimepicker");
+
+btnCreate.addEventListener("click", async() => {
     const dialogElement = document.getElementById("dialog");
 
     const dialog = new Dialog(dialogElement);
@@ -19,3 +21,10 @@ btnCreate.addEventListener("click", async () => {
         dialog.close();
     })
 });
+
+/*
+$(function() {
+    $('#datetimepicker3').datetimepicker({
+        pickDate: false
+    });
+});*/
