@@ -29,16 +29,17 @@ btnCreate.addEventListener("click", async () => {
 function getForm(){
 const formData = {
         DNI: document.getElementById("tipoDoc").value,
-        DOCUMENT_NUM: document.getElementById("numeroDoc").value,
+        DOCUMENT_NUM: document.getElementById("mostrar-tipo").value,
         BLOOD: document.getElementById("grupoSanguineo").value,
         NAME: document.getElementById("nombre").value,
-        LAST_NAME: document.getElementById("lastname").value,
+        LAST_NAME: document.getElementById("apellido").value,
         CLINIC_HISTORY: document.getElementById("historiaClinica").value,
         DATE_BIRTH: document.getElementById("birthday").value,
         GENRES: document.getElementById("generos").value,
         TELEPHONE: document.getElementById("cellphone_number").value,
         ADDRESS: document.getElementById("address_street").value,
         EMAIL: document.getElementById("email").value 
+    
     }
     return formData;
 }
