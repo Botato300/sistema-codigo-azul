@@ -45,6 +45,13 @@ class areaModel
         return $rows;
     }
 
+    public function select(int $number): void
+    {
+        $stmt = $this->db->prepate("SELECT * FROM areas WHERE numero = ?");
+        $stmt->bind_param('d', $number);
+        $stmt->execute();
+    }
+
     public function delete(int $numero): void
     {
         $stmt = $this->db->prepare("DELETE FROM areas WHERE numero=?");
