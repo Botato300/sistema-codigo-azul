@@ -3,23 +3,19 @@
 import { Dialog } from "./modules/dialog.js"
 import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js"
 
-const DOCUMENT_TYPE = Object.freeze({
-    DNI: "DNI",
-    PASSPORT: "PASSPORT"
-
-});
-
 // init();
 
 const btnCreate = document.getElementById("btnCreate");
 btnCreate.addEventListener("click", async () => {
+
     const dialogElement = document.getElementById("dialog");
     const dialog = new Dialog(dialogElement);
     dialog.open();
 
 
     const btnSubmit = document.getElementById("btnSubmit");
-    btnSubmit.addEventListener("click", () => {
+    btnSubmit.addEventListener("click", (e) => {
+        e.preventDefault();
         const data = getFormData();
         console.log(data);
     });
@@ -221,7 +217,7 @@ function getFormData() {
     const data = {
         DNI: document.getElementById("tipoDoc").value,
         DOCUMENT_NUM: document.getElementById("numDoc").value,
-        GRADE_TYPE: document.getElementById("tipoGrado").value,
+        CARREER_TYPE: document.getElementById("tipoCarrera").value,
         NAME: document.getElementById("nombre").value,
         LASTNAME: document.getElementById("apellido").value,
         TUITION: document.getElementById("matricula").value,
