@@ -56,7 +56,7 @@
 
                   <div class="col-md-4">
                      <div class="form-group item-form">
-                        <label for="numDoc" id="mostrar-tipo">Número</label>
+                        <label for="numDoc" id="numeroDoc">Número</label>
                         <input type="number" min="1" class="form-control" id="numDoc" required aria-required="true">
                         <p class="help-block error hidden">Ingresá tu número de documento</p>
                      </div>
@@ -94,8 +94,7 @@
                   <div class="row">
                      <div class="col-md-8 form-group item-form">
                         <label for="apellido">Apellido/s</label>
-                        <input type="text" name="lastname" class="form-control" id="apellido" required
-                           aria-required="true">
+                        <input type="text" name="lastname" class="form-control" id="apellido" required aria-required="true">
                         <p class="help-block error hidden">Ingresá tu apellido</p>
                      </div>
                   </div>
@@ -136,8 +135,7 @@
                   <div class="row">
                      <fieldset>
                         <div class="form-group col-xs-12 col-sm-8 item-form">
-                           <input aria-label="número de teléfono móvil" class="form-control" id="cellphone_number"
-                              required aria-required="true" type="text">
+                           <input aria-label="número de teléfono móvil" class="form-control" id="cellphone_number" required aria-required="true" type="text">
                            <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                         </div>
                      </fieldset>
@@ -148,8 +146,7 @@
                   <div class="row">
                      <div class="col-md-8 form-group item-form">
                         <label for="address_street">Dirección</label>
-                        <input type="text" name="address_street" class="form-control" id="address_street" required
-                           aria-required="true">
+                        <input type="text" name="address_street" class="form-control" id="address_street" required aria-required="true">
                         <p class="help-block error hidden">Ingresá una direccion</p>
                      </div>
                </fieldset>
@@ -195,8 +192,7 @@
                         </div>
                      </div>
                      <div class="col-sm-12 col-lg-6">
-                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i
-                              class="fa fa-plus"></i>
+                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
                            Crear</button>
                      </div>
                   </div>

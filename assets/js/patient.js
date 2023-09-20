@@ -26,8 +26,8 @@ btnCreate.addEventListener("click", async () => {
 
 });
 
-function getForm(){
-const formData = {
+function getForm() {
+    const formData = {
         DNI: document.getElementById("tipoDoc").value,
         DOCUMENT_NUM: document.getElementById("numeroDoc").value,
         BLOOD: document.getElementById("grupoSanguineo").value,
@@ -38,11 +38,11 @@ const formData = {
         GENRES: document.getElementById("generos").value,
         TELEPHONE: document.getElementById("cellphone_number").value,
         ADDRESS: document.getElementById("address_street").value,
-        EMAIL: document.getElementById("email").value 
+        EMAIL: document.getElementById("email").value
     }
     return formData;
 }
 
-function form(){
+function form() {
 
 }
