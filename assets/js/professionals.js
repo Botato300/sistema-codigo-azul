@@ -3,17 +3,21 @@
 import { Dialog } from "./modules/dialog.js"
 import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js"
 
-// init();
-const DOCUMENT_TYPE = {
+const DOCUMENT_TYPE = Object.freeze({
     DNI: "DNI",
     PASSPORT: "PASSPORT"
-}
+
+});
+
+// init();
 
 const btnCreate = document.getElementById("btnCreate");
 btnCreate.addEventListener("click", async () => {
     const dialogElement = document.getElementById("dialog");
     const dialog = new Dialog(dialogElement);
     dialog.open();
+
+
 });
 
 let searchTimer = "";
@@ -114,15 +118,12 @@ function bindEventsToButtons() {
     });
 }
 
-const submitZone = async (zoneName, zoneNumber) => {
+const submitProfessional = async (dataArr) => {
     const response = await fetch("controllers/areaController", {
         method: "POST",
         body: JSON.stringify({
             action: "insert",
-            data: {
-                name: zoneName.toUpperCase(),
-                number: zoneNumber
-            }
+            data: dataArr
         })
     });
 
@@ -130,7 +131,7 @@ const submitZone = async (zoneName, zoneNumber) => {
     return content;
 }
 
-const createZoneElement = (id, name) => {
+const createProfessionalElement = (id, name) => {
     const table = document.getElementById("dataTable");
 
     const rowElement = document.createElement("tr");
@@ -148,12 +149,12 @@ const createZoneElement = (id, name) => {
     table.appendChild(rowElement);
 }
 
-const ResetZoneElement = () => {
+const ResetProfessionalElement = () => {
     const table = document.getElementById("dataTable");
     table.innerHTML = "";
 }
 
-const modifyZone = async (zoneName, zoneNumber) => {
+const modifyProfessional = async (zoneName, zoneNumber) => {
     const response = await fetch("controllers/areaController", {
         method: "POST",
         body: JSON.stringify({
@@ -169,7 +170,7 @@ const modifyZone = async (zoneName, zoneNumber) => {
     return content;
 }
 
-const deleteZone = async (zoneNumber) => {
+const deleteProfessional = async (zoneNumber) => {
     const response = await fetch("controllers/areaController", {
         method: "POST",
         body: JSON.stringify({
@@ -184,7 +185,7 @@ const deleteZone = async (zoneNumber) => {
     return content.status;
 }
 
-async function getAllZones() {
+async function getAllProfessionals() {
     const response = await fetch("controllers/areaController", {
         method: "POST",
         body: JSON.stringify({
@@ -197,7 +198,7 @@ async function getAllZones() {
 }
 
 async function init() {
-    const content = await getAllZones();
+    const content = await getAllProfessionals();
 
     if (!content.status) {
         Notification.show("No se pudieron obtener las zonas.", NOTIFICATION_TYPE.ERROR, 5);
@@ -209,4 +210,25 @@ async function init() {
     }
 
     bindEventsToButtons();
+}
+
+function getFormData() {
+    const data = {
+        DNI: document.getElementById("tipoDoc").value,
+        DOCUMENT_NUM: document.getElementById("numDoc").value,
+        GRADE_TYPE: document.getElementById("tipoGrado").value,
+        NAME: document.getElementById("nombre").value,
+        LASTNAME: document.getElementById("apellido").value,
+        TUITION: document.getElementById("matricula").value,
+        DATE_BIRTH: document.getElementById("birthday").value,
+        GENRES: document.getElementById("generos").value,
+        TELEPHONE: document.getElementById("cellphone_number").value,
+        ADDRESS: document.getElementById("address_street").value,
+        EMAIL: document.getElementById("email").value,
+        CALL_DATE: document.getElementById("fechaGuardia").value,
+        TIME_ADMISSION: document.getElementById("inicioHoraGuardia").value,
+        PICKUP_TIME: document.getElementById("finalHoraGuardia").value,
+    }
+
+    return data;
 }
