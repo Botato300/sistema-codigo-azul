@@ -23,7 +23,7 @@
 					<ul class="nav nav-tabs">
 						<li class="active"><a data-toggle="tab" href="/sistema-codigo-azul">Home</a></li>
 						<li><a data-toggle="tab" href="zonas">Zonas</a></li>
-						<li><a data-toggle="tab" href="enfermeros">Enfermeros</a></li>
+						<li><a data-toggle="tab" href="enfermeros">Profesionales</a></li>
 						<li><a data-toggle="tab" href="pacientes">Pacientes</a></li>
 					</ul>
 				</div>

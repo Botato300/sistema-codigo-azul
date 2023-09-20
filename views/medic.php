@@ -6,7 +6,7 @@
 
    <script defer type="module" src="assets/js/medic.js"></script>
 
-   <title>Enfermeros</title>
+   <title>Profesionales</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
                <ul class="nav nav-tabs">
                   <li><a data-toggle="tab" href="/sistema-codigo-azul">Home</a></li>
                   <li><a data-toggle="tab" href="zonas">Zonas</a></li>
-                  <li class="active"><a data-toggle="tab" href="enfermeros">Enfermeros</a></li>
+                  <li class="active"><a data-toggle="tab" href="enfermeros">Profesionales</a></li>
                   <li><a data-toggle="tab" href="pacientes">Pacientes</a></li>
                </ul>
             </div>
@@ -63,9 +63,23 @@
                            <p class="help-block error hidden">Ingresá tu número de documento</p>
                         </div>
                      </div>
+
                   </div>
 
                   <fieldset>
+
+                     <div class="row">
+                        <div class="form-group col-xs-12 col-sm-8 item-form">
+                           <label for="tipoGrado">Grado</label>
+                           <select id="tipoGrado" name="tipoGrado" class="form-control">
+                              <option value="Medico">Medico</option>
+                              <option value="Enfermero">Enfermero</option>
+                           </select>
+                           <p class="help-block error hidden">Elegí un grado</p>
+                        </div>
+                     </div>
+
+
                      <div class="row">
                         <div class="col-md-8 form-group item-form">
                            <label for="nombre">Nombre/s</label>
@@ -85,10 +99,18 @@
                      </div>
 
                      <div class="row">
-                        <div class="form-group col-md-4 col-xs-6 item-form">
+                        <div class="col-md-8 form-group item-form">
+                           <label for="matricula">Número de matricula</label>
+                           <input type="text" class="form-control" id="matricula" required aria-required="true">
+                           <p class="help-block error hidden">Ingresá tu apellido</p>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="form-group col-xs-12 col-sm-8 item-form">
                            <label for="birthday">Fecha de nacimiento</label>
                            <input type="date" class="form-control" id="birthday" required aria-required="true">
-                           <p class="help-block error hidden">Ingresá una fecha válida</p>
+                           <p class="help-block error hidden">Ingresá un numero valido</p>
                         </div>
                      </div>
 
@@ -127,17 +149,12 @@
                      <label>Celular</label>
                      <div class="row">
                         <div class="col-sm-12">
+
                            <fieldset>
 
                               <div class="row">
-                                 <div class="col-sm-12">
-                                    <legend>
-                                       <label>Área</label>
-                                    </legend>
-                                 </div>
 
                                  <div class="form-group col-xs-12 col-sm-4 item-form">
-
                                     <div class="input-group">
                                        <label class="input-group-addon text-black">0</label>
                                        <input aria-label="Código de area de teléfono móvil" class="form-control"
@@ -147,18 +164,14 @@
                                  </div>
 
                                  <div class="form-group col-xs-12 col-sm-8 item-form">
-
-                                    <legend>
-                                       <label>Área</label>
-                                    </legend>
                                     <div class="input-group">
-
                                        <label class="input-group-addon text-black">15</label>
                                        <input aria-label="número de teléfono móvil" class="form-control"
                                           id="cellphone_number" required aria-required="true" type="text">
                                     </div>
                                     <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                                  </div>
+
                               </div>
                            </fieldset>
                         </div>
@@ -198,11 +211,11 @@
       <div class="container">
          <ol class="breadcrumb">
             <li><a href="ingreso">Login</a></li>
-            <li class="active">Enfermeros</li>
+            <li class="active">Profesionales</li>
          </ol>
 
          <section>
-            <h1>Enfermeros</h1>
+            <h1>Profesionales</h1>
 
             <hr>
             <div class="row">
