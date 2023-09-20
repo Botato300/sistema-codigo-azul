@@ -23,7 +23,7 @@
                <ul class="nav nav-tabs">
                   <li><a data-toggle="tab" href="/sistema-codigo-azul">Home</a></li>
                   <li class="active"><a data-toggle="tab" href="zonas">Zonas</a></li>
-                  <li><a data-toggle="tab" href="enfermeros">Profesionales</a></li>
+                  <li><a data-toggle="tab" href="profesionales">Profesionales</a></li>
                   <li><a data-toggle="tab" href="pacientes">Pacientes</a></li>
                </ul>
             </div>
@@ -44,8 +44,7 @@
                      <div class="row">
                         <div class="col-md-6 form-group item-form">
                            <label for="zone">Numero de Zona</label>
-                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true"
-                              max="10" min="1">
+                           <input type="number" class="form-control" id="zoneNumber" required aria-required="true" max="10" min="1">
                            <p class="help-block error hidden">
                               Ingresá el numero
                               <br>
@@ -57,8 +56,7 @@
                      <div class="row">
                         <div class="col-md-8 form-group item-form">
                            <label for="nombre">Nombre de la zona</label>
-                           <input type="text" class="form-control uppercase" id="nombre" required aria-required="true"
-                              maxlength="1">
+                           <input type="text" class="form-control uppercase" id="nombre" required aria-required="true" maxlength="1">
                            <p class="help-block error hidden">Ingresá un nombre valido</p>
                         </div>
                      </div>
@@ -87,8 +85,7 @@
                      <div class="row">
                         <div class="col-md-8 form-group item-form">
                            <label for="nombre">Nombre de la zona</label>
-                           <input type="text" class="form-control uppercase" id="zoneName" required aria-required="true"
-                              maxlength="1">
+                           <input type="text" class="form-control uppercase" id="zoneName" required aria-required="true" maxlength="1">
                            <p class="help-block error hidden">Ingresá un nombre valido</p>
                         </div>
                      </div>
@@ -122,8 +119,7 @@
                         </div>
                      </div>
                      <div class="col-sm-12 col-lg-6">
-                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i
-                              class="fa fa-plus"></i>
+                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
                            Crear</button>
                      </div>
                   </div>

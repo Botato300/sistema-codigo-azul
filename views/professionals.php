@@ -72,7 +72,7 @@
                         <label for="tipoCarrera">Carrera</label>
                         <select id="tipoCarrera" name="tipoCarrera" class="form-control">
                            <option value="medico">Medico</option>
-                           <option value="enfermero">Enfermero</option>
+                           <option value="profesionales">Profesionales</option>
                         </select>
                         <p class="help-block error hidden">Elegí una carrera</p>
                      </div>
