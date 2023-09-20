@@ -3,21 +3,27 @@
 import { Dialog } from "./modules/dialog.js";
 
 const btnCreate = document.getElementById("btnCreate");
-const btnSubmit = document.getElementById("btnSubmit");
 
 const btnModify = document.getElementById("btnModify");
 const btnDelete = document.getElementById("btnDelete");
 
 btnCreate.addEventListener("click", async () => {
+    const btnSubmit = document.getElementById("btnSubmit");
     const dialogElement = document.getElementById("dialog");
 
     const dialog = new Dialog(dialogElement);
     dialog.open();
 
     const btnClose = document.getElementById("btnclose");
-    btnClose.addEventListener("click", () => {
-        dialog.close();
-    })
+    btnClose.addEventListener("click", () => dialog.close())
+
+    btnSubmit.addEventListener("click", (e) => {
+        e.preventDefault();
+        const dataGet = getForm();
+        console.log(dataGet);
+    }
+    )
+
 });
 
 function getForm(){
@@ -28,13 +34,13 @@ const formData = {
         NAME: document.getElementById("nombre").value,
         LAST_NAME: document.getElementById("lastname").value,
         CLINIC_HISTORY: document.getElementById("historiaClinica").value,
-        BIRTHDAY: document.getElementById("birthday").value,
         DATE_BIRTH: document.getElementById("birthday").value,
         GENRES: document.getElementById("generos").value,
         TELEPHONE: document.getElementById("cellphone_number").value,
         ADDRESS: document.getElementById("address_street").value,
         EMAIL: document.getElementById("email").value 
-}
+    }
+    return formData;
 }
 
 function form(){
