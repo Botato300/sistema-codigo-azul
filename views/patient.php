@@ -48,7 +48,7 @@
                         <label for="tipoDoc">Tipo</label>
                         <select id="tipoDoc" name="tipodoc" class="form-control">
                            <option value="DNI" selected="">DNI</option>
-                           <option value="Pasaporte extranjero">Pasaporte extranjero</option>
+                           <option value="PASSAPORT">Pasaporte extranjero</option>
                         </select>
                         <p class="help-block error hidden">Elegí un tipo de documento</p>
                      </div>
@@ -79,7 +79,7 @@
                            <option value="O+">O+</option>
                            <option value="O-">O-</option>
                         </select>
-                        <p class="help-block error hidden">Elegí un grado</p>
+                        <p class="help-block error hidden">Elegí un grupo asanguineo</p>
                      </div>
                   </div>
 
@@ -118,62 +118,29 @@
 
 
                   <div class="row">
-                     <div class="col-sm-12">
-                        <fieldset>
-                           <legend>
-                              <label>Género</label>
-                           </legend>
-                           <div class="form-group item-form">
-                              <label for="f" class="radio-inline">
-                                 <input type="radio" name="sexo" id="f" value="F" required aria-required="true">
-                                 Femenino
-                              </label>
-                              <label for="m" class="radio-inline">
-                                 <input type="radio" name="sexo" id="m" value="M" required aria-required="true">
-                                 Masculino
-                              </label>
-                              <label for="x" class="radio-inline">
-                                 <input type="radio" name="sexo" id="x" value="X" required="" aria-required="true">
-                                 No binario
-                              </label>
-                              <p class="help-block error hidden p-y-1">Ingresá tu sexo
-                              </p>
-                           </div>
-
-                        </fieldset>
+                     <div class="form-group col-xs-12 col-sm-8 item-form">
+                        <label for="tipoGrado">Género</label>
+                        <select id="generos" name="tipoGrado" class="form-control">
+                           <option value="M">Masculino</option>
+                           <option value="F">Femenino</option>
+                           <option value="X">No binario</option>
+                        </select>
+                        <p class="help-block error hidden">Elegí un grado</p>
                      </div>
                   </div>
+
                </fieldset>
 
                <fieldset>
                   <label>Celular</label>
                   <div class="row">
-                     <div class="col-sm-12">
-
-                        <fieldset>
-
-                           <div class="row">
-                              <div class="form-group col-xs-12 col-sm-4 item-form">
-                                 <div class="input-group">
-                                    <label class="input-group-addon text-black">0</label>
-                                    <input aria-label="Código de area de teléfono móvil" class="form-control"
-                                       id="cellphone_area_code" required aria-required="true" type="text">
-                                 </div>
-                                 <p class="help-block error hidden">Ingresá el código de área</p>
-                              </div>
-
-                              <div class="form-group col-xs-12 col-sm-8 item-form">
-                                 <div class="input-group">
-                                    <label class="input-group-addon text-black">15</label>
-                                    <input aria-label="número de teléfono móvil" class="form-control"
-                                       id="cellphone_number" required aria-required="true" type="text">
-                                 </div>
-                                 <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
-                              </div>
-
-                           </div>
-                        </fieldset>
-                     </div>
+                     <fieldset>
+                        <div class="form-group col-xs-12 col-sm-8 item-form">
+                           <input aria-label="número de teléfono móvil" class="form-control" id="cellphone_number"
+                              required aria-required="true" type="text">
+                           <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
+                        </div>
+                     </fieldset>
                   </div>
                </fieldset>
 
