@@ -17,8 +17,7 @@ btnCreate.addEventListener("click", async () => {
     const btnClose = document.getElementById("btnclose");
     btnClose.addEventListener("click", () => dialog.close())
 
-    btnSubmit.addEventListener("click", (e) => {
-        e.preventDefault();
+    btnSubmit.addEventListener("click", () => {
         const dataGet = getForm();
         console.log(dataGet);
     }
@@ -42,8 +41,4 @@ function getForm() {
 
     }
     return formData;
-}
-
-function form() {
-
 }

@@ -1,7 +1,7 @@
 "strict mode";
 
-import { Dialog } from "./modules/dialog.js"
-import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js"
+import { Dialog } from "./modules/dialog.js";
+import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js";
 
 init();
 
@@ -16,12 +16,8 @@ btnCreate.addEventListener("click", async () => {
     btnClose.addEventListener("click", () => dialog.close());
 
     const btnSubmit = document.getElementById("btnSubmit");
-    let sending = false;
-    btnSubmit.addEventListener("click", async (e) => {
+    btnSubmit.addEventListener("click", (e) => {
         e.preventDefault();
-
-        if (sending) return;
-
         const data = getFormData();
         sending = true;
         const content = await submitProfessional(data);
