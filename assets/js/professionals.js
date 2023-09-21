@@ -99,7 +99,11 @@ function bindEventsToButtons() {
             dialog.open();
 
             const btnClose = document.getElementById("btnclose");
-            btnClose.addEventListener("click", () => dialog.close());
+            btnClose.addEventListener("click", () => {
+                dialog.close();
+                resetDialog();
+            });
+            dialogModify.addEventListener("close", resetDialog);
 
             const profNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
 
@@ -141,6 +145,7 @@ function bindEventsToButtons() {
                 }
 
                 dialog.close();
+                resetDialog();
                 location.reload();
             });
             sending = false;
@@ -275,4 +280,24 @@ function getFormData() {
     }
 
     return data;
+}
+
+function resetDialog() {
+    document.getElementById("tipoDoc").value = "DNI";
+    document.getElementById("numDoc").value = "";
+    document.getElementById("tipoCarrera").value = "medico";
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellido").value = "";
+    document.getElementById("matricula").value = "";
+    document.getElementById("birthday").value = "";
+    document.getElementById("generos").value = "M";
+    document.getElementById("cellphone_number").value = "";
+    document.getElementById("address_street").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("fechaGuardia").value = ""
+    document.getElementById("inicioHoraGuardia").value = "";
+    document.getElementById("finalHoraGuardia").value = "";
+
+    document.getElementById("btnSubmit").textContent = "Enviar Profesional";
+    document.getElementById("dialogTitle").textContent = "Cargar Profesionales";
 }
