@@ -3,7 +3,7 @@
 import { Dialog } from "./modules/dialog.js"
 import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js"
 
-// init();
+init();
 
 const btnCreate = document.getElementById("btnCreate");
 btnCreate.addEventListener("click", async () => {
@@ -12,12 +12,27 @@ btnCreate.addEventListener("click", async () => {
     const dialog = new Dialog(dialogElement);
     dialog.open();
 
+    const btnClose = document.getElementById("btnclose");
+    btnClose.addEventListener("click", () => dialog.close());
 
     const btnSubmit = document.getElementById("btnSubmit");
-    btnSubmit.addEventListener("click", (e) => {
+    let sending = false;
+    btnSubmit.addEventListener("click", async (e) => {
         e.preventDefault();
+
+        if (sending) return;
+
         const data = getFormData();
-        console.log(data);
+        sending = true;
+        const content = await submitProfessional(data);
+
+        if (!content.status) Notification.show("No se pudo agregar al profesional.", NOTIFICATION_TYPE.ERROR, 5);
+
+        if (content.status) {
+            dialog.close();
+            location.reload();
+        }
+        sending = false;
     });
 });
 
@@ -30,18 +45,18 @@ searchBar.addEventListener("input", (e) => {
 
     clearTimeout(searchTimer);
 
-    const zoneNumber = searchBar.value.trim();
+    const profNumber = searchBar.value.trim();
 
-    searchTimer = setTimeout(() => sendSearch(zoneNumber), 1000);
+    searchTimer = setTimeout(() => sendSearch(profNumber), 1000);
 });
 
-const sendSearch = async (zoneNumber) => {
+const sendSearch = async (profNumber) => {
     const response = await fetch("controllers/areaController", {
         method: "POST",
         body: JSON.stringify({
             action: "search",
             data: {
-                zoneNumber: Number(zoneNumber)
+                profNumber: Number(profNumber)
             }
         })
     });
@@ -49,29 +64,29 @@ const sendSearch = async (zoneNumber) => {
     const content = await response.json();
 
     if (!content.status) {
-        Notification.show("No se pudo encontrar la zona que buscas.", NOTIFICATION_TYPE.ERROR, 5);
+        Notification.show("No se pudo encontrar al profesional que buscas.", NOTIFICATION_TYPE.ERROR, 5);
         return false;
     }
 
-    ResetZoneElement();
-    createZoneElement(zoneNumber, content.data.nombre);
+    ResetProfessionalElement();
+    createProfessionalElement(profNumber, content.data.nombre);
 }
 
 function bindEventsToButtons() {
     const btnDelete = document.querySelectorAll(".delete-button");
     btnDelete.forEach(btn => {
         btn.addEventListener("click", async (e) => {
-            const zoneNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
+            const profNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
 
-            const status = await deleteZone(zoneNumber);
+            const status = await deleteProfessional(profNumber);
 
             if (!status) {
-                Notification.show("No se pudo borrar la zona.", NOTIFICATION_TYPE.ERROR, 5);
+                Notification.show("No se pudo borrar al profesional.", NOTIFICATION_TYPE.ERROR, 5);
                 return;
             }
 
             e.target.parentNode.parentNode.remove();
-            Notification.show("Se borro la zona con éxito.", NOTIFICATION_TYPE.SUCCESS, 5);
+            Notification.show("Se borro al profesional con éxito.", NOTIFICATION_TYPE.SUCCESS, 5);
         });
     });
 
@@ -87,27 +102,27 @@ function bindEventsToButtons() {
                 dialog.close();
             });
 
-            let zoneName = e.target.parentNode.parentNode.children[1].textContent;
-            let zoneNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
+            let profName = e.target.parentNode.parentNode.children[1].textContent;
+            let profNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
 
-            const zoneNameInput = document.getElementById("zoneName");
-            zoneNameInput.value = zoneName;
+            const profNameInput = document.getElementById("profName");
+            profNameInput.value = profName;
 
-            document.getElementById("zoneNumber2").textContent = zoneNumber;
+            document.getElementById("profNumber2").textContent = profNumber;
 
             let sending = false;
             const btnSubmit = document.getElementById("btnSubmit2");
             btnSubmit.addEventListener("click", async () => {
                 if (sending) return;
 
-                const zoneName = document.getElementById("zoneName").value;
-                const zoneNumber = Number(document.getElementById("zoneNumber2").textContent);
+                const profName = document.getElementById("profName").value;
+                const profNumber = Number(document.getElementById("profNumber2").textContent);
 
                 sending = true;
-                const status = await modifyZone(zoneName, zoneNumber);
+                const status = await modifyProfessional(profName, profNumber);
 
                 if (!status) {
-                    Notification.show("No se pudo modificar la zona.", NOTIFICATION_TYPE.ERROR, 5);
+                    Notification.show("No se pudo modificar al profesional.", NOTIFICATION_TYPE.ERROR, 5);
                     return;
                 }
 
@@ -120,7 +135,7 @@ function bindEventsToButtons() {
 }
 
 const submitProfessional = async (dataArr) => {
-    const response = await fetch("controllers/areaController", {
+    const response = await fetch("controllers/professionalController", {
         method: "POST",
         body: JSON.stringify({
             action: "insert",
@@ -155,14 +170,14 @@ const ResetProfessionalElement = () => {
     table.innerHTML = "";
 }
 
-const modifyProfessional = async (zoneName, zoneNumber) => {
-    const response = await fetch("controllers/areaController", {
+const modifyProfessional = async (profName, profNumber) => {
+    const response = await fetch("controllers/professionalController", {
         method: "POST",
         body: JSON.stringify({
             action: "update",
             data: {
-                name: zoneName,
-                number: zoneNumber
+                name: profName,
+                number: profNumber
             }
         })
     });
@@ -171,13 +186,13 @@ const modifyProfessional = async (zoneName, zoneNumber) => {
     return content;
 }
 
-const deleteProfessional = async (zoneNumber) => {
-    const response = await fetch("controllers/areaController", {
+const deleteProfessional = async (profNumber) => {
+    const response = await fetch("controllers/professionalController", {
         method: "POST",
         body: JSON.stringify({
             action: "delete",
             data: {
-                number: zoneNumber
+                number: profNumber
             }
         })
     });
@@ -187,7 +202,7 @@ const deleteProfessional = async (zoneNumber) => {
 }
 
 async function getAllProfessionals() {
-    const response = await fetch("controllers/areaController", {
+    const response = await fetch("controllers/professionalController", {
         method: "POST",
         body: JSON.stringify({
             action: "getAll"
@@ -202,12 +217,12 @@ async function init() {
     const content = await getAllProfessionals();
 
     if (!content.status) {
-        Notification.show("No se pudieron obtener las zonas.", NOTIFICATION_TYPE.ERROR, 5);
+        Notification.show("No se pudieron obtener los profesionales.", NOTIFICATION_TYPE.ERROR, 5);
         return;
     }
 
     for (let i = 0; i < content.data.length; i++) {
-        createZoneElement(content.data[i].numero, content.data[i].nombre);
+        createProfessionalElement(content.data[i].numero, content.data[i].nombre);
     }
 
     bindEventsToButtons();

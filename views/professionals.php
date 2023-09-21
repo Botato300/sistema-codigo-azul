@@ -72,7 +72,7 @@
                         <label for="tipoCarrera">Carrera</label>
                         <select id="tipoCarrera" name="tipoCarrera" class="form-control">
                            <option value="medico">Medico</option>
-                           <option value="profesionales">Profesionales</option>
+                           <option value="enfermero">Enfermero</option>
                         </select>
                         <p class="help-block error hidden">Elegí una carrera</p>
                      </div>
@@ -222,27 +222,7 @@
                         <th>Numero de Matricula</th>
                         <th>Nombre y Apellido</th>
                      </thead>
-                     <tbody>
-                        <tr>
-                           <td>1023</td>
-                           <td>Gonzalo Ramirez Peña</td>
-                           <td> <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
-                                 Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger"><i class="fa fa-ban"></i>
-                                 Eliminar</button>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>1024</td>
-                           <td>Ariel Ibarra</td>
-                           <td>
-                              <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
-                                 Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger"><i class="fa fa-ban"></i>
-                                 Eliminar</button>
-                           </td>
-                        </tr>
-                     </tbody>
+                     <tbody></tbody>
                   </table>
                </div>
    </main>

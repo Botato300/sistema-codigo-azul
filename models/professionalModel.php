@@ -21,21 +21,21 @@ class professionalModel
         $stmt = $this->db->prepare("INSERT INTO personas (idPersona, tipoDocumento) VALUES (?, ?)");
         $stmt->bind_param('is', $idPersona, $tipoDocumento);
         $stmt->execute();
-    }    
+    }
 
     public function insertMedic(int $idPersona, string $matricula): void
     {
         $stmt = $this->db->prepare("INSERT INTO medicos VALUES (?, ?)");
         $stmt->bind_param('is', $idPersona, $matricula);
         $stmt->execute();
-    }    
+    }
 
     public function insertNurse(int $idPersona, string $matricula): void
     {
         $stmt = $this->db->prepare("INSERT INTO enfermeros VALUES (?, ?)");
         $stmt->bind_param('is', $idPersona, $matricula);
         $stmt->execute();
-    }    
+    }
 
     public function updateMedic(int $idPersona, int $matricula): void
     {
@@ -54,9 +54,9 @@ class professionalModel
 
         $result = $stmt->get_result();
 
-        while($row = $result->fetch_assoc())
-            echo "IdPersona: ".$row['idPersona']." Matricula: ".$row['matricula']."<br>";
-    }    
+        while ($row = $result->fetch_assoc())
+            echo "IdPersona: " . $row['idPersona'] . " Matricula: " . $row['matricula'] . "<br>";
+    }
 
     public function updateNurse(int $idPersona, int $matricula): void
     {
@@ -75,11 +75,11 @@ class professionalModel
 
         $result = $stmt->get_result();
 
-        while($row = $result->fetch_assoc())
-            echo "IdPersona: ".$row['idPersona']." Matricula: ".$row['matricula']."<br>";
-    }    
+        while ($row = $result->fetch_assoc())
+            echo "IdPersona: " . $row['idPersona'] . " Matricula: " . $row['matricula'] . "<br>";
+    }
 
-    public function selectAllMedics(): void
+    public function selectAllMedics(): array
     {
         $stmt = $this->db->prepare("SELECT * FROM personas 
                                                         INNER JOIN medicos
@@ -87,16 +87,16 @@ class professionalModel
         $stmt->execute();
 
         $result = $stmt->get_result();
+        $rows = array();
 
-        while($row = $result->fetch_assoc())
-            echo "Idpersona: ".$row['idPersona']."<br>";
-            echo "matricula: ".$row['matricula']."<br>";
-            echo "nombre: ".$row['nombre']."<br>";
-            echo "apellido: ".$row['apellido']."<br>";
-            echo "telefono: ".$row['telefono']."<br>";
+        while ($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
     }
 
-    public function selectAllNurses(): void
+    public function selectAllNurses(): array
     {
         $stmt = $this->db->prepare("SELECT * FROM personas 
                                                         INNER JOIN enfermeros
@@ -104,13 +104,13 @@ class professionalModel
         $stmt->execute();
 
         $result = $stmt->get_result();
+        $rows = array();
 
-        while($row = $result->fetch_assoc())
-            echo "Idpersona: ".$row['idPersona']."<br>";
-            echo "matricula: ".$row['matricula']."<br>";
-            echo "nombre: ".$row['nombre']."<br>";
-            echo "apellido: ".$row['apellido']."<br>";
-            echo "telefono: ".$row['telefono']."<br>";
+        while ($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
     }
 
     public function deleteMedic(int $matricula): void
@@ -130,15 +130,14 @@ class professionalModel
 
         $result = $stmt->get_result();
 
-        while($row = $result->fetch_assoc())
-        {
-            echo "Idpersona: ".$row['idPersona']."<br>";
-            echo "matricula: ".$row['matricula']."<br>";
-            echo "nombre: ".$row['nombre']."<br>";
-            echo "apellido: ".$row['apellido']."<br>";
-            echo "telefono: ".$row['telefono']."<br>";    
+        while ($row = $result->fetch_assoc()) {
+            echo "Idpersona: " . $row['idPersona'] . "<br>";
+            echo "matricula: " . $row['matricula'] . "<br>";
+            echo "nombre: " . $row['nombre'] . "<br>";
+            echo "apellido: " . $row['apellido'] . "<br>";
+            echo "telefono: " . $row['telefono'] . "<br>";
         }
-}    
+    }
 
     public function deleteNurse(int $matricula): void
     {
@@ -157,15 +156,12 @@ class professionalModel
 
         $result = $stmt->get_result();
 
-        while($row = $result->fetch_assoc())
-        {
-            echo "Idpersona: ".$row['idPersona']."<br>";
-            echo "matricula: ".$row['matricula']."<br>";
-            echo "nombre: ".$row['nombre']."<br>";
-            echo "apellido: ".$row['apellido']."<br>";
-            echo "telefono: ".$row['telefono']."<br>";    
+        while ($row = $result->fetch_assoc()) {
+            echo "Idpersona: " . $row['idPersona'] . "<br>";
+            echo "matricula: " . $row['matricula'] . "<br>";
+            echo "nombre: " . $row['nombre'] . "<br>";
+            echo "apellido: " . $row['apellido'] . "<br>";
+            echo "telefono: " . $row['telefono'] . "<br>";
         }
-    }    
+    }
 }
-
-?>
