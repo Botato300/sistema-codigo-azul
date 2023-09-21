@@ -36,67 +36,94 @@ switch ($request["action"]) {
 
 		break;
 
-		// case "update":
-		//     $zoneName = $request["data"]["name"];
-		//     $zoneNumber = $request["data"]["number"];
+	case "update":
+		$data = $request["data"];
 
-		//     if (!Validation::validateArray($request["data"])) return false;
+		if (!Validation::validateArray($data)) return false;
 
-		//     $area = new professionalModel();
-		//     $area->update($zoneNumber, $zoneName);
+		$prof = new professionalModel();
 
-		//     echo json_encode([
-		//         "status" => true
-		//     ]);
+		// $prof->updatePerson();	<-- FALTA AGREGAR ESTE METODO
 
-		//     break;
+		// if ($prof->isMedic($data["profNumber"])) $prof->updateMedic($data["profNumber"]);
+		// else $prof->updateNurse($data["profNumber"]);	<-- FALTA PROGRAMAR BIEN LOS METODOS ESTOS
 
-		// case "delete":
-		//     $zoneNumber = $request["data"]["number"];
 
-		//     if (!Validation::validateArray($request["data"])) return false;
+		echo json_encode([
+			"status" => true
+		]);
 
-		//     $area = new areaModel();
-		//     $area->delete($zoneNumber);
+		break;
 
-		//     echo json_encode([
-		//         "status" => true
-		//     ]);
+	case "delete":
+		$profNumber = $request["data"]["id"];
 
-		//     break;
+		if (!Validation::validateArray($request["data"])) return false;
 
-		// case "search":
-		//     $zoneNumber = $request["data"]["zoneNumber"];
+		$prof = new professionalModel();
+		if ($prof->isMedic($profNumber)) $prof->deleteMedic($profNumber);
+		else $prof->deleteNurse($profNumber);
 
-		//     if (!Validation::validateArray($request["data"])) return false;
+		echo json_encode([
+			"status" => true
+		]);
 
-		//     $area = new professionalModel();
-		//     $content = $area->select($zoneNumber);
+		break;
 
-		//     if (is_null($content)) {
-		//         echo json_encode([
-		//             "status" => false
-		//         ]);
+	case "search":
+		$profNumber = $request["data"]["profNumber"];
 
-		//         return false;
-		//     }
+		if (!Validation::validateArray($request["data"])) return false;
 
-		//     echo json_encode([
-		//         "status" => true,
-		//         "data" => $content
-		//     ]);
+		$prof = new professionalModel();
+		$content = $prof->selectPerson($profNumber);
 
-		//     break;
+		if (is_null($content)) {
+			echo json_encode([
+				"status" => false
+			]);
+
+			return false;
+		}
+
+		echo json_encode([
+			"status" => true,
+			"data" => $content
+		]);
+
+		break;
 	case "getAll":
-		$area = new professionalModel();
+		$prof = new professionalModel();
 
-		$rowsMedics = $area->selectAllMedics();
-		$rowsNurses = $area->selectAllNurses();
+		$rowsMedics = $prof->selectAllMedics();
+		$rowsNurses = $prof->selectAllNurses();
 		$rows = array_merge($rowsMedics, $rowsNurses);
+
+		if (empty($rows)) {
+			echo json_encode([
+				"status" => false
+			]);
+
+			return false;
+		}
 
 		echo json_encode([
 			"status" => true,
 			"data" => $rows
+		]);
+		break;
+	case "getProfessional":
+		$profNumber = $request["data"]["profNumber"];
+
+		$prof = new professionalModel();
+
+		$data = $prof->selectPerson($profNumber);
+		if ($prof->isMedic($profNumber)) $data["tipoCarrera"] = "medico";
+		else $data["tipoCarrera"] = "enfermero";
+
+		echo json_encode([
+			"status" => true,
+			"data" => $data
 		]);
 		break;
 	default:

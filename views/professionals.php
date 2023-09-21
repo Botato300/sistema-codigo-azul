@@ -37,7 +37,7 @@
          <button id="btnclose" class="btnclose"><i class="fa fa-close text-danger"></i></button>
          <div class="col-md-8 col-md-offset-2">
 
-            <h1>Cargar Profesionales</h1>
+            <h1 id="dialogTitle">Cargar Profesionales</h1>
             <hr>
 
             <form autocomplete="off">
@@ -222,7 +222,7 @@
                         <th>Numero de Matricula</th>
                         <th>Nombre y Apellido</th>
                      </thead>
-                     <tbody></tbody>
+                     <tbody id="dataTable"></tbody>
                   </table>
                </div>
    </main>

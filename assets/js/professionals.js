@@ -15,6 +15,7 @@ btnCreate.addEventListener("click", async () => {
     const btnClose = document.getElementById("btnclose");
     btnClose.addEventListener("click", () => dialog.close());
 
+    let sending = false;
     const btnSubmit = document.getElementById("btnSubmit");
     btnSubmit.addEventListener("click", async (e) => {
         e.preventDefault();
@@ -47,7 +48,7 @@ searchBar.addEventListener("input", (e) => {
 });
 
 const sendSearch = async (profNumber) => {
-    const response = await fetch("controllers/areaController", {
+    const response = await fetch("controllers/professionalController", {
         method: "POST",
         body: JSON.stringify({
             action: "search",
@@ -60,12 +61,16 @@ const sendSearch = async (profNumber) => {
     const content = await response.json();
 
     if (!content.status) {
-        Notification.show("No se pudo encontrar al profesional que buscas.", NOTIFICATION_TYPE.ERROR, 5);
+        Notification.show("No se pudo encontrar al profesional que buscas.", NOTIFICATION_TYPE.ERROR, 3);
         return false;
     }
 
     ResetProfessionalElement();
-    createProfessionalElement(profNumber, content.data.nombre);
+
+    const fullName = content.data.nombre + " " + content.data.apellido;
+
+    createProfessionalElement(profNumber, fullName);
+    bindEventsToButtons();
 }
 
 function bindEventsToButtons() {
@@ -89,33 +94,47 @@ function bindEventsToButtons() {
     const btnModify = document.querySelectorAll(".modify-button");
     btnModify.forEach(btn => {
         btn.addEventListener("click", async (e) => {
-            const dialogModify = document.getElementById("modifyDialog");
+            const dialogModify = document.getElementById("dialog");
             const dialog = new Dialog(dialogModify);
             dialog.open();
 
-            const btnClose = document.getElementById("btnclose2");
-            btnClose.addEventListener("click", () => {
-                dialog.close();
-            });
+            const btnClose = document.getElementById("btnclose");
+            btnClose.addEventListener("click", () => dialog.close());
 
-            let profName = e.target.parentNode.parentNode.children[1].textContent;
-            let profNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
+            const fullName = e.target.parentNode.parentNode.children[1].textContent;
+            const profNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
 
-            const profNameInput = document.getElementById("profName");
-            profNameInput.value = profName;
+            const data = await getProfessionalData(profNumber);
 
-            document.getElementById("profNumber2").textContent = profNumber;
+            document.getElementById("tipoDoc").value = data.tipoDocumento;
+            document.getElementById("numDoc").value = data.numeroDocumento;
+            document.getElementById("tipoCarrera").value = data.tipoCarrera;
+            document.getElementById("nombre").value = data.nombre;
+            document.getElementById("apellido").value = data.apellido;
+            document.getElementById("matricula").value = data.idRol;
+            document.getElementById("birthday").value = data.fechaNacimiento;
+            document.getElementById("generos").value = data.sexo;
+            document.getElementById("cellphone_number").value = data.telefono;
+            document.getElementById("address_street").value = data.domicilio;
+            document.getElementById("email").value = data.correoElectronico;
+            // document.getElementById("fechaGuardia").value        <-- FALTA ESTO EN LA DB
+            // document.getElementById("inicioHoraGuardia").value   <-- FALTO ESTO EN LA DB
+            // document.getElementById("finalHoraGuardia").value    <-- FALTO ESTO EN LA DB
+
+            document.getElementById("btnSubmit").textContent = "Actualizar";
+            document.getElementById("dialogTitle").textContent = "Modificar Profesionales";
+
 
             let sending = false;
-            const btnSubmit = document.getElementById("btnSubmit2");
-            btnSubmit.addEventListener("click", async () => {
+            const btnSubmit = document.getElementById("btnSubmit");
+            btnSubmit.addEventListener("click", async (e) => {
+                e.preventDefault();
+
                 if (sending) return;
 
-                const profName = document.getElementById("profName").value;
-                const profNumber = Number(document.getElementById("profNumber2").textContent);
-
                 sending = true;
-                const status = await modifyProfessional(profName, profNumber);
+                const data = getFormData();
+                const status = await modifyProfessional(data);
 
                 if (!status) {
                     Notification.show("No se pudo modificar al profesional.", NOTIFICATION_TYPE.ERROR, 5);
@@ -166,20 +185,17 @@ const ResetProfessionalElement = () => {
     table.innerHTML = "";
 }
 
-const modifyProfessional = async (profName, profNumber) => {
+const modifyProfessional = async (dataArr) => {
     const response = await fetch("controllers/professionalController", {
         method: "POST",
         body: JSON.stringify({
             action: "update",
-            data: {
-                name: profName,
-                number: profNumber
-            }
+            data: dataArr
         })
     });
 
     const content = await response.json();
-    return content;
+    return content.status;
 }
 
 const deleteProfessional = async (profNumber) => {
@@ -188,7 +204,7 @@ const deleteProfessional = async (profNumber) => {
         body: JSON.stringify({
             action: "delete",
             data: {
-                number: profNumber
+                id: profNumber
             }
         })
     });
@@ -213,15 +229,32 @@ async function init() {
     const content = await getAllProfessionals();
 
     if (!content.status) {
-        Notification.show("No se pudieron obtener los profesionales.", NOTIFICATION_TYPE.ERROR, 5);
+        Notification.show("No hay ningun profesional para mostrar.", NOTIFICATION_TYPE.INFO, 3);
         return;
     }
 
+    const data = content["data"][0];
+    const fullName = `${data.nombre} ${data.apellido}`;
     for (let i = 0; i < content.data.length; i++) {
-        createProfessionalElement(content.data[i].numero, content.data[i].nombre);
+        createProfessionalElement(data.matricula, fullName);
     }
 
     bindEventsToButtons();
+}
+
+const getProfessionalData = async (profNumber) => {
+    const response = await fetch("controllers/professionalController", {
+        method: "POST",
+        body: JSON.stringify({
+            action: "getProfessional",
+            data: {
+                profNumber: profNumber
+            }
+        })
+    });
+
+    const content = await response.json();
+    return content.data;
 }
 
 function getFormData() {

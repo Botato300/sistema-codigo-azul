@@ -41,15 +41,15 @@ class professionalModel
     {
         $stmt = $this->db->prepare("UPDATE personas
                                                         INNER JOIN medicos
-                                                        ON personas.idPersona = medicos.matricula
-                                                        SET personas.idPersona = ?
+                                                        ON personas.idRol = medicos.matricula
+                                                        SET personas.idRol = ?
                                                         WHERE medicos.matricula = ?");
         $stmt->bind_param('ii', $idPersona, $matricula);
         $stmt->execute();
 
         $stmt = $this->db->prepare("SELECT * FROM personas 
                                                         INNER JOIN medicos 
-                                                        ON personas.idPersona = medicos.matricula");
+                                                        ON personas.idRol = medicos.matricula");
         $stmt->execute();
 
         $result = $stmt->get_result();
@@ -79,11 +79,22 @@ class professionalModel
             echo "IdPersona: " . $row['idPersona'] . " Matricula: " . $row['matricula'] . "<br>";
     }
 
+    public function isMedic(int $idPersona): bool
+    {
+        $stmt = $this->db->prepare("SELECT * FROM personas INNER JOIN medicos ON personas.idRol = medicos.matricula WHERE personas.idRol = ?");
+        $stmt->bind_param('i', $idPersona);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        return $result->num_rows > 0;
+    }
+
     public function selectAllMedics(): array
     {
         $stmt = $this->db->prepare("SELECT * FROM personas 
                                                         INNER JOIN medicos
-                                                        ON personas.idPersona = medicos.matricula");
+                                                        ON personas.idRol = medicos.matricula");
         $stmt->execute();
 
         $result = $stmt->get_result();
@@ -100,7 +111,7 @@ class professionalModel
     {
         $stmt = $this->db->prepare("SELECT * FROM personas 
                                                         INNER JOIN enfermeros
-                                                        ON personas.idPersona = enfermeros.matricula");
+                                                        ON personas.idRol = enfermeros.matricula");
         $stmt->execute();
 
         $result = $stmt->get_result();
@@ -118,25 +129,27 @@ class professionalModel
         $stmt = $this->db->prepare("DELETE personas, medicos
                                                         FROM personas
                                                         INNER JOIN medicos 
-                                                        ON personas.idPersona = medicos.matricula
+                                                        ON personas.idRol = medicos.matricula
                                                         WHERE medicos.matricula = ?");
         $stmt->bind_param('i', $matricula);
         $stmt->execute();
 
         $stmt = $this->db->prepare("SELECT * FROM personas 
                                                         INNER JOIN medicos 
-                                                        ON personas.idPersona = medicos.matricula");
+                                                        ON personas.idRol = medicos.matricula");
+        $stmt->execute();
+    }
+
+    public function selectPerson(int $profNumber): ?array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM personas WHERE idRol = ?");
+        $stmt->bind_param('i', $profNumber);
         $stmt->execute();
 
         $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
 
-        while ($row = $result->fetch_assoc()) {
-            echo "Idpersona: " . $row['idPersona'] . "<br>";
-            echo "matricula: " . $row['matricula'] . "<br>";
-            echo "nombre: " . $row['nombre'] . "<br>";
-            echo "apellido: " . $row['apellido'] . "<br>";
-            echo "telefono: " . $row['telefono'] . "<br>";
-        }
+        return $row;
     }
 
     public function deleteNurse(int $matricula): void
@@ -144,24 +157,14 @@ class professionalModel
         $stmt = $this->db->prepare("DELETE personas, enfermeros
                                                         FROM personas
                                                         INNER JOIN enfermeros 
-                                                        ON personas.idPersona = enfermeros.matricula
+                                                        ON personas.idRol = enfermeros.matricula
                                                         WHERE enfermeros.matricula = ?");
         $stmt->bind_param('i', $matricula);
         $stmt->execute();
 
         $stmt = $this->db->prepare("SELECT * FROM personas 
                                                         INNER JOIN enfermeros 
-                                                        ON personas.idPersona = enfermeros.matricula");
+                                                        ON personas.idRol = enfermeros.matricula");
         $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        while ($row = $result->fetch_assoc()) {
-            echo "Idpersona: " . $row['idPersona'] . "<br>";
-            echo "matricula: " . $row['matricula'] . "<br>";
-            echo "nombre: " . $row['nombre'] . "<br>";
-            echo "apellido: " . $row['apellido'] . "<br>";
-            echo "telefono: " . $row['telefono'] . "<br>";
-        }
     }
 }

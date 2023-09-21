@@ -73,6 +73,7 @@ const sendSearch = async (zoneNumber) => {
 
     ResetZoneElement();
     createZoneElement(zoneNumber, content.data.nombre);
+    bindEventsToButtons();
 }
 
 function bindEventsToButtons() {
