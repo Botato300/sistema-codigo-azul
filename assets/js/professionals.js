@@ -16,7 +16,7 @@ btnCreate.addEventListener("click", async () => {
     btnClose.addEventListener("click", () => dialog.close());
 
     const btnSubmit = document.getElementById("btnSubmit");
-    btnSubmit.addEventListener("click", (e) => {
+    btnSubmit.addEventListener("click", async (e) => {
         e.preventDefault();
         const data = getFormData();
         sending = true;
