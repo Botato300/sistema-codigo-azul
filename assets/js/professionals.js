@@ -1,9 +1,8 @@
 "strict mode";
 
-import { Dialog } from "./modules/dialog.js"
-import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js"
+import { Dialog } from "./modules/dialog.js";
+import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js";
 
-// init();
 
 const btnCreate = document.getElementById("btnCreate");
 btnCreate.addEventListener("click", async () => {
@@ -14,8 +13,7 @@ btnCreate.addEventListener("click", async () => {
 
 
     const btnSubmit = document.getElementById("btnSubmit");
-    btnSubmit.addEventListener("click", (e) => {
-        e.preventDefault();
+    btnSubmit.addEventListener("click", () => {
         const data = getFormData();
         console.log(data);
     });
