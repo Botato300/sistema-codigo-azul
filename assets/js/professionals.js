@@ -101,7 +101,6 @@ function bindEventsToButtons() {
             const btnClose = document.getElementById("btnclose");
             btnClose.addEventListener("click", () => dialog.close());
 
-            const fullName = e.target.parentNode.parentNode.children[1].textContent;
             const profNumber = Number(e.target.parentNode.parentNode.children[0].textContent);
 
             const data = await getProfessionalData(profNumber);
