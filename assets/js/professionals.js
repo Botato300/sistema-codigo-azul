@@ -5,73 +5,34 @@ import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js";
 
 init();
 
+const dialog = new Dialog(document.getElementById("dialog"));
 const btnCreate = document.getElementById("btnCreate");
 btnCreate.addEventListener("click", async () => {
-
-    const dialogElement = document.getElementById("dialog");
-    const dialog = new Dialog(dialogElement);
+    if (dialog.isOpen()) return false;
     dialog.open();
-
-    const btnClose = document.getElementById("btnclose");
-    btnClose.addEventListener("click", () => dialog.close());
-
-    let sending = false;
-    const btnSubmit = document.getElementById("btnSubmit");
-    btnSubmit.addEventListener("click", async (e) => {
-        e.preventDefault();
-        const data = getFormData();
-        sending = true;
-        const content = await submitProfessional(data);
-
-        if (!content.status) Notification.show("No se pudo agregar al profesional.", NOTIFICATION_TYPE.ERROR, 5);
-
-        if (content.status) {
-            dialog.close();
-            location.reload();
-        }
-        sending = false;
-    });
 });
 
-let searchTimer = "";
-const searchBar = document.getElementById("searchBar");
-searchBar.addEventListener("input", (e) => {
-    if (searchBar.value.length == 0) location.reload();
+const btnClose = document.getElementById("btnclose");
+btnClose.addEventListener("click", () => dialog.close());
 
-    searchBar.value = searchBar.value.replace(/\D/g, '');
+const btnSubmit = document.getElementById("btnSubmit");
+btnSubmit.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const data = getFormData();
 
-    clearTimeout(searchTimer);
+    btnSubmit.disabled = true;
 
-    const profNumber = searchBar.value.trim();
+    const content = await submitProfessional(data);
 
-    searchTimer = setTimeout(() => sendSearch(profNumber), 1000);
-});
+    if (!content.status) Notification.show("No se pudo agregar al profesional.", NOTIFICATION_TYPE.ERROR, 5);
 
-const sendSearch = async (profNumber) => {
-    const response = await fetch("controllers/professionalController", {
-        method: "POST",
-        body: JSON.stringify({
-            action: "search",
-            data: {
-                profNumber: Number(profNumber)
-            }
-        })
-    });
-
-    const content = await response.json();
-
-    if (!content.status) {
-        Notification.show("No se pudo encontrar al profesional que buscas.", NOTIFICATION_TYPE.ERROR, 3);
-        return false;
+    if (content.status) {
+        dialog.close();
+        location.reload();
     }
-
-    ResetProfessionalElement();
-
-    const fullName = content.data.nombre + " " + content.data.apellido;
-
-    createProfessionalElement(profNumber, fullName);
-    bindEventsToButtons();
-}
+    btnSubmit.disabled = false;
+    btnSubmit.removeEventListener("click", () => console.log("siiiii"));
+});
 
 function bindEventsToButtons() {
     const btnDelete = document.querySelectorAll(".delete-button");
@@ -187,6 +148,46 @@ const createProfessionalElement = (id, name) => {
 const ResetProfessionalElement = () => {
     const table = document.getElementById("dataTable");
     table.innerHTML = "";
+}
+
+let searchTimer = "";
+const searchBar = document.getElementById("searchBar");
+searchBar.addEventListener("input", (e) => {
+    if (searchBar.value.length == 0) location.reload();
+
+    searchBar.value = searchBar.value.replace(/\D/g, '');
+
+    clearTimeout(searchTimer);
+
+    const profNumber = searchBar.value.trim();
+
+    searchTimer = setTimeout(() => sendSearch(profNumber), 1000);
+});
+
+const sendSearch = async (profNumber) => {
+    const response = await fetch("controllers/professionalController", {
+        method: "POST",
+        body: JSON.stringify({
+            action: "search",
+            data: {
+                profNumber: Number(profNumber)
+            }
+        })
+    });
+
+    const content = await response.json();
+
+    if (!content.status) {
+        Notification.show("No se pudo encontrar al profesional que buscas.", NOTIFICATION_TYPE.ERROR, 3);
+        return false;
+    }
+
+    ResetProfessionalElement();
+
+    const fullName = content.data.nombre + " " + content.data.apellido;
+
+    createProfessionalElement(profNumber, fullName);
+    bindEventsToButtons();
 }
 
 const modifyProfessional = async (dataArr) => {

@@ -12,4 +12,8 @@ export class Dialog {
 		this.element.close();
 		document.getElementsByTagName("body")[0].style.overflow = "auto";
 	}
+
+	isOpen() {
+		return this.element.open;
+	}
 }
