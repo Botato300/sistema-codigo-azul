@@ -224,7 +224,7 @@ async function init() {
     const content = await getAllZones();
 
     if (!content.status) {
-        Notification.show("No se pudieron obtener las zonas.", NOTIFICATION_TYPE.ERROR, 5);
+        Notification.show("No hay ninguna zona para mostrar.", NOTIFICATION_TYPE.INFO, 3);
         return;
     }
 

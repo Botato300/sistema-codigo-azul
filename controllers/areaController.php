@@ -96,6 +96,14 @@ switch ($request["action"]) {
         $area = new areaModel();
         $rows = $area->selectAll();
 
+        if (empty($rows)) {
+            echo json_encode([
+                "status" => false
+            ]);
+
+            return false;
+        }
+
         echo json_encode([
             "status" => true,
             "data" => $rows
