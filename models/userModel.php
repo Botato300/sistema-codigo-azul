@@ -46,15 +46,14 @@ class userModel
 
     public function recoveryPassword($email): string
     {
-        return "goku123";
-        // $stmt = $this->db->prepare("SELECT contrasenia FROM usuarios WHERE correoElectronico = ?");
-        // $stmt->bind_param("s", $email);
-        // $stmt->execute();
+        $stmt = $this->db->prepare("SELECT contrasenia FROM usuarios WHERE correoElectronico = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
 
-        // $result = $stmt->get_result();
-        // $row = $result->fetch_assoc();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
 
-        // return $row["contrasenia"];
+        return $row["contrasenia"];
     }
 
     public function getUserType($email): string
