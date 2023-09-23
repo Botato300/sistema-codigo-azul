@@ -113,8 +113,8 @@
 
                   <div class="row">
                      <div class="form-group col-xs-12 col-sm-8 item-form">
-                        <label for="tipoGrado">Género</label>
-                        <select id="generos" name="tipoGrado" class="form-control">
+                        <label for="generos">Género</label>
+                        <select id="generos" class="form-control">
                            <option value="M">Masculino</option>
                            <option value="F">Femenino</option>
                            <option value="X">No binario</option>

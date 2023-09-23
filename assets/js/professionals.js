@@ -17,6 +17,8 @@ btnClose.addEventListener("click", () => dialog.close());
 
 const btnSubmit = document.getElementById("btnSubmit");
 btnSubmit.addEventListener("click", async (e) => {
+    if (document.getElementById("dialogTitle").textContent == "Modificar Profesionales") return false;
+
     e.preventDefault();
     const data = getFormData();
 
@@ -31,7 +33,6 @@ btnSubmit.addEventListener("click", async (e) => {
         location.reload();
     }
     btnSubmit.disabled = false;
-    btnSubmit.removeEventListener("click", () => console.log("siiiii"));
 });
 
 function bindEventsToButtons() {
@@ -77,13 +78,13 @@ function bindEventsToButtons() {
             document.getElementById("apellido").value = data.apellido;
             document.getElementById("matricula").value = data.idRol;
             document.getElementById("birthday").value = data.fechaNacimiento;
-            document.getElementById("generos").value = data.sexo;
+            document.getElementById("generos").value = data.genero;
             document.getElementById("cellphone_number").value = data.telefono;
             document.getElementById("address_street").value = data.domicilio;
             document.getElementById("email").value = data.correoElectronico;
-            // document.getElementById("fechaGuardia").value        <-- FALTA ESTO EN LA DB
-            // document.getElementById("inicioHoraGuardia").value   <-- FALTO ESTO EN LA DB
-            // document.getElementById("finalHoraGuardia").value    <-- FALTO ESTO EN LA DB
+            document.getElementById("fechaGuardia").value = data.fechaGuardia;
+            document.getElementById("inicioHoraGuardia").value = data.horaInicioGuardia;
+            document.getElementById("finalHoraGuardia").value = data.horaFinalGuardia;
 
             document.getElementById("btnSubmit").textContent = "Actualizar";
             document.getElementById("dialogTitle").textContent = "Modificar Profesionales";
@@ -265,14 +266,14 @@ const getProfessionalData = async (profNumber) => {
 function getFormData() {
     const data = {
         DNI: document.getElementById("tipoDoc").value,
-        DOCUMENT_NUM: document.getElementById("numDoc").value,
+        DOCUMENT_NUM: Number(document.getElementById("numDoc").value),
         CARREER_TYPE: document.getElementById("tipoCarrera").value,
         NAME: document.getElementById("nombre").value,
         LASTNAME: document.getElementById("apellido").value,
-        TUITION: document.getElementById("matricula").value,
+        TUITION: Number(document.getElementById("matricula").value),
         DATE_BIRTH: document.getElementById("birthday").value,
         GENRES: document.getElementById("generos").value,
-        TELEPHONE: document.getElementById("cellphone_number").value,
+        TELEPHONE: Number(document.getElementById("cellphone_number").value),
         ADDRESS: document.getElementById("address_street").value,
         EMAIL: document.getElementById("email").value,
         CALL_DATE: document.getElementById("fechaGuardia").value,

@@ -13,15 +13,15 @@ switch ($request["action"]) {
 
 		try {
 			$prof = new professionalModel();
-			//falta poner bien este
-			// $prof->insertPerson();
+
+			$prof->insertPerson($data);
 
 			if ($data["CARREER_TYPE"] == "medico") {
-				//falta poner bien el 2do argumento
-				$prof->insertMedic($data["TUITION"], 1);
+				//falta aclarar bien el 2do argumento
+				$prof->insertMedic($data["TUITION"], 0, $data["TIME_ADMISSION"], $data["PICKUP_TIME"], $data["CALL_DATE"]);
 			} else {
-				//falta poner bien el 2do argumento
-				$prof->insertNurse($data["TUITION"], 1);
+				//falta aclarar bien el 2do argumento
+				$prof->insertNurse($data["TUITION"], 0, $data["TIME_ADMISSION"], $data["PICKUP_TIME"], $data["CALL_DATE"]);
 			}
 		} catch (Exception) {
 			echo json_encode([
@@ -43,10 +43,10 @@ switch ($request["action"]) {
 
 		$prof = new professionalModel();
 
-		// $prof->updatePerson();	<-- FALTA AGREGAR ESTE METODO
+		$prof->updatePerson($data);
 
-		// if ($prof->isMedic($data["profNumber"])) $prof->updateMedic($data["profNumber"]);
-		// else $prof->updateNurse($data["profNumber"]);	<-- FALTA PROGRAMAR BIEN LOS METODOS ESTOS
+		if ($prof->isMedic($data["TUITION"])) $prof->updateMedic($data["TUITION"], 0, $data["TIME_ADMISSION"], $data["PICKUP_TIME"], $data["CALL_DATE"]);
+		else $prof->updateNurse($data["TUITION"], 0, $data["TIME_ADMISSION"], $data["PICKUP_TIME"], $data["CALL_DATE"]);
 
 
 		echo json_encode([
@@ -118,8 +118,21 @@ switch ($request["action"]) {
 		$prof = new professionalModel();
 
 		$data = $prof->selectPerson($profNumber);
-		if ($prof->isMedic($profNumber)) $data["tipoCarrera"] = "medico";
-		else $data["tipoCarrera"] = "enfermero";
+		if ($prof->isMedic($profNumber)) {
+			$medicData = $prof->selectMedic($profNumber);
+
+			$data["tipoCarrera"] = "medico";
+			$data["fechaGuardia"] = $medicData["fechaGuardia"];
+			$data["horaInicioGuardia"] = $medicData["horaInicioGuardia"];
+			$data["horaFinalGuardia"] = $medicData["horaFinalGuardia"];
+		} else {
+			$nurseData = $prof->selectNurse($profNumber);
+
+			$data["tipoCarrera"] = "enfermero";
+			$data["fechaGuardia"] = $nurseData["fechaGuardia"];
+			$data["horaInicioGuardia"] = $nurseData["horaInicioGuardia"];
+			$data["horaFinalGuardia"] = $nurseData["horaFinalGuardia"];
+		}
 
 		echo json_encode([
 			"status" => true,
