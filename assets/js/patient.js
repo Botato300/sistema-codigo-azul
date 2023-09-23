@@ -1,6 +1,6 @@
 "strict mode";
 
-import { Dialog, Dialog } from "./modules/dialog.js";
+import { Dialog } from "./modules/dialog.js";
 import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js";
 
 init();
