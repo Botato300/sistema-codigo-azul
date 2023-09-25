@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2023 a las 22:41:32
+-- Tiempo de generación: 26-09-2023 a las 00:18:30
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -152,9 +152,16 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `tipo` varchar(15) NOT NULL,
   `correoElectronico` varchar(40) NOT NULL,
-  `contrasenia` varchar(50) NOT NULL,
+  `contrasenia` varchar(255) NOT NULL,
   `token` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `tipo`, `correoElectronico`, `contrasenia`, `token`) VALUES
+(1, 'admin', 'admin@codigoazul.com', '$2y$10$su.KOXq//DFeQHoBTmEnuO8m9U7VeAps3wVCSG/2m6WGkHSYb633G', '5a0571b1d97e4323cc29');
 
 --
 -- Índices para tablas volcadas
@@ -248,7 +255,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
