@@ -152,7 +152,8 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `tipo` varchar(15) NOT NULL,
   `correoElectronico` varchar(40) NOT NULL,
-  `contrasenia` varchar(50) NOT NULL
+  `contrasenia` varchar(50) NOT NULL,
+  `token` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
