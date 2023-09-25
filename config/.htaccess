@@ -1,0 +1,8 @@
+<Files "config.ini">
+  <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^libs/database/database\.php$ - [L]
+    RewriteRule .* - [F]
+  </IfModule>
+</Files>

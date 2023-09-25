@@ -15,7 +15,7 @@ class userModel
     {
         $this->db->close();
     }
-    
+
     public function login(string $email, string $password): bool
     {
         $stmt = $this->db->prepare("SELECT contrasenia FROM usuarios WHERE correoElectronico = ?");
@@ -24,24 +24,25 @@ class userModel
 
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
-        // $password_hash = $row["contrasenia"];
 
-        // return password_verify($password, $password_hash);
+        if (is_null($row)) return false;
+
+        $password_hash = $row["contrasenia"];
+
+        return password_verify($password, $password_hash);
 
         return $password === $row["contrasenia"];
     }
 
-    public function createUser(string $email, string $password): bool
+    public function createUser(string $email, string $accountType, string $password): void
     {
-        return true;
+        $token = bin2hex(random_bytes(16));
+        $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 
-        // $token = bin2hex(random_bytes(16));
-        // $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
-
-        // $sql = "INSERT INTO usuarios (correoElectronico, contrasenia, token) VALUES (?, ?, ?)";
-        // $stmt = $this->db->prepare($sql);
-        // $stmt->bind_param("ssss", $email, $passwordHashed, $token);
-        // $stmt->execute();
+        $sql = "INSERT INTO usuarios (tipo, correoElectronico, contrasenia, token) VALUES (?, ?, ?, ?)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("ssss", $accountType, $email, $passwordHashed, $token);
+        $stmt->execute();
     }
 
     public function recoveryPassword($email): string
@@ -68,8 +69,27 @@ class userModel
         return $row["tipo"];
     }
 
-    public function getToken(): string
+    public function getToken(string $email): string
     {
-        return "abc123";
+        $stmt = $this->db->prepare("SELECT token FROM usuarios WHERE correoElectronico = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row["token"];
+    }
+
+    public function isValidToken(string $token): bool
+    {
+        $stmt = $this->db->prepare("SELECT * FROM usuarios WHERE token = ?");
+        $stmt->bind_param("s", $token);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row ? true : false;
     }
 }

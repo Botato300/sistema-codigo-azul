@@ -19,7 +19,7 @@ switch ($request["action"]) {
             echo json_encode([
                 "status" => true,
                 "userType" => $user->getUserType($email),
-                "token" => $user->getToken()
+                "token" => $user->getToken($email)
             ]);
         } else {
             echo json_encode([
@@ -27,6 +27,14 @@ switch ($request["action"]) {
                 "details" => "El correo electrónico o contraseña son incorrectos."
             ]);
         }
+        break;
+    case "verify":
+        $token = $request["data"]["token"];
+
+        $user = new userModel();
+        $result = $user->isValidToken($token);
+
+        echo json_encode(["status" => $result]);
         break;
     default:
         echo json_encode([

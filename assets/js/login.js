@@ -1,3 +1,5 @@
+import { createCookie } from "./modules/cookies.js";
+
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const btnSubmit = document.getElementById("btnSubmit");
@@ -21,10 +23,13 @@ btnSubmit.addEventListener("click", async () => {
 
     if (!content.status) {
         showError(content.details);
-    } else {
-        hideError();
-        content.userType === "admin" ? location.href = "/sistema-codigo-azul" : location.href = "/sistema-codigo-azul/lite";
+        return false;
     }
+
+    createCookie("token", content.token);
+
+    hideError();
+    content.userType === "admin" ? location.href = "/sistema-codigo-azul" : location.href = "/sistema-codigo-azul/lite";
 });
 
 const showError = (message) => {

@@ -4,6 +4,7 @@
 <head>
 	<?php require_once("views/includes/head.php"); ?>
 
+	<script type="module" src="assets/js/verifySession.js"></script>
 	<script defer src="assets/js/index.js"></script>
 
 	<title>Inicio</title>

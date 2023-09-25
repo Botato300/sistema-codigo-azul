@@ -4,7 +4,7 @@
 <head>
 	<?php require_once("includes/head.php"); ?>
 
-	<script defer src="assets/js/login.js"></script>
+	<script defer type="module" src="assets/js/login.js"></script>
 
 	<title>Iniciar Sesion</title>
 </head>
