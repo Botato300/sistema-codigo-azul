@@ -1,7 +1,7 @@
 "strict mode";
 
-import { Dialog } from "./modules/dialog.js"
-import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js"
+import { Dialog } from "./modules/dialog.js";
+import { NOTIFICATION_TYPE, Notification } from "./modules/notification.js";
 
 init();
 
@@ -228,9 +228,11 @@ async function init() {
         return;
     }
 
+    const data = content["data"][0];
+    const fullName = `${data.nombre} ${data.numero}`;
     for (let i = 0; i < content.data.length; i++) {
-        createZoneElement(content.data[i].numero, content.data[i].nombre);
+        createZoneElement(data.numero, nombre);
     }
-
+    
     bindEventsToButtons();
 }
