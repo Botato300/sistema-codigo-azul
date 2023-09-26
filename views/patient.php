@@ -194,17 +194,20 @@
                            <input class="form-control" id="ponchoTableSearch" type="text" />
                         </div>
                      </div>
+
                      <div class="col-sm-12 col-lg-6">
                         <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i
                               class="fa fa-plus"></i>
                            Crear</button>
                      </div>
                   </div>
+
                   <table class="table" id="tableFiltro">
                      <thead>
                         <th>Historia Clinica</th>
                         <th>Nombre y Apellido</th>
                      </thead>
+                     <tbody id="dataTable"></tbody>
                   </table>
                </div>
    </main>
