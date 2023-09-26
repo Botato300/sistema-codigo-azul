@@ -228,11 +228,9 @@ async function init() {
         return;
     }
 
-    const data = content["data"][0];
-    const fullName = `${data.nombre} ${data.numero}`;
     for (let i = 0; i < content.data.length; i++) {
-        createZoneElement(data.numero, nombre);
+        createZoneElement(content.data[i].numero, content.data[i].nombre);
     }
-    
+
     bindEventsToButtons();
 }
