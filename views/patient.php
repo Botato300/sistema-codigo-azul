@@ -94,7 +94,8 @@
                   <div class="row">
                      <div class="col-md-8 form-group item-form">
                         <label for="apellido">Apellido/s</label>
-                        <input type="text" name="lastname" class="form-control" id="apellido" required aria-required="true">
+                        <input type="text" name="lastname" class="form-control" id="apellido" required
+                           aria-required="true">
                         <p class="help-block error hidden">Ingresá tu apellido</p>
                      </div>
                   </div>
@@ -135,7 +136,8 @@
                   <div class="row">
                      <fieldset>
                         <div class="form-group col-xs-12 col-sm-8 item-form">
-                           <input aria-label="número de teléfono móvil" class="form-control" id="cellphone_number" required aria-required="true" type="text">
+                           <input aria-label="número de teléfono móvil" class="form-control" id="cellphone_number"
+                              required aria-required="true" type="text">
                            <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                         </div>
                      </fieldset>
@@ -146,7 +148,8 @@
                   <div class="row">
                      <div class="col-md-8 form-group item-form">
                         <label for="address_street">Dirección</label>
-                        <input type="text" name="address_street" class="form-control" id="address_street" required aria-required="true">
+                        <input type="text" name="address_street" class="form-control" id="address_street" required
+                           aria-required="true">
                         <p class="help-block error hidden">Ingresá una direccion</p>
                      </div>
                </fieldset>
@@ -192,7 +195,8 @@
                         </div>
                      </div>
                      <div class="col-sm-12 col-lg-6">
-                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i class="fa fa-plus"></i>
+                        <button type="button" id="btnCreate" class="btn btn-primary newbutton bg-success"><i
+                              class="fa fa-plus"></i>
                            Crear</button>
                      </div>
                   </div>
@@ -201,27 +205,6 @@
                         <th>Historia Clinica</th>
                         <th>Nombre y Apellido</th>
                      </thead>
-                     <tbody>
-                        <tr>
-                           <td>1023</td>
-                           <td>Gonzales Pires</td>
-                           <td> <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
-                                 Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger"><i class="fa fa-ban"></i>
-                                 Eliminar</button>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>1024</td>
-                           <td>Escudero Soña</td>
-                           <td>
-                              <button type="button" class="btn btn-primary bg-warning"><i class="fa fa-pencil"></i>
-                                 Modificar</button>
-                              <button type="button" class="btn btn-primary bg-danger"><i class="fa fa-ban"></i>
-                                 Eliminar</button>
-                           </td>
-                        </tr>
-                     </tbody>
                   </table>
                </div>
    </main>
