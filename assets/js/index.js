@@ -1,5 +1,4 @@
 const count = document.getElementById('count');
-const roomscontainer = document.getElementById('rooms__container');
 
 let roomsAvailable = 0;
 let totalRooms = 0;
@@ -12,8 +11,8 @@ downloadsContaier.addEventListener('click', e => {
 
 let idTimer = setInterval(async () => {
 	const content = await fetchRoomData();
-
-	createRoom(content.name);
+	
+	 createRoom(content.name);
 
 	if (content.name != 'Disponible')
 		roomsAvailable += updateCount();
@@ -51,6 +50,9 @@ const fetchReport = async (fileType) => {
 }
 
 const createRoom = (name) => {
+	let count = 1;
+
+	while (count < 2) {
 	const room = document.createElement('div');
 	room.classList.add('room__container');
 
@@ -59,10 +61,24 @@ const createRoom = (name) => {
         <span class="${name != 'Disponible' ? 'text-danger' : null}">Quirofano ${totalRooms + 1}</span>
         <span class="text-muted">${name}</span>
     `;
-
+	 const roomscontainer = document.getElementById('rooms__container');
 	roomscontainer.appendChild(room);
-
 	totalRooms += 1;
+	count++;
+	}
+
+	const room = document.createElement('div');
+	room.classList.add('room__container');
+
+	room.innerHTML = `
+    	<i class="fa fa-user-circle-o ${name != 'Disponible' ? 'text-danger' : null}"></i>
+        <span class="${name != 'Disponible' ? 'text-danger' : null}">Quirofano ${totalRooms + 1}</span>
+        <span class="text-muted">${name}</span>
+    `;
+	const roomscontainer = document.getElementById('rooms__container1');
+	roomscontainer.appendChild(room);
+	totalRooms += 1;
+
 }
 
 const updateCount = () => {

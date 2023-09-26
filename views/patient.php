@@ -191,7 +191,7 @@
                      <div class="col-sm-12 col-lg-6" id="ponchoTableSearchCont">
                         <div class="form-group">
                            <label for="ponchoTableSearch">Buscá por historia clinica</label>
-                           <input class="form-control" id="ponchoTableSearch" type="text" />
+                           <input class="form-control" id="searchBar" type="text" />
                         </div>
                      </div>
 
