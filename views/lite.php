@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-hola
 
 <head>
    <?php require_once("includes/head.php"); ?>
