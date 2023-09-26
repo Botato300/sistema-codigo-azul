@@ -50,9 +50,6 @@ const fetchReport = async (fileType) => {
 }
 
 const createRoom = (name) => {
-	let count = 1;
-
-	while (count < 2) {
 	const room = document.createElement('div');
 	room.classList.add('room__container');
 
@@ -64,21 +61,6 @@ const createRoom = (name) => {
 	 const roomscontainer = document.getElementById('rooms__container');
 	roomscontainer.appendChild(room);
 	totalRooms += 1;
-	count++;
-	}
-
-	const room = document.createElement('div');
-	room.classList.add('room__container');
-
-	room.innerHTML = `
-    	<i class="fa fa-user-circle-o ${name != 'Disponible' ? 'text-danger' : null}"></i>
-        <span class="${name != 'Disponible' ? 'text-danger' : null}">Quirofano ${totalRooms + 1}</span>
-        <span class="text-muted">${name}</span>
-    `;
-	const roomscontainer = document.getElementById('rooms__container1');
-	roomscontainer.appendChild(room);
-	totalRooms += 1;
-
 }
 
 const updateCount = () => {
