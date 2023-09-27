@@ -9,6 +9,8 @@ RewriteRule ^zonas/?$ views/zone.php [L]
 RewriteRule ^cargar-zona/?$ views/newZone.php [L]
 RewriteRule ^profesionales/?$ views/professionals.php [L]
 RewriteRule ^pacientes/?$ views/patient.php [L]
+RewriteRule ^reporte/?$ views/report.php [L]
+
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

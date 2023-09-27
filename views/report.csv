@@ -1,0 +1,6 @@
+Fecha,Hora de inicio,Hora de finalización,Paciente,Edad,Procedimiento,Equipo Médico,Complicaciones
+2023-09-26,08:00 AM,10:30 AM,Maria González,45,Apéndice laparoscópica,Dr. Juan Pérez, Ninguna
+2023-09-26,11:15 AM,12:45 PM,Carlos Rodríguez,60,Cirugía cardíaca,Dr. Ana García,Infección postoperatoria
+2023-09-27,09:30 AM,11:00 AM,Laura Martínez,32,Histerectomía,Dr. Carlos Ruiz, Ninguna
+2023-09-27,02:00 PM,03:30 PM,Manuel Sánchez,55,Artroscopia de rodilla,Dr. Elena López, Ninguna
+2023-09-28,10:45 AM,12:15 PM,Sofía Fernández,28,Cirugía de columna,Dr. Luis Torres,Hemorragia intraoperatoria
