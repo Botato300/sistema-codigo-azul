@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2023 a las 00:18:30
+-- Tiempo de generación: 27-09-2023 a las 08:50:46
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -98,7 +98,8 @@ CREATE TABLE `medicos` (
 
 CREATE TABLE `pacientes` (
   `historiaClinica` int(11) NOT NULL,
-  `grupoSanguineo` varchar(5) NOT NULL
+  `grupoSanguineo` varchar(5) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -161,7 +162,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `tipo`, `correoElectronico`, `contrasenia`, `token`) VALUES
-(1, 'admin', 'admin@codigoazul.com', '$2y$10$su.KOXq//DFeQHoBTmEnuO8m9U7VeAps3wVCSG/2m6WGkHSYb633G', '5a0571b1d97e4323cc29');
+(1, 'admin', 'admin@codigoazul.com', '$2y$10$su.KOXq//DFeQHoBTmEnuO8m9U7VeAps3wVCSG/2m6WGkHSYb633G', '5a0571b1d97e4323cc29'),
+(2, 'generico', 'generico@codigoazul.com', '$2y$10$crZYFglGUZd0HYdHeaPglOvF0BGushBW6u7vbiwk.BwQhppNNz.U6', 'f2d3cb7e912c82284a6e');
 
 --
 -- Índices para tablas volcadas
@@ -255,7 +257,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
