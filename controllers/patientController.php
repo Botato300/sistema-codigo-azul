@@ -11,19 +11,10 @@ switch ($request["action"]) {
 
 		if (!Validation::validateArray($data)) return false;
 
-		try {
-			$pat = new patientModel();
+		$patient = new patientModel();
 
-			$pat->insertPerson($data);
-
-         $pat->insertPatient($data);
-
-		} catch (Exception) {
-			echo json_encode([
-				"status" => false
-			]);
-			return false;
-		}
+		$patient->insertPerson($data);
+		$patient->insertPatient($data);
 
 		echo json_encode([
 			"status" => true
@@ -36,9 +27,9 @@ switch ($request["action"]) {
 
 		if (!Validation::validateArray($data)) return false;
 
-		$pat = new patientModel();
+		$patient = new patientModel();
 
-		$pat->update($data);
+		$patient->update($data);
 
 		echo json_encode([
 			"status" => true
@@ -51,9 +42,9 @@ switch ($request["action"]) {
 
 		if (!Validation::validateArray($request["data"])) return false;
 
-		$pat = new patientModel();
+		$patient = new patientModel();
 
-		$pat->delete($patientNumber);
+		$patient->delete($patientNumber);
 
 		echo json_encode([
 			"status" => true
@@ -61,27 +52,12 @@ switch ($request["action"]) {
 
 		break;
 
-	case "search":
-		$patientNumber = $request["data"]["patientNumber"];
-
-		if (!Validation::validateArray($request["data"])) return false;
-
-		$pat = new patientModel();
-
-      $pat->selectAll($patientNumber);
-
-		echo json_encode([
-			"status" => true,
-			"data" => $content
-		]);
-
-		break;
 	case "getAll":
-		$pat = new patientModel();
+		$patient = new patientModel();
 
-		$rows = $pat->selectAll();
+		$rows = $patient->selectAll();
 
-      if (empty($rows)) {
+		if (empty($rows)) {
 			echo json_encode([
 				"status" => false
 			]);
@@ -95,21 +71,21 @@ switch ($request["action"]) {
 		]);
 		break;
 
-      case "getPatient":
-         $pat = $request["data"]["patientNumber"];
-   
-         $pat = new patientModel();
-   
-         $data = $pat->selectAll($patientNumber);
-   
-            $data["grupoSanguineo"];
-            $data["fechaGuardia"];
+	case "getPatient":
+		$patientNumber = $request["data"]["patientNumber"];
 
-         echo json_encode([
-            "status" => true,
-            "data" => $data
-         ]);
-         break;
+		$patient = new patientModel();
+
+		$data = $patient->selectAll($patientNumber);
+
+		$data["grupoSanguineo"];
+		$data["fechaGuardia"];
+
+		echo json_encode([
+			"status" => true,
+			"data" => $data
+		]);
+		break;
 
 	default:
 		echo json_encode([

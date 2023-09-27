@@ -16,56 +16,56 @@ class patientModel
         $this->db->close();
     }
 
-    public function insertPerson(int $idPersona, string $tipoDocumento): void
+    public function insertPerson(array $data): void
     {
-        $stmt = $this->db->prepare("INSERT INTO personas (idPersona, tipoDocumento) VALUES (?, ?)");
-        $stmt->bind_param('is', $idPersona, $tipoDocumento);
+        $stmt = $this->db->prepare("INSERT INTO personas VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param(
+            'sissssissi',
+            $data["DNI"],
+            $data["DOCUMENT_NUM"],
+            $data["NAME"],
+            $data["LAST_NAME"],
+            $data["ADDRESS"],
+            $data["DATE_BIRTH"],
+            $data["TELEPHONE"],
+            $data["GENRES"],
+            $data["EMAIL"],
+            $data["TUITION"]
+        );
         $stmt->execute();
     }
 
-    public function insertPatient(int $idPersona, string $historiaClinica): void
+    public function insertPatient(array $data): void
     {
-        $stmt = $this->db->prepare("INSERT INTO pacientes VALUES (?, ?)");
-        $stmt->bind_param('is', $idPersona, $historiaClinica);
+        $estado = 0;
+
+        $stmt = $this->db->prepare("INSERT INTO pacientes VALUES (?, ?, ?)");
+        $stmt->bind_param('isi', $data["TUITION"], $data["BLOOD"], $estado);
         $stmt->execute();
     }
 
-    public function update(int $idPersona, int $historiaClinica): void
+    public function update($data): void
     {
-        $stmt = $this->db->prepare("UPDATE personas
-                                                        INNER JOIN pacientes
-                                                        ON personas.idRol = pacientes.historiaClinica
-                                                        SET personas.idRol = ?
-                                                        WHERE pacientes.historiaClinica = ?");
-        $stmt->bind_param('ii', $idPersona, $historiaClinica);
+        $stmt = $this->db->prepare("UPDATE personas SET tipoDocumento = ?, numeroDocumento = ?, nombre = ?, apellido =  ?, domicilio = ?, fechaNacimiento = ?, telefono = ?, genero = ?, correoElectronico = ?  WHERE idRol = ?");
+        $stmt->bind_param('sissssissi', $data["DNI"], $data["DOCUMENT_NUM"], $data["NAME"], $data["LASTNAME"], $data["ADDRESS"], $data["DATE_BIRTH"], $data["TELEPHONE"], $data["GENRES"], $data["EMAIL"], $data["TUITION"]);
         $stmt->execute();
+    }
 
+    public function selectAll(): array
+    {
         $stmt = $this->db->prepare("SELECT * FROM personas 
                                                         INNER JOIN pacientes 
                                                         ON personas.idRol = pacientes.historiaClinica");
         $stmt->execute();
 
         $result = $stmt->get_result();
+        $rows = array();
 
-        while ($row = $result->fetch_assoc())
-            echo "IdPersona: " . $row['idPersona'] . " Historia Clinica: " . $row['historiaClinica'] . "<br>";
-    }
+        while ($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
 
-    public function selectAll(): void
-    {
-        $stmt = $this->db->prepare("SELECT * FROM personas 
-                                                        INNER JOIN pacientes 
-                                                        ON personas.idRol = pacientes.historiaClinica");
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        while ($row = $result->fetch_assoc())
-            echo "Idpersona: " . $row['idPersona'] . "<br>";
-        echo "historiaClinica: " . $row['historiaClinica'] . "<br>";
-        echo "nombre: " . $row['nombre'] . "<br>";
-        echo "apellido: " . $row['apellido'] . "<br>";
-        echo "telefono: " . $row['telefono'] . "<br>";
+        return $rows;
     }
 
     public function delete(int $historiaClinica): void
@@ -77,20 +77,5 @@ class patientModel
                                                         WHERE pacientes.historiaClinica = ?");
         $stmt->bind_param('i', $historiaClinica);
         $stmt->execute();
-
-        $stmt = $this->db->prepare("SELECT * FROM personas 
-                                                        INNER JOIN pacientes 
-                                                        ON personas.idRol = pacientes.historiaClinica");
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        while ($row = $result->fetch_assoc()) {
-            echo "Idpersona: " . $row['idPersona'] . "<br>";
-            echo "historiaClinica: " . $row['historiaClinica'] . "<br>";
-            echo "nombre: " . $row['nombre'] . "<br>";
-            echo "apellido: " . $row['apellido'] . "<br>";
-            echo "telefono: " . $row['telefono'] . "<br>";
-        }
     }
 }

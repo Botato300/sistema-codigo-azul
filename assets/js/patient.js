@@ -17,7 +17,10 @@ btnClose.addEventListener("click", () => dialog.close());
 
 const btnSubmit = document.getElementById("btnSubmit");
 btnSubmit.addEventListener("click", async (e) => {
-    if (document.getElementById("dialogTitle").textContent == "Modificar Pacientes") return false;
+    if (document.getElementById("dialogTitle")) {
+        document.getElementById("dialogTitle").textContent == "Modificar Pacientes";
+        return false;
+    }
 
     e.preventDefault();
     const data = getForm();
@@ -82,6 +85,7 @@ function bindEventsToButtons() {
             document.getElementById("cellphone_number").value = data.telefono;
             document.getElementById("address_street").value = data.domicilio;
             document.getElementById("email").value = data.correoElectronico;
+            document.getElementById("matricula").value = data.idRol;
 
             document.getElementById("btnSubmit").textContent = "Actualizar";
             document.getElementById("dialogTitle").textContent = "Modificar Pacientes";
@@ -236,10 +240,9 @@ async function init() {
         return;
     }
 
-    const data = content["data"][0];
-    const fullName = `${data.nombre} ${data.apellido}`;
     for (let i = 0; i < content.data.length; i++) {
-        createPatientElement(data.idRol, fullName);
+        const fullName = `${content.data[i].nombre} ${content.data[i].apellido}`;
+        createPatientElement(content.data[i].idRol, fullName);
     }
 
     bindEventsToButtons();
@@ -260,21 +263,22 @@ const getPatientData = async (patientNumber) => {
     return content.data;
 }
 
-    
+
 
 function getForm() {
     const formData = {
         DNI: document.getElementById("tipoDoc").value,
-        DOCUMENT_NUM: document.getElementById("numDoc").value,
+        DOCUMENT_NUM: Number(document.getElementById("numDoc").value),
         BLOOD: document.getElementById("grupoSanguineo").value,
         NAME: document.getElementById("nombre").value,
         LAST_NAME: document.getElementById("apellido").value,
-        CLINIC_HISTORY: document.getElementById("historiaClinica").value,
+        CLINIC_HISTORY: Number(document.getElementById("historiaClinica").value),
         DATE_BIRTH: document.getElementById("birthday").value,
         GENRES: document.getElementById("generos").value,
-        TELEPHONE: document.getElementById("cellphone_number").value,
+        TELEPHONE: Number(document.getElementById("cellphone_number").value),
         ADDRESS: document.getElementById("address_street").value,
-        EMAIL: document.getElementById("email").value
+        EMAIL: document.getElementById("email").value,
+        TUITION: Number(document.getElementById("matricula").value)
 
     }
     return formData;
@@ -292,6 +296,7 @@ function resetDialog() {
     document.getElementById("cellphone_number").value = "";
     document.getElementById("address_street").value = "";
     document.getElementById("email").value = "";
+    document.getElementById("matricula").value = "";
 
     document.getElementById("btnSubmit").textContent = "Enviar Paciente";
     document.getElementById("dialogTitle").textContent = "Cargar Paciente";
