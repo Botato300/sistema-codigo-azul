@@ -53,14 +53,9 @@
                      <p class="lead">Quirofanos ocupados</p>
                   </div>
 
-                  <div id="rooms__container" class="col-md-3">
+                  <div id="rooms__container"></div>
 
-
-                  </div>
-
-                  <div id="rooms__container1" class="col-md-3">
-
-                  </div>
+                  <div id="rooms__container1"></div>
 
                </div>
             </div>
@@ -80,11 +75,14 @@
          <div class="row row-flex">
             <div class="col-md-6">
                <p class="text-muted m-b-1">Descargar Reporte (3.3 Mb) </p>
-               <a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; PDF</a>
+               <a class="btn btn-primary btn-sm" target="_blank" download href="reporte"><i
+                     class="fa fa-download"></i>&nbsp;
+                  PDF</a>
             </div>
             <div class="col-md-6">
                <p class="text-muted m-b-1">Descargar Reporte (3.3 Mb)</p>
-               <a class="btn btn-primary btn-sm"><i class="fa fa-download"></i>&nbsp; CSV</a>
+               <a class="btn btn-primary btn-sm" target="_blank" download href="views\report.csv"><i
+                     class="fa fa-download"></i>&nbsp; CSV</a>
             </div>
          </div>
       </div>
