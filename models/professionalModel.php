@@ -88,6 +88,29 @@ class professionalModel
         $stmt->execute();
     }
 
+    public function getAvailableNurses(): ?array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM enfermeros WHERE estaDeGuardia = 1");
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row;
+    }
+
+    public function getAvailableMedics(): ?array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM medicos WHERE estaDeGuardia = 1");
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row;
+    }
+
+
 
     public function isMedic(int $idPersona): bool
     {

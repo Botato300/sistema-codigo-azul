@@ -10,9 +10,9 @@ downloadsContaier.addEventListener('click', e => {
 });
 
 let idTimer = setInterval(async () => {
-	const content = await fetchRoomData();
-	
-	 createRoom(content.name);
+	const content = await fetchRoomData(totalRooms + 1);
+
+	createRoom(content.name);
 
 	if (content.name != 'Disponible')
 		roomsAvailable += updateCount();
@@ -20,11 +20,12 @@ let idTimer = setInterval(async () => {
 	if (totalRooms >= 4) clearInterval(idTimer);
 }, 1000);
 
-const fetchRoomData = async () => {
+const fetchRoomData = async (slot) => {
 	const response = await fetch('controllers/areaController.php', {
 		method: 'POST',
 		body: JSON.stringify({
-			action: 'getAvailableSlots'
+			action: 'getAvailableArea',
+			data: { slot: slot }
 		}),
 	});
 
@@ -58,7 +59,7 @@ const createRoom = (name) => {
         <span class="${name != 'Disponible' ? 'text-danger' : null}">Quirofano ${totalRooms + 1}</span>
         <span class="text-muted">${name}</span>
     `;
-	 const roomscontainer = document.getElementById('rooms__container');
+	const roomscontainer = document.getElementById('rooms__container');
 	roomscontainer.appendChild(room);
 	totalRooms += 1;
 }

@@ -1,13 +1,27 @@
 <?php
 require_once("../models/areaModel.php");
+require_once("../models/patientModel.php");
+require_once("../models/professionalModel.php");
+require_once("../models/areaModel.php");
 require_once("../libs/helpers/validation.php");
 
 $request = file_get_contents("php://input");
 $request = json_decode($request, true);
 
 switch ($request["action"]) {
-    case "getAvailableSlots":
-        $names = ["Disponible", "Gonzalo Fernandez"];
+    case "getAvailableArea":
+        $patient = new patientModel();
+        $prof = new professionalModel();
+
+        $patients = $patient->getAvailablePatients();
+        $medics = $prof->getAvailableMedics();
+        $nurses = $prof->getAvailableNurses();
+
+        $personData = $prof->selectPerson($medics["matricula"]);
+
+        $fullName = $personData["nombre"] . " " . $personData["apellido"];
+
+        $names = ["Disponible", $fullName];
         $indice = rand(0, 1);
 
         echo json_encode([

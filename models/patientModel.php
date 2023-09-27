@@ -68,6 +68,17 @@ class patientModel
         return $rows;
     }
 
+    public function getAvailablePatients(): ?array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM pacientes WHERE estado = 1");
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row;
+    }
+
     public function delete(int $historiaClinica): void
     {
         $stmt = $this->db->prepare("DELETE personas, pacientes
