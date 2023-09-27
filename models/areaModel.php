@@ -30,7 +30,7 @@ class areaModel
         $stmt->execute();
     }
 
-    public function selectAll(): array
+    public function selectAll(): ?array
     {
         $stmt = $this->db->prepare("SELECT * FROM areas");
         $stmt->execute();
