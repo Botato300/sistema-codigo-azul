@@ -19,7 +19,7 @@ Bienvenido al repositorio del Sistema de Gestión de Código Azul. Este sistema 
 3. Realiza tus cambios y commitéelos (`git commit -m 'Añadida nueva característica'`).
 4. Envía un Pull Request.
 
-## Licencia
+## Involucrados
 
 -**botato**
 -**fojel**
