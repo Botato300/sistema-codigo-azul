@@ -10,18 +10,18 @@ $request = json_decode($request, true);
 
 switch ($request["action"]) {
     case "getAvailableArea":
-        $patient = new patientModel();
-        $prof = new professionalModel();
+        // $patient = new patientModel();
+        // $prof = new professionalModel();
 
-        $patients = $patient->getAvailablePatients();
-        $medics = $prof->getAvailableMedics();
-        $nurses = $prof->getAvailableNurses();
+        // $patients = $patient->getAvailablePatients();
+        // $medics = $prof->getAvailableMedics();
+        // $nurses = $prof->getAvailableNurses();
 
-        $personData = $prof->selectPerson($medics["matricula"]);
+        // $personData = $prof->selectPerson($medics["matricula"]);
 
-        $fullName = $personData["nombre"] . " " . $personData["apellido"];
+        $fullNames = ["Maria González", "Carlos Rodríguez", "Laura Martínez", "Manuel Sánchez", "Sofía Fernández"];
 
-        $names = ["Disponible", $fullName];
+        $names = ["Disponible", $fullNames[rand(0, 4)]];
         $indice = rand(0, 1);
 
         echo json_encode([
