@@ -1,7 +1,5 @@
 # Sistema de Gestión de Código Azul
 
-[Código Azul](https://codigoazul.000webhostapp.com)
-
 Bienvenido al repositorio del Sistema de Gestión de Código Azul. Este sistema está diseñado para facilitar el seguimiento y la gestión de los códigos de color azul, utilizados en una clinica.
 
 ## Características clave
